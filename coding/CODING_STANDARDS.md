@@ -26,6 +26,12 @@
 *   **Imports:** Use absolute imports (`from project.module import x`) over relative imports (`from ..module import x`) for clarity.
 *   **Variables:** `snake_case` for functions/vars, `PascalCase` for Classes, `UPPER_CASE` for constants.
 
+**1.3 JavaScript/TypeScript Specifics**
+*   **Typing:** Use **TypeScript** strict mode. Avoid `any` at all costs. Use `unknown` if necessary.
+*   **Variables:** Prefer `const` over `let`. Never use `var`.
+*   **Async:** Prefer `async/await` over raw `.then()` chains.
+*   **Naming:** `camelCase` for vars/functions, `PascalCase` for Classes/Components/Interfaces.
+
 ---
 
 ### 2. Security & Secrets
@@ -35,7 +41,7 @@
     *   *Correct:* Load from Environment Variables (`os.getenv`, `dotenv`).
     *   *Incorrect:* `API_KEY = "sk-123..."`
 *   **Input Validation:** Sanitize all external inputs (User args, API responses, File reads) before processing.
-    *   Use libraries like `Pydantic` or `Zod` for strict schema validation.
+    *   Use libraries like `Pydantic` (Python) or `Zod` (JS/TS) for strict schema validation.
 
 **2.2 Dependency Management**
 *   **Locking:** Always use a lock file (`poetry.lock`, `package-lock.json`, `requirements.txt` with versions).
@@ -58,7 +64,7 @@
     *   `WARNING`: Action failed but handled/skipped (Graceful degradation).
     *   `INFO`: High-level flow (Start/Stop/Milestone).
     *   `DEBUG`: Variable states for development.
-*   **No Print:** Do not use `print()` in production code. Use the configured logger.
+*   **No Print:** Do not use `print()` (or `console.log`) in production code. Use the configured logger.
 
 ---
 
@@ -80,3 +86,29 @@
 *   **Collocation:** Keep related code/tests/assets close.
 *   **No Cycles:** Module A depends on B. B cannot depend on A. Circular dependencies are forbidden.
 *   **Config:** Configuration lives in `config/` or `settings.py`, decoupled from logic.
+
+---
+
+### 6. Version Control (Git)
+
+**6.1 Commit Messages**
+*   **Format:** Use **Conventional Commits**.
+    *   `feat: add user login`
+    *   `fix: handle null pointer in parser`
+    *   `docs: update README`
+    *   `refactor: simplify validation logic`
+*   **Tone:** Use **Standard English**. Do **NOT** use "Telegraphic Style" in commit messages.
+*   **Granularity:** Atomic commits. One feature/fix per commit.
+
+---
+
+### 7. Documentation Standards
+
+**7.1 Markdown**
+*   **Headers:** Use standard `#`, `##` hierarchy.
+*   **Code Blocks:** Always specify the language (e.g., ```python).
+
+**7.2 Changelog**
+*   **Format:** Follow "Keep a Changelog" principles.
+*   **Sections:** `Added`, `Changed`, `Deprecated`, `Removed`, `Fixed`, `Security`.
+*   **Audience:** Write for the **User**, not the Developer.
