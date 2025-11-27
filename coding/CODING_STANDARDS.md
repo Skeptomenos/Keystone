@@ -112,3 +112,22 @@
 *   **Format:** Follow "Keep a Changelog" principles.
 *   **Sections:** `Added`, `Changed`, `Deprecated`, `Removed`, `Fixed`, `Security`.
 *   **Audience:** Write for the **User**, not the Developer.
+
+---
+
+### 8. Specification Standards (SDD)
+
+**8.1 Requirements Syntax (EARS)**
+*   **Usage:** All functional requirements in `requirements.md` MUST use **EARS** (Easy Approach to Requirements Syntax).
+*   **Patterns:**
+    *   **Ubiquitous:** "The system shall [response]." (Always true).
+    *   **Event-Driven:** "When [trigger], the system shall [response]."
+    *   **State-Driven:** "While [state], the system shall [behavior]."
+    *   **Unwanted:** "If [trigger], the system shall NOT [response]."
+*   **Benefit:** Reduces ambiguity and hallucination by forcing explicit conditions.
+
+**8.2 Visual Architecture**
+*   **Tool:** Use **Mermaid.js** for all diagrams in `design.md`.
+*   **Required Diagrams:**
+    *   **Sequence Diagram:** For any multi-step interaction (User -> API -> DB).
+    *   **State Diagram:** For any entity with complex lifecycle (e.g., Order Status: Pending -> Paid -> Shipped).
