@@ -62,7 +62,7 @@ sequenceDiagram
             AI->>Specs: Read Next Task from tasks.md
             AI->>AI: Implement Atomic Unit
             AI->>AI: Verify (Tests)
-            AI->>State: Update Progress
+            AI->>Specs: Mark [x] in tasks.md
             AI->>User: "Task Complete. Continue?"
             User->>AI: "Continue"
         end
@@ -125,12 +125,14 @@ docs/
 │   ├── requirements.md  # The "What" (EARS Syntax)
 │   ├── design.md        # The Visuals (Mermaid)
 │   └── tasks.md         # The Plan
-├── DECISION_LOG.md      # Architectural Decisions
 
 coding/
 ├── templates/           # Standard templates for specs & state
 ├── AI_CODING_DIRECTIVES.md
 └── PROJECT_LEARNINGS_TEMPLATE.md
+
+DECISION_LOG.md          # Architectural Decisions
+PROJECT_LEARNINGS.md     # The Cumulative Wisdom
 ```
 
 ---
