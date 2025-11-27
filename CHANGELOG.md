@@ -5,7 +5,18 @@ All notable changes to the **Anamnesis** framework will be documented in this fi
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [Unreleased]
+## [3.0.0] - 2025-11-27
+### Added
+- **Pragmatic Spec-Driven Development (SDD):** A lightweight, context-first approach to specifications.
+- **The Consensus Gate:** A mandatory "Stop-and-Wait" protocol where the agent must present a plan summary and await user approval before coding.
+- **Template Suite:** Standardized `docs/templates/` for Product, Tech, Requirements, and Tasks.
+- **EARS Syntax:** Enforced "Easy Approach to Requirements Syntax" in `requirements.md`.
+- **Knowledge Preservation Rule:** Explicit mandate to append/refine docs rather than rewrite/delete.
+
+### Changed
+- **Directives Upgrade:** `AI_CODING_DIRECTIVES.md` updated to v3.
+- **Task Workflow:** Shifted from "Atomic Units" to "Inlined Constraints" in `tasks.md`.
+- **Documentation:** `README.md` now reflects the SDD workflow and tooling.
 
 ## [1.0.0] - 2025-11-20
 ### Added

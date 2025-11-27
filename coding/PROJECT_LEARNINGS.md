@@ -26,6 +26,11 @@ This document tracks the architectural and procedural evolution of the project. 
 - **Mandate:** Updates to Documentation (README, Specs) must be **Additive**. Never delete or truncate existing sections without explicit instruction.
 - **Outcome:** The "Preservation of Knowledge Rule" was added to Phase 1.5.
 
+### 1.5. Pragmatic Spec-Driven Development
+- **Learning:** Strict "Chain of Custody" (Product -> Req -> Task -> Code) creates bureaucracy that slows down "Senior Engineer" agents.
+- **Mandate:** Specs are Anchors, not Chains. We use **Inlined Constraints** (copying constraints to `tasks.md`) rather than rigid ID linking.
+- **Outcome:** Adopted "Pragmatic SDD" in v3. Specs are "Just-in-Time" context injectors.
+
 ---
 
 ## 2. Tactical Patterns (The "How")
