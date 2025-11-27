@@ -12,8 +12,8 @@ This framework solves the common problems of AI coding: **Amnesia** (forgetting 
 To "hydrate" a new project with this brain, copy these files into your project root:
 *   `coding/AI_CODING_DIRECTIVES.md` (The Brain - v3)
 *   `coding/CODING_STANDARDS.md` (The Law - v3)
-*   `coding/PROJECT_LEARNINGS.md` (The Memory)
-*   `docs/templates/` (The Tools)
+*   `coding/PROJECT_LEARNINGS_TEMPLATE.md` (The Memory Seed)
+*   `coding/templates/` (The Tools)
 
 ### 2. How to Prompt the AI
 To get the best results, simply remind the AI of its identity at the start of a session:
@@ -99,7 +99,7 @@ This file gets smarter over time. It captures:
 *   **Patterns:** Solutions that worked.
 *   **Anti-Patterns:** Approaches that failed.
 
-### 4. `docs/templates/` (The Tools)
+### 4. `coding/templates/` (The Tools)
 Standardized artifacts that ensure Spec-Driven Development (SDD):
 *   **`spec_product.md`:** Defines the "Why" (User Persona) and "Anti-Goals".
 *   **`spec_tech.md`:** Pins the Tech Stack and forbids specific libraries.
@@ -125,9 +125,12 @@ docs/
 │   ├── requirements.md  # The "What" (EARS Syntax)
 │   ├── design.md        # The Visuals (Mermaid)
 │   └── tasks.md         # The Plan
-├── PROJECT_LEARNINGS.md # The Cumulative Wisdom
 ├── DECISION_LOG.md      # Architectural Decisions
-└── templates/           # Standard templates for specs & state
+
+coding/
+├── templates/           # Standard templates for specs & state
+├── AI_CODING_DIRECTIVES.md
+└── PROJECT_LEARNINGS_TEMPLATE.md
 ```
 
 ---

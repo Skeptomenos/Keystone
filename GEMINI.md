@@ -31,7 +31,7 @@ A growing knowledge base of project-specific constraints.
 *   **Mechanism:** The AI must read this at the start of every task and *append* to it after every failure.
 *   **Goal:** Prevent the "Three Strikes" loop where an AI repeats the same mistake endlessly.
 
-### 4. The Context (`docs/templates/`)
+### 4. The Context (`coding/templates/`)
 Standardized templates for state and specs:
 *   `active_state.md`: The "Hot" scratchpad for the current session.
 *   `handover.md`: The "Baton" for passing context.
@@ -87,10 +87,10 @@ To "install" this brain into a new software project:
 ├── coding/
 │   ├── AI_CODING_DIRECTIVES.md  # The primary AI instruction set (v3)
 │   ├── CODING_STANDARDS.md      # Syntax, Quality, and Spec rules
-│   └── PROJECT_LEARNINGS.md     # Project-specific constraints
+│   ├── PROJECT_LEARNINGS_TEMPLATE.md # Clean seed for new projects
+│   └── templates/               # Templates for state and specs
 ├── docs/
 │   ├── specs/                   # The Source of Truth (Product, Tech, Req, Tasks)
-│   ├── templates/               # Templates for state and specs
 │   └── DECISION_LOG.md          # Architectural Decision Records
 └── README.md                    # User-facing documentation
 ```
