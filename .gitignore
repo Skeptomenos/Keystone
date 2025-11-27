@@ -1,0 +1,11 @@
+.DS_Store
+.venv
+venv/
+__pycache__/
+*.pyc
+.env
+.context/active_state.md
+.archive/
+.projects/
+archive/
+projects/
