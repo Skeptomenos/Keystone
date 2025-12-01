@@ -51,3 +51,31 @@ This document tracks significant architectural decisions (ADRs) for the Anamnesi
 *   **Consequences:**
     *   (+) Fills gap in template coverage
     *   (+) Standardizes visual documentation approach
+
+## [2025-12-02] Cognitive Mode Separation: Thinking vs. Execution (v4.0)
+*   **Context:** AI agents were mixing "What should we build?" (design thinking) with "How do we build it?" (implementation) in a single 215-line directive file. This created cognitive overload and led to premature implementation without proper exploration.
+*   **Problem:** 
+    *   Agents skipped First Principles decomposition and jumped straight to coding
+    *   Complex bugs lacked root cause analysis - agents would iterate blindly
+    *   No structured framework for generating and evaluating solution alternatives
+    *   `AI_CODING_DIRECTIVES.md` exceeded instruction budget (~215 lines vs. ~150-200 recommended)
+*   **Decision:** Split into two distinct cognitive modes:
+    *   `THINKING_DIRECTIVES.md` (247 lines) - Exploratory, divergent thinking
+    *   `EXECUTION_DIRECTIVES.md` (287 lines) - Convergent, implementation-focused
+*   **Alternatives Considered:**
+    *   (Rejected) Keep single unified directive - Cognitive overload, exceeded instruction budget
+    *   (Rejected) Create three-way split (Explore/Design/Build) - Overhead without clear benefit
+    *   (Rejected) Use Phase prefixes (e.g., E0, D0, B0) - Confusing numbering, harder to navigate
+*   **Implementation Details:**
+    *   Added OODA Stop-Gap to Phase T1-RCA: After 3 failed debugging attempts, assess confidence (0-100%)
+    *   Created `spec_problem.md` and `spec_options.md` templates for structured exploration
+    *   Updated Progressive Disclosure routing in `AGENTS.md` to route by task type
+    *   Preserved all content from `AI_CODING_DIRECTIVES.md` in `EXECUTION_DIRECTIVES.md`
+*   **Consequences:**
+    *   (+) Clear separation of concerns: "Should we?" vs. "How do we?"
+    *   (+) Prevents premature implementation
+    *   (+) OODA Stop-Gap prevents infinite debugging loops
+    *   (+) Each directive file stays within instruction budget when loaded individually
+    *   (+) Forces explicit Consensus Gate before coding begins
+    *   (-) Agents must switch between files (mitigated by Progressive Disclosure routing)
+    *   (-) Requires v4 migration for existing projects (breaking change)

@@ -5,6 +5,35 @@ All notable changes to the **Anamnesis** framework will be documented in this fi
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [4.0.0] - 2025-12-02
+### Added
+- **Thinking Directives:** New `coding/THINKING_DIRECTIVES.md` for First Principles design work:
+  - Phase T1: Recursive Decomposition of new features/refactors
+  - Phase T1-RCA: Root Cause Analysis for complex bugs (with OODA Stop-Gap)
+  - Phase T2: Design Thinking (Empathize, Define)
+  - Phase T3: Solution Exploration (Generate Options, Evaluate, Consensus Gate)
+  - Phase T4: Transition to Execution
+- **OODA Stop-Gap:** After 3 failed debugging iterations, AI must assess confidence (0-100%):
+  - <50%: Return to THINKING_DIRECTIVES
+  - 50-80%: Consult user
+  - >80%: Continue with justification
+- **Problem & Options Templates:** Created `spec_problem.md` and `spec_options.md` for structured exploration.
+
+### Changed
+- **Execution Directives:** `coding/AI_CODING_DIRECTIVES.md` → `coding/EXECUTION_DIRECTIVES.md` (refactored for implementation focus).
+- **Progressive Disclosure Routing:** Updated `AGENTS.md` and `AGENTS.template.md` with new decision table:
+  - New features/refactors → `THINKING_DIRECTIVES.md`
+  - Complex bugs → `THINKING_DIRECTIVES.md` (Phase T1-RCA)
+  - Implementation → `EXECUTION_DIRECTIVES.md`
+  - Code review → `CODING_STANDARDS.md`
+
+### Removed
+- **AI_CODING_DIRECTIVES.md:** Deprecated in favor of split Thinking/Execution model.
+
+### Migration Notes
+- **Breaking Change:** Projects using v3.x must update root files to reference new directive split.
+- All content from `AI_CODING_DIRECTIVES.md` has been preserved in `EXECUTION_DIRECTIVES.md` with OODA Stop-Gap addition.
+
 ## [3.1.1] - 2025-12-01
 ### Added
 - **Root File Templates:** Created `AGENTS.template.md`, `CLAUDE.template.md`, `GEMINI.template.md` for multi-CLI tool support (OpenCode, Gemini CLI, Claude Code).

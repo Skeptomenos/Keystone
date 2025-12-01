@@ -92,3 +92,37 @@ This document tracks the architectural and procedural evolution of the project. 
 ### 4.3. Plain Text References over Import Syntax
 - **Learning:** `@path/to/file` import syntax works in Claude Code and Gemini CLI but shows as plain text in OpenCode.
 - **Mandate:** Use plain text references (e.g., "See `coding/AI_CODING_DIRECTIVES.md`") for universal compatibility. Import syntax only in CLI-specific wrappers.
+
+---
+
+## 5. Cognitive Mode Separation (v4.0)
+
+### 5.1. Thinking vs. Execution Split
+- **Learning:** Mixing exploratory design ("What should we build?") with implementation details ("How do we build it?") in a single directive file creates cognitive overload. Agents skip First Principles and jump to coding.
+- **Mandate:** Use separate cognitive modes:
+  - `THINKING_DIRECTIVES.md` - Divergent thinking, exploration, option generation
+  - `EXECUTION_DIRECTIVES.md` - Convergent thinking, implementation, verification
+- **Outcome:** Created v4.0 split. Agents now explicitly choose mode based on task type.
+
+### 5.2. The OODA Stop-Gap (Anti-Infinite-Loop)
+- **Learning:** Complex bugs can trap agents in infinite debug loops (edit → test → fail → repeat). Without a circuit breaker, agents waste tokens and never escalate.
+- **Mandate:** After 3 failed debugging iterations, agent MUST:
+  1. State confidence level (0-100%)
+  2. Take action: <50% return to THINKING, 50-80% consult user, >80% continue with justification
+- **Outcome:** Added OODA Stop-Gap to Phase T1-RCA in `THINKING_DIRECTIVES.md`.
+
+### 5.3. Structured Problem & Options Exploration
+- **Learning:** Asking agents to "explore options" without structure yields biased, shallow analysis (typically 2-3 obvious solutions).
+- **Mandate:** Use structured templates:
+  - `spec_problem.md` - Forces explicit problem definition, stakeholders, constraints
+  - `spec_options.md` - Enforces tradeoff analysis, scoring matrix, recommendation justification
+- **Outcome:** Created templates in v4.0. Consensus Gate now references these artifacts.
+
+### 5.4. Progressive Disclosure by Task Type
+- **Learning:** A single "read everything" approach wastes tokens. Different task types (new feature vs. bug fix vs. refactor) require different cognitive frameworks.
+- **Mandate:** Route by task complexity:
+  - New idea/feature/refactor → `THINKING_DIRECTIVES.md`
+  - Complex bug (root cause unclear) → `THINKING_DIRECTIVES.md` (Phase T1-RCA)
+  - Implementation of defined plan → `EXECUTION_DIRECTIVES.md`
+  - Code review → `CODING_STANDARDS.md`
+- **Outcome:** Updated `AGENTS.md` routing table in v4.0.
