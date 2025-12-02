@@ -80,19 +80,10 @@ This phase ensures continuity and learning across sessions.
 
 **Template for `.context/active_state.md`:**
 ```markdown
-# 🟢 Active Session State
-**Objective:** [Concise Goal]
-**Status:** [Planning | Spec | Build | Verify]
-
-## 🛡️ Applied Constraints
-- [Constraint 1 from PROJECT_LEARNINGS.md]
-
-## 📝 Current Focus
-- **Phase:** [Current Phase]
-- **Ref:** See `docs/specs/tasks.md` for detailed execution status.
-
-## 🧠 Context & Learnings
-- [Telegraphic Notes: Errors, findings, scratchpad]
+# Active State
+**Objective:** [Goal] | **Status:** [Planning|Spec|Build|Verify] | **Phase:** [Current]
+## Constraints: [From PROJECT_LEARNINGS.md]
+## Learnings: [Telegraphic: errors, findings, decisions]
 ```
 
 ### 0.3: State Maintenance (The Heartbeat)
@@ -176,38 +167,7 @@ Do not plan the solution until you have deconstructed the problem.
 
 ---
 
-## Phase 1.5: Operational Mandates (THE CONSTITUTION)
-
-These are the **Existential Rules** for ensuring agent reliability.
-
-### 1.5.1: The "Hybrid First" Rule
-
-- **Context:** We often deal with hostile data sources or complex parsing logic.
-- **Rule:** If an automation task is brittle, complex, or takes >1 hour to debug, **STOP**. Implement a "Manual Escape Hatch" (File Drop) instead.
-- **Directive:** Prioritize *getting the data* (even manually) over *automating the process*.
-
-### 1.5.2: The "I/O Fortress" Rule
-
-- **Context:** External APIs and Network calls are flaky and rate-limited.
-- **Rule:** All External I/O must be:
-    1. **Cached** (with TTL).
-    2. **Throttled** (Client-side `time.sleep`).
-    3. **Validated** (Contract Tests).
-- **Directive:** Never trust an external input. Fail fast at the boundary.
-
-### 1.5.3: The "Clean Slate" Rule
-
-- **Context:** "Ghost" assets appear when stale state mixes with new data.
-- **Rule:** Pipelines must be destructive. Wipe the database/cache before a full run, or use strict upsert logic.
-- **Directive:** Assume the database is dirty. State-based snapshots > Event-based replays.
-
-### 1.5.4: The "Preservation of Knowledge" Rule
-
-- **Context:** AI Agents often "truncate" or "overwrite" documentation, losing historical context.
-- **Rule:** When updating Documentation (README, Specs, Learnings), you must **APPEND** or **REFINE**.
-    - **NEVER** delete existing sections without explicit permission.
-    - **NEVER** rewrite a file from scratch if only one section changed (use `replace` or targeted edits).
-    - If content is obsolete, mark it `> **Deprecated:** ...` rather than deleting it.
+> **OPERATIONAL MANDATES:** For reliability rules (I/O Fortress, Clean Slate, Hybrid First, Preservation of Knowledge), see `CODING_STANDARDS.md` Section 9.
 
 ---
 

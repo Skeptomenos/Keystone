@@ -5,6 +5,34 @@ All notable changes to the **Anamnesis** framework will be documented in this fi
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [4.1.0] - 2025-12-02
+### Added
+- **Elimination Test:** New mandatory checkpoint in T1 phase with three prompts:
+  - "Who requested this?" (requirement accountability)
+  - "What can be removed entirely?" (deletion forcing)
+  - "Ruthless prioritization" (minimal problem worth solving)
+- **Clean Slate Question:** Added "What would we build with zero legacy constraints?" to T1.2
+- **Operational Mandates Section:** New Section 9 in `CODING_STANDARDS.md` consolidating reliability rules
+
+### Changed
+- **AGENTS.template.md:** Compressed from 112 to 63 lines (44% reduction)
+  - Removed CLI Configuration (moved to README)
+  - Compressed Common Commands to single line
+  - Compressed State Files to inline format
+  - Made Escape Hatch a prominent callout box
+- **AGENTS.md:** Compressed from 107 to 77 lines (28% reduction)
+- **EXECUTION_DIRECTIVES.md:** Compressed from 288 to 247 lines (14% reduction)
+  - Moved Phase 1.5 (Operational Mandates) to CODING_STANDARDS.md
+  - Compressed active_state template from 15 to 5 lines
+- **THINKING_DIRECTIVES.md:** Light compression from 256 to 248 lines (3% reduction)
+  - Compressed T4 artifact table and checklist
+- **CODING_STANDARDS.md:** Added 30 lines for Section 9 (141 → 171 lines)
+
+### Rationale
+- Token frugality: Directive files are read repeatedly; compression saves context
+- Consolidated mandates: All reliability rules now in one location
+- Preserved enforcement: MUST, CRITICAL, STOP, WAIT keywords retained
+
 ## [4.0.0] - 2025-12-02
 ### Added
 - **Thinking Directives:** New `coding/THINKING_DIRECTIVES.md` for First Principles design work:

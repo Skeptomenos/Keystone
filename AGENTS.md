@@ -2,21 +2,17 @@
 
 > A stateful, spec-driven framework for AI-assisted software engineering.
 
-> **⚠️ META-PROJECT WARNING:**
-> This IS the framework source. Changes here propagate to all downstream projects.
-> Exercise extra caution when modifying `coding/` files.
+> **⚠️ META-PROJECT:** This IS the framework source. Changes propagate to all downstream projects.
 
----
+## Overview
 
-## Project Overview
-
-Anamnesis solves the core problems of AI-assisted coding:
-- **Amnesia** → Persistent state management (`.context/`)
+Anamnesis solves core AI-assisted coding problems:
+- **Amnesia** → Persistent state (`.context/`)
 - **Hallucination** → Spec-Driven Development (`docs/specs/`)
-- **Vibe Coding** → Consensus Gates and structured protocols
-- **Monolithic Code** → Atomic decomposition and modularity
+- **Vibe Coding** → Consensus Gates
+- **Monolithic Code** → Atomic decomposition
 
-**Version:** 4.0
+**Version:** 4.1
 
 ## Tech Stack
 
@@ -24,83 +20,58 @@ Anamnesis solves the core problems of AI-assisted coding:
 - **Diagrams:** Mermaid.js
 - **Version Control:** Git with Conventional Commits
 
-## Directory Structure
+## Structure
 
 ```
-coding/                      # The Framework (distributable)
-├── THINKING_DIRECTIVES.md   # First Principles & Design (v4)
-├── EXECUTION_DIRECTIVES.md  # Build & Deliver (v4)
-├── CODING_STANDARDS.md      # Quality rules (v4)
-└── templates/               # All templates (15 files)
+coding/                      # Framework (distributable)
+├── THINKING_DIRECTIVES.md   # First Principles & Design
+├── EXECUTION_DIRECTIVES.md  # Build & Deliver
+├── CODING_STANDARDS.md      # Quality rules
+└── templates/               # All templates
 
 docs/                        # Research and documentation
 .context/                    # Session state management
-
-Root:
-├── AGENTS.md                # This file (root context)
-├── README.md                # User documentation  
-├── PROJECT_LEARNINGS.md     # Framework evolution
-├── DECISION_LOG.md          # Architectural decisions
-└── CHANGELOG.md             # Version history
 ```
 
 ---
 
-## Working Protocol
+## Protocol
 
 ### Golden Rules
 
-1. **State Continuity:** Read `.context/active_state.md` at session start
-2. **Non-Destructive:** Never delete documentation - append or refine
-3. **Consistency:** Follow naming conventions (UPPERCASE.template.md, lowercase spec_*)
-4. **Version Tracking:** Update version refs when making significant changes
+1. **State:** Read `.context/active_state.md` at start, update at end
+2. **Non-Destructive:** Never delete documentation—append or refine
+3. **Naming:** UPPERCASE.template.md for root files, lowercase for specs
+4. **Dogfooding:** This project follows its own framework
 
-### Escape Hatch
+> **ESCAPE HATCH:** Simple questions or read-only tasks → skip protocol, act immediately.
 
-For simple questions or read-only tasks, skip the full protocol and act immediately.
+### When to Read
 
-### Progressive Disclosure
-
-| When | Read |
+| Task | File |
 |------|------|
-| New idea, new feature, major refactor | `coding/THINKING_DIRECTIVES.md` |
-| Complex bug (root cause unclear) | `coding/THINKING_DIRECTIVES.md` (Phase T1-RCA) |
-| Implementation of defined plan | `coding/EXECUTION_DIRECTIVES.md` |
-| Writing/reviewing code | `coding/CODING_STANDARDS.md` |
-| Project-specific constraints | `PROJECT_LEARNINGS.md` |
+| New feature, refactor | `coding/THINKING_DIRECTIVES.md` |
+| Complex bug | `coding/THINKING_DIRECTIVES.md` (T1-RCA) |
+| Implementation | `coding/EXECUTION_DIRECTIVES.md` |
+| Code review | `coding/CODING_STANDARDS.md` |
+| Project constraints | `PROJECT_LEARNINGS.md` |
 
 ---
 
-## Common Commands
+## Commands
 
 ```bash
-# This is a documentation project - no build/test commands
-
-# Git workflow
-git status
-git diff
-git log --oneline -10
-
-# Template inspection
-ls coding/templates/
+git status                    # Check state
+git diff                      # Review changes
+ls coding/templates/          # Inspect templates
 ```
 
----
+## Constraints
 
-## Key Constraints
+- **Meta-project** - Changes affect all downstream projects
+- **Append-only** - Never delete sections without permission
+- **Template naming** - Conventions must be followed
 
-- **Meta-project** - Changes affect all downstream projects using this framework
-- **Append-only docs** - Never delete existing sections without explicit permission
-- **Template naming** - UPPERCASE.template.md for root files, lowercase for specs
-- **Dogfooding** - This project follows its own framework
+## State Files
 
----
-
-## Context Files
-
-| File | Purpose |
-|------|---------|
-| `.context/active_state.md` | Current session state |
-| `.context/handover.md` | Previous session summary |
-| `PROJECT_LEARNINGS.md` | Framework evolution history |
-| `DECISION_LOG.md` | Architectural decisions |
+`.context/active_state.md` (current) | `.context/handover.md` (previous) | `PROJECT_LEARNINGS.md` (wisdom)

@@ -231,25 +231,18 @@ For each option, check:
 
 > **Goal:** Hand off cleanly to execution phase.
 
-### T4.1: Document Decisions
+### T4.1: Required Artifacts
 
-Ensure these artifacts exist before coding:
+Before coding, ensure these exist:
+- `docs/specs/problem.md` — User, pain, success criteria
+- `docs/specs/options.md` — Chosen approach, trade-offs
+- `docs/specs/requirements.md` — EARS syntax specs
+- `docs/specs/tech.md` — Stack, forbidden patterns
 
-| Artifact | Location | Content |
-|----------|----------|---------|
-| Problem definition | `docs/specs/problem.md` | User, pain, success criteria |
-| Solution decision | `docs/specs/options.md` | Chosen approach, trade-offs |
-| Requirements | `docs/specs/requirements.md` | EARS syntax specs |
-| Technical constraints | `docs/specs/tech.md` | Stack, forbidden patterns |
+### T4.2: Transition Checklist
 
-### T4.2: Hand Off to Execution
-
-Transition checklist:
-
-- [ ] Problem is clearly defined
-- [ ] Assumptions are documented and validated
-- [ ] Solution approach is approved by user
-- [ ] Specs are created/updated
+- [ ] Problem defined, assumptions validated, approach approved
+- [ ] Specs created/updated
 - [ ] Ready for `EXECUTION_DIRECTIVES.md`
 
 **Next:** Read `coding/EXECUTION_DIRECTIVES.md` to begin implementation.
