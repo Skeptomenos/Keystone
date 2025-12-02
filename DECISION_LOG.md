@@ -79,3 +79,29 @@ This document tracks significant architectural decisions (ADRs) for the Anamnesi
     *   (+) Forces explicit Consensus Gate before coding begins
     *   (-) Agents must switch between files (mitigated by Progressive Disclosure routing)
     *   (-) Requires v4 migration for existing projects (breaking change)
+
+## [2025-12-02] Directive Compression & Mandate Consolidation (v4.1)
+*   **Context:** Directive files are read repeatedly by AI agents. Token frugality matters for files consumed at session start.
+*   **Problem:**
+    *   `AGENTS.template.md` at 112 lines exceeded "slim root file" goal (<80 lines)
+    *   CLI Configuration section was setup documentation, not runtime context
+    *   Operational Mandates in EXECUTION_DIRECTIVES were scattered across Phase 1.5
+    *   Directive prose didn't follow the telegraphic style we mandate for context files
+*   **Decision:** Compress directive files with focus on high-impact areas:
+    *   `AGENTS.template.md`: 112 → 63 lines (44% reduction)
+    *   `EXECUTION_DIRECTIVES.md`: 288 → 247 lines (14% reduction)
+    *   Move all 4 Operational Mandates to `CODING_STANDARDS.md` Section 9
+*   **Alternatives Considered:**
+    *   (Rejected) Aggressive compression on all files - Diminishing returns on THINKING_DIRECTIVES
+    *   (Rejected) Split mandates across files - Breaks conceptual grouping
+    *   (Rejected) Full telegraphic style for directives - Would harm enforcement clarity
+*   **Key Principles Applied:**
+    *   Preserve enforcement keywords (MUST, CRITICAL, STOP, WAIT, Required)
+    *   Keep ONE example per major concept (T2.2 problem statement)
+    *   Escape Hatch as prominent callout box (high-priority concept)
+*   **Consequences:**
+    *   (+) Root file now under 80-line target
+    *   (+) All reliability rules consolidated in CODING_STANDARDS Section 9
+    *   (+) ~65 net lines removed from framework
+    *   (+) Inline formats for state files, commands reduce visual clutter
+    *   (-) CLI Configuration now in README (users must find it there)

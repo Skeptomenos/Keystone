@@ -126,3 +126,28 @@ This document tracks the architectural and procedural evolution of the project. 
   - Implementation of defined plan → `EXECUTION_DIRECTIVES.md`
   - Code review → `CODING_STANDARDS.md`
 - **Outcome:** Updated `AGENTS.md` routing table in v4.0.
+
+---
+
+## 6. Token Frugality & Compression (v4.1)
+
+### 6.1. Directive Files Should Be Telegraphic Too
+- **Learning:** We mandate telegraphic style for `.context/` files but wrote verbose directive files. Directive files are read at session start—token cost compounds across all sessions.
+- **Mandate:** Apply compression to directive files:
+  - Preserve enforcement keywords (MUST, CRITICAL, STOP, WAIT, Required)
+  - Compress descriptive prose, keep command language intact
+  - Use inline formats for lists where structure isn't critical
+- **Outcome:** v4.1 reduced AGENTS.template.md by 44%, EXECUTION_DIRECTIVES by 14%.
+
+### 6.2. High-Impact Compression over Uniform Compression
+- **Learning:** Compressing all files equally yields diminishing returns. Root files (loaded every session) have higher leverage than detail files (loaded occasionally).
+- **Mandate:** Prioritize compression by file frequency:
+  1. Root file (`AGENTS.md`) — highest priority
+  2. Execution directives — medium priority
+  3. Thinking directives — low priority (complexity justifies verbosity)
+- **Outcome:** Focused effort on AGENTS.template.md (44% reduction) vs. THINKING_DIRECTIVES (3% reduction).
+
+### 6.3. Consolidate Related Rules (No Scatter)
+- **Learning:** Operational Mandates (I/O Fortress, Clean Slate, Hybrid First, Preservation of Knowledge) were scattered in EXECUTION_DIRECTIVES Phase 1.5. Agents had to read execution directives to find coding reliability rules.
+- **Mandate:** Group conceptually related rules in a single location. All "how to write reliable code" rules belong in CODING_STANDARDS.
+- **Outcome:** Created Section 9 in CODING_STANDARDS.md. EXECUTION_DIRECTIVES now references it with one line.
