@@ -1,27 +1,21 @@
-# Handover: v4.1 Compression & Consolidation
+# Handover: v4.1.0 Release Complete
 
 ## Where We Are
-- **Version:** 4.1.0 released and pushed
-- **Key Changes:**
-  - AGENTS.template.md: 112 → 63 lines (44% reduction)
-  - EXECUTION_DIRECTIVES.md: 288 → 247 lines (14% reduction)
-  - THINKING_DIRECTIVES.md: 256 → 248 lines (includes Elimination Test from earlier)
-  - CODING_STANDARDS.md: New Section 9 consolidates all 4 Operational Mandates
-- **Also Added (earlier in session):** Elimination Test in T1.3 (Musk-inspired deletion-before-optimization)
+- **Version:** 4.1.0 released and pushed to main
+- **Major additions:** Elimination Test, Phase T-RFL (Reflective Epilogue), directive compression
+- **All documentation updated:** CHANGELOG, DECISION_LOG, PROJECT_LEARNINGS, README diagram
 
-## What Was Accomplished
-- Analyzed Musk's 5-Step Algorithm and Gleeson's 15 Questions for integration potential
-- Added Elimination Test (3 prompts) and "clean slate" question to THINKING_DIRECTIVES
-- Compressed directive files following telegraphic principles
-- Moved Operational Mandates from EXECUTION_DIRECTIVES to CODING_STANDARDS Section 9
-- Full epilogue: CHANGELOG, DECISION_LOG, PROJECT_LEARNINGS updated
+## What Was Accomplished This Session
+1. Analyzed Musk's 5-Step Algorithm and Gleeson's 15 Questions → integrated Elimination Test
+2. Compressed directive files (AGENTS.template.md -44%, EXECUTION_DIRECTIVES -14%)
+3. Consolidated Operational Mandates into CODING_STANDARDS Section 9
+4. Added Phase T-RFL for reflective Epilogue synthesis
+5. Updated README Mermaid diagram for Thinking/Execution/Epilogue flow
+6. Added 2 ADRs and 2 new patterns to PROJECT_LEARNINGS
 
 ## Next Steps
-1. **Test the framework** on a real project to validate compression doesn't break compliance
-2. **Monitor Escape Hatch usage** — now prominent callout box, verify agents respect it
-3. **Consider README update** for CLI Configuration (removed from AGENTS.template.md)
-4. **Version 4.2 candidates:** Further compression of THINKING_DIRECTIVES if needed
-
-## Git Status
-- All changes committed and pushed to main
-- Latest commit: `feat(v4.1): compress directive files and consolidate operational mandates`
+1. **Test v4.1 on real project** — Validate Elimination Test and T-RFL in practice
+2. **Monitor Epilogue compliance** — Does mandatory enforcement reduce "Execute Epilogue" prompts?
+3. **Consider v4.2 candidates:**
+   - Pre-mortem phase (T1-PM) for new designs?
+   - Further compression if needed?

@@ -151,3 +151,13 @@ This document tracks the architectural and procedural evolution of the project. 
 - **Learning:** Operational Mandates (I/O Fortress, Clean Slate, Hybrid First, Preservation of Knowledge) were scattered in EXECUTION_DIRECTIVES Phase 1.5. Agents had to read execution directives to find coding reliability rules.
 - **Mandate:** Group conceptually related rules in a single location. All "how to write reliable code" rules belong in CODING_STANDARDS.
 - **Outcome:** Created Section 9 in CODING_STANDARDS.md. EXECUTION_DIRECTIVES now references it with one line.
+
+### 6.4. Downside Review as Implementation Gate
+- **Learning:** Proposing a plan and immediately implementing it skips risk analysis. Asking "What downsides have we missed?" before implementation surfaced 7 risks that would have caused rework.
+- **Mandate:** Before implementing significant changes, explicitly enumerate downsides and mitigations. This is a gate, not optional reflection.
+- **Outcome:** v4.1 compression was revised to keep Context Files table, move ALL mandates (not split), and preserve enforcement keywords.
+
+### 6.5. Epilogue Requires Thinking, Not Just Documentation
+- **Learning:** Treating Epilogue as mechanical cleanup ("update docs, archive state") led to shallow learnings and frequent user prompts to "Execute Epilogue."
+- **Mandate:** Epilogue must include reflective thinking (T-RFL phase). Learning synthesis requires asking: What worked? What didn't? What surprised?
+- **Outcome:** Added Phase T-RFL to THINKING_DIRECTIVES. Epilogue is now mandatory after feature/design completion.

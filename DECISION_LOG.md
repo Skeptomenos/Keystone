@@ -105,3 +105,26 @@ This document tracks significant architectural decisions (ADRs) for the Anamnesi
     *   (+) ~65 net lines removed from framework
     *   (+) Inline formats for state files, commands reduce visual clutter
     *   (-) CLI Configuration now in README (users must find it there)
+
+## [2025-12-02] Reflective Epilogue with Phase T-RFL (v4.1)
+*   **Context:** Epilogue was treated as mechanical cleanup. Users frequently had to explicitly call "Execute Epilogue" because AI agents skipped it or produced shallow learnings.
+*   **Problem:**
+    *   Epilogue was Phase 4 of EXECUTION_DIRECTIVES—framed as documentation, not thinking
+    *   Learning synthesis was rushed, producing log dumps instead of distilled insights
+    *   No enforcement mechanism beyond "you are NOT done until..."
+*   **Decision:** Add lightweight reflection phase (T-RFL) to THINKING_DIRECTIVES, referenced from Epilogue:
+    *   T-RFL.1: Session Review (worked/didn't/surprised)
+    *   T-RFL.2: Pattern Extraction (Learning/Mandate/Outcome format)
+    *   T-RFL.3: Decision Distillation (expanded ADR triggers)
+    *   T-RFL.4: Handover Synthesis
+*   **Trade-off Accepted:** Adding T-RFL increases THINKING_DIRECTIVES by ~40 lines, partially reversing compression gains. Accepted because better learning synthesis is higher value than token savings.
+*   **Alternatives Considered:**
+    *   (Rejected) Separate REFLECTION_DIRECTIVES.md - Overhead of third directive file
+    *   (Rejected) Full T5 phase - Too heavy for what should be lightweight reflection
+    *   (Rejected) Enforcement only (no T-RFL) - Doesn't address shallow synthesis problem
+*   **Consequences:**
+    *   (+) Epilogue now produces genuine insights, not mechanical docs
+    *   (+) Learning/Mandate/Outcome format standardizes PROJECT_LEARNINGS entries
+    *   (+) "Significant trade-off" added as ADR trigger
+    *   (+) Mandatory enforcement callout in EXECUTION_DIRECTIVES
+    *   (-) ~40 lines added to THINKING_DIRECTIVES
