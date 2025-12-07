@@ -128,3 +128,27 @@ This document tracks significant architectural decisions (ADRs) for the Anamnesi
     *   (+) "Significant trade-off" added as ADR trigger
     *   (+) Mandatory enforcement callout in EXECUTION_DIRECTIVES
     *   (-) ~40 lines added to THINKING_DIRECTIVES
+
+## [2025-12-07] Mandatory Approval Gate for Implementation (v4.2)
+*   **Context:** AI models (especially Gemini 2.5, sometimes Claude Opus) have strong "helpful completion" tendencies. After refining a plan, they immediately begin implementation without explicit user approval.
+*   **Problem:**
+    *   Models skipped the Consensus Gate and started writing/editing files
+    *   Users lost control over when implementation began
+    *   No explicit checkpoint between "plan approved" and "implementation started"
+    *   Existing rules lacked emphatic enforcement language for eager-execution models
+*   **Decision:** Add Golden Rule #6 with emphatic formatting and explicit behavioral protocol:
+    *   Planning, reading, research: ALWAYS allowed
+    *   Writing, editing, deleting files: REQUIRES explicit user approval
+    *   Must ask "Ready to proceed?" or similar and WAIT for response
+    *   Added callout: "Models prone to eager execution: This means YOU."
+*   **Alternatives Considered:**
+    *   (Rejected) Model-specific rules - Static markdown cannot detect which model is reading
+    *   (Rejected) Soft guidelines only - Insufficient for models with strong completion tendencies
+    *   (Considered) Tool-level enforcement - Valid but external to framework; this rule complements it
+*   **Consequences:**
+    *   (+) Explicit gate between planning and implementation
+    *   (+) Emphatic language increases salience for impulsive models
+    *   (+) Users maintain control over when implementation begins
+    *   (+) Universal rule works for all models (strict for all is safer than permissive for some)
+    *   (-) Slightly more friction for highly capable models that rarely over-execute
+*   **Future Work:** When `anamnesis_starter/anamnesis/directives/` is created, add reinforcing gates to THINKING.md (end of design phases) and EXECUTION.md (pre-implementation checkpoint) for defense in depth.

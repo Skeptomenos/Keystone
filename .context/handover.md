@@ -1,21 +1,34 @@
-# Handover: v4.1.0 Release Complete
+# Handover: v4.2 Approval Gate Added
 
 ## Where We Are
-- **Version:** 4.1.0 released and pushed to main
-- **Major additions:** Elimination Test, Phase T-RFL (Reflective Epilogue), directive compression
-- **All documentation updated:** CHANGELOG, DECISION_LOG, PROJECT_LEARNINGS, README diagram
+- **Version:** 4.2 (approval gate constraint added)
+- **Previous session:** Restructured to `anamnesis_starter/` (not yet committed)
+- **This session:** Added Golden Rule #6 for mandatory approval before implementation
 
 ## What Was Accomplished This Session
-1. Analyzed Musk's 5-Step Algorithm and Gleeson's 15 Questions → integrated Elimination Test
-2. Compressed directive files (AGENTS.template.md -44%, EXECUTION_DIRECTIVES -14%)
-3. Consolidated Operational Mandates into CODING_STANDARDS Section 9
-4. Added Phase T-RFL for reflective Epilogue synthesis
-5. Updated README Mermaid diagram for Thinking/Execution/Epilogue flow
-6. Added 2 ADRs and 2 new patterns to PROJECT_LEARNINGS
+
+### Approval Gate for Eager Models
+1. **Problem identified:** Gemini 2.5 Pro and Claude Opus tend to start coding immediately after planning without waiting for user approval
+2. **Added Golden Rule #6 to AGENTS.md:**
+   - Planning, reading, research: ALWAYS allowed
+   - Writing, editing, deleting files: REQUIRES explicit user approval
+   - Must ask "Ready to proceed?" and WAIT
+   - Added callout: "Models prone to eager execution: This means YOU."
+3. **Documented in DECISION_LOG.md** with full ADR format
+4. **Added to PROJECT_LEARNINGS.md** Section 7 (3 new patterns)
+
+### Key Design Decisions
+- Model-specific rules rejected (static markdown can't detect model identity)
+- Universal strict rules chosen (design for worst case)
+- Emphatic formatting (⚠️, caps, bold) to increase salience
+- Defense-in-depth planned for THINKING.md and EXECUTION.md
+
+## Outstanding from Previous Session
+- `coding/` directory deleted but changes not committed
+- `anamnesis_starter/` structure described in AGENTS.md but directory is empty
+- Previous restructuring work needs to be either committed or reconciled
 
 ## Next Steps
-1. **Test v4.1 on real project** — Validate Elimination Test and T-RFL in practice
-2. **Monitor Epilogue compliance** — Does mandatory enforcement reduce "Execute Epilogue" prompts?
-3. **Consider v4.2 candidates:**
-   - Pre-mortem phase (T1-PM) for new designs?
-   - Further compression if needed?
+1. **Decide on `anamnesis_starter/`:** Either create the structure or update AGENTS.md to match current reality
+2. **Add gates to THINKING.md and EXECUTION.md** when directive files exist
+3. **Test approval gate** with Gemini 2.5 Pro on a real task

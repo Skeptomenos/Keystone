@@ -161,3 +161,22 @@ This document tracks the architectural and procedural evolution of the project. 
 - **Learning:** Treating Epilogue as mechanical cleanup ("update docs, archive state") led to shallow learnings and frequent user prompts to "Execute Epilogue."
 - **Mandate:** Epilogue must include reflective thinking (T-RFL phase). Learning synthesis requires asking: What worked? What didn't? What surprised?
 - **Outcome:** Added Phase T-RFL to THINKING_DIRECTIVES. Epilogue is now mandatory after feature/design completion.
+
+---
+
+## 7. Approval Gates for Eager Models (v4.2)
+
+### 7.1. Explicit Implementation Gates Stop Premature Coding
+- **Learning:** AI models (especially Gemini 2.5 Pro, sometimes Claude Opus) have strong "helpful completion" tendencies. After refining a plan, they immediately start coding without waiting for user approval.
+- **Mandate:** Add explicit rule with emphatic formatting: "NO IMPLEMENTATION WITHOUT APPROVAL ⚠️ CRITICAL ⚠️". Models must ask "Ready to proceed?" and WAIT for explicit approval.
+- **Outcome:** Added Golden Rule #6 to AGENTS.md with callout: "Models prone to eager execution: This means YOU."
+
+### 7.2. Model-Specific Rules Are Not Feasible in Static Markdown
+- **Learning:** Static markdown files cannot detect which AI model is reading them. Conditional rules based on model identity are not technically possible.
+- **Mandate:** Use universal strict rules. Designing for the worst case (eager execution) works for all cases. The cost of over-constraining a capable model is lower than under-constraining an impulsive one.
+- **Outcome:** Rejected model-specific rules in favor of emphatic universal constraints.
+
+### 7.3. Redundancy is a Feature for Critical Constraints
+- **Learning:** Important rules should appear in multiple files for defense-in-depth. If an eager model skips one checkpoint, it may catch another.
+- **Mandate:** For critical constraints like implementation gates, place in AGENTS.md (entry point), THINKING.md (end of design), and EXECUTION.md (pre-implementation). Use slightly different wording to avoid being filtered as repetition.
+- **Outcome:** Future work identified to add gates to THINKING.md and EXECUTION.md when anamnesis_starter/ structure is created.
