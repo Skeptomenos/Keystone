@@ -57,7 +57,7 @@ Don't be alarmed if the AI doesn't start coding immediately. It follows a **Thin
 
 1. **Context:** Loads state from `.context/` and constraints from `PROJECT_LEARNINGS.md`.
 2. **Thinking:** For complex tasks, enters First Principles mode—decomposes the problem, runs Elimination Test, explores options.
-3. **Consensus Gate:** Presents a **Plan Summary** and **WAITS** for your approval before any code.
+3. **Consensus Gate:** Presents a **Plan Summary** and **WAITS** for your approval before any code. (Handshake Rule applies: No plan+code in same turn).
 4. **Execution:** Implements tasks one-by-one from `anamnesis/specs/tasks.md`, with OODA debugging if stuck.
 5. **Epilogue:** Reflects on session (T-RFL), distills learnings, archives state.
 
@@ -217,6 +217,7 @@ anamnesis/                   # The Framework
 
 - **The "Escape Hatch":** If you just want to ask "How do I list files?", the AI knows to skip the heavy process. Just ask.
 - **The "Consensus Gate":** The AI will **STOP** after planning. You must explicitly say "Proceed" or "Approved" to start coding.
+- **The "Handshake Rule":** The AI is forbidden from planning and executing in the same response. It MUST stop and wait for your go-ahead.
 - **The "Epilogue":** If the AI says "I'm done" but hasn't updated the docs, just type: **"Execute Epilogue."**
 - **Debug Loop:** If the AI gets stuck, it will enter the **OODA Loop** (Observe, Orient, Decide, Act). It will ask you to run commands to gather evidence. **Run them.**
 - **Root File Customization:** The `AGENTS.md` file should be customized for each project. Fill in your tech stack, common commands, and key constraints.
@@ -229,3 +230,4 @@ anamnesis/                   # The Framework
 2. **Follow the Spec:** Code must match `anamnesis/specs/requirements.md`.
 3. **Telegraphic Context:** Internal notes should be caveman-style ("Server crash. Retry fail.").
 4. **Professional Docs:** Public docs must be Shakespearean.
+5. **No Coding Without Approval:** Planning is free. Coding requires a handshake.
