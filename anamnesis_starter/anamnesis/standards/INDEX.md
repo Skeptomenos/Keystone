@@ -12,7 +12,7 @@
 | `standards/global.md` | Language-agnostic rules (security, testing, git, docs, operational mandates) |
 | `standards/python.md` | Python-specific conventions |
 | `standards/typescript.md` | TypeScript/JavaScript conventions |
-| `standards/rust.md` | Rust/Tauri conventions (sidecar, commands, async) |
+| `standards/rust.md` | Rust/Tauri conventions (commands, async, security) |
 
 ---
 
