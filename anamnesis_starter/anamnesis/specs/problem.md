@@ -1,7 +1,7 @@
 # Problem Spec
 
 > **Purpose:** Define the problem clearly before exploring solutions.
-> **When:** After `THINKING_DIRECTIVES.md` Phase T1-T2, before Phase T3.
+> **When:** After `anamnesis/directives/THINKING.md` Phase T1-T2, before Phase T3.
 > **Output:** Validated problem definition that guides solution exploration.
 
 ---

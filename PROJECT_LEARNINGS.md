@@ -185,3 +185,17 @@ This document tracks the architectural and procedural evolution of the project. 
 - **Learning:** Even with approval gates, models often treat "Plan Updated" as implicit permission to continue ("Momentum Bias").
 - **Mandate:** Explicitly ban same-turn transitions. "You CANNOT plan and implement in the same response."
 - **Outcome:** Added Handshake Rule to AGENTS.md Golden Rule #6.
+
+---
+
+## 8. Dogfooding & Framework Hygiene (v4.2)
+
+### 8.1. Template Pollution Risk
+- **Learning:** When dogfooding (developing the framework *using* the framework), AI agents tend to treat `templates/` as active files, populating them with project data. This "pollutes" the distributable starter kit.
+- **Mandate:** Treat `anamnesis_starter/` as a build artifact. Never edit files in `templates/` to store project state. Always copy to `.context/` or `specs/` first.
+- **Outcome:** Strictly enforced read-only policy for templates during framework development.
+
+### 8.2. Separation of Concerns (Meta vs. Starter)
+- **Learning:** Mixing framework source code (`knowledge_base/`) with the distributable product (`anamnesis_starter/`) leads to confusion about which `README.md` or `AGENTS.md` to edit.
+- **Mandate:** Explicit separation. `knowledge_base` is the repo (Meta-Project). `anamnesis_starter` is the product (Distributable).
+- **Outcome:** Restructured directory layout in v4.2.

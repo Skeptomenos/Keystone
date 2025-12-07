@@ -1,18 +1,46 @@
 # Technical Spec (The "How")
 
+> **Purpose:** Defines the technology stack, constraints, and architectural patterns.
+> **Also read:** `anamnesis/.context/tech-stack.md` for approved dependencies.
+
+---
+
 ## 1. Technology Stack
-*   **Language:** [e.g., Python 3.11+, TypeScript 5.0+]
-*   **Framework:** [e.g., FastAPI, React 18]
-*   **Database:** [e.g., SQLite, PostgreSQL]
+
+### [Layer 1]
+- **Framework:** [Name]
+- **Purpose:** [Why use this?]
+
+### [Layer 2]
+- **Framework:** [Name]
+- **Purpose:** [Why use this?]
+
+---
 
 ## 2. Forbidden Technologies (Anti-Patterns)
-*   **FORBIDDEN:** [Library X] - **Reason:** [Reason]
-*   **FORBIDDEN:** [Pattern Y] - **Reason:** [Reason]
+
+| Technology | Reason |
+|------------|--------|
+| **[Tech X]** | [Reason forbidden] |
+| **[Tech Y]** | [Reason forbidden] |
+
+---
 
 ## 3. Critical Libraries (Mandatory)
-*   **Auth:** [Library]
-*   **State:** [Library]
-*   **Validation:** [Pydantic / Zod]
+
+| Domain | Library | Reason |
+|--------|---------|--------|
+| **Validation** | [Lib] | [Reason] |
+| **Auth** | [Lib] | [Reason] |
+
+---
 
 ## 4. Architecture Standards
-*   [e.g., "Use Functional Components", "Repository Pattern"]
+
+### 4.1 [Pattern Name]
+- [Description of pattern]
+- [Constraint or rule]
+
+### 4.2 [Pattern Name]
+- [Description of pattern]
+- [Constraint or rule]
