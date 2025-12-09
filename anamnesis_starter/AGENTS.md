@@ -63,6 +63,36 @@ anamnesis/         # AI framework
 
 ---
 
+## Task Management
+
+> **Task Awareness:** AI must check dependencies and status before selecting tasks.
+
+### Task Selection Rules
+
+1. **Dependency Check:** Never start a task if its dependencies aren't `Done` or `Archive`
+2. **Status Flow:** Backlog → Open → In Progress → Done → Archive
+3. **Blocked Handling:** Mark tasks as `Blocked` if dependencies are unmet
+4. **Board Sync:** Regenerate `board.md` at session start, end, and on user command
+
+### User Commands
+
+| Command | Action |
+|---------|--------|
+| "Generate board" | Regenerate board from tasks |
+| "Next task" | Find and start next Open task |
+| "Switch to [workstream]" | Change active workstream |
+| "Archive done tasks" | Move Done tasks to Archive |
+
+### When to Read (Task-Related)
+
+| Task | File |
+|------|------|
+| Task selection | `anamnesis/specs/tasks.md` (check dependencies) |
+| Progress overview | `anamnesis/.context/board.md` |
+| Workstream context | `anamnesis/.context/workstreams/[name].md` |
+
+---
+
 ## Commands
 
 ```bash
@@ -76,4 +106,4 @@ anamnesis/         # AI framework
 
 ## State Files
 
-`anamnesis/.context/active_state.md` (current) | `anamnesis/.context/handover.md` (previous) | `anamnesis/specs/tasks.md` (plan)
+`anamnesis/.context/active_state.md` (current) | `anamnesis/.context/handover.md` (previous) | `anamnesis/specs/tasks.md` (plan) | `anamnesis/.context/board.md` (progress)

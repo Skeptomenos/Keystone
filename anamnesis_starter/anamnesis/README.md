@@ -2,7 +2,7 @@
 
 > A stateful, spec-driven framework for AI-assisted software engineering.
 
-**Version:** 4.2
+**Version:** 4.3
 
 ## Setup Instructions
 
@@ -31,6 +31,8 @@ your-project/
 │   ├── templates/               # Frequently recreated files
 │   │   ├── active_state.md      # Session state template
 │   │   ├── handover.md          # Handover template
+│   │   ├── board.md             # Kanban board template
+│   │   ├── workstream.md        # Workstream template
 │   │   ├── CLAUDE.md            # Claude-specific AGENTS variant
 │   │   └── GEMINI.md            # Gemini-specific AGENTS variant
 │   │
@@ -46,7 +48,9 @@ your-project/
 │   ├── .context/                # Project state (living files)
 │   │   ├── mission.md           # Living objective
 │   │   ├── backlog.md           # Ideas and deferred work
-│   │   └── tech-stack.md        # Approved tools
+│   │   ├── tech-stack.md        # Approved tools
+│   │   ├── board.md             # Kanban board (auto-generated)
+│   │   └── workstreams/         # Parallel work contexts
 │   │
 │   ├── PROJECT_LEARNINGS.md     # Process wisdom
 │   ├── DECISION_LOG.md          # Architectural decisions
@@ -61,6 +65,22 @@ your-project/
 1. **Read AGENTS.md** — Entry point that tells AI what to read when
 2. **Fill in `.context/mission.md`** — Define your project objective
 3. **Start working** — AI will follow the framework automatically
+
+## Documentation
+
+| Document | Purpose |
+|----------|---------|
+| [Migration Guide](docs/MIGRATION.md) | Upgrade from earlier versions |
+
+## Task Management (v4.3+)
+
+The framework includes enhanced task management with:
+- **Dependencies:** Track task relationships and blocking items
+- **Status Workflow:** Backlog → Open → In Progress → Blocked → Done → Archive
+- **Workstreams:** Organize parallel work contexts for features or investigations
+- **Kanban Board:** Visual progress tracking via auto-generated `board.md`
+
+See `anamnesis/specs/tasks.md` for task template and `anamnesis/docs/MIGRATION.md` for upgrading existing projects.
 
 ## Key Concepts
 

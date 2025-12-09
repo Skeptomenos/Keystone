@@ -20,6 +20,14 @@
 
 [What we're actively working on right now]
 
+### Active Workstream
+
+**Current:** main
+**Available:** main, [list other workstreams]
+
+> To switch workstreams, use command: "Switch to [workstream-name]"
+> Workstream files: `anamnesis/.context/workstreams/[name].md`
+
 ### Parked Items
 <!-- Short-term paused items. Move to anamnesis/.context/backlog.md if not resuming soon. -->
 - [ ] [Item] — [reason paused]

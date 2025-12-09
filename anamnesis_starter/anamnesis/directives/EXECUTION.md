@@ -70,6 +70,12 @@ This phase ensures continuity and learning across sessions.
 - **Check Constraints:** Read `anamnesis/PROJECT_LEARNINGS.md`.
     - **IF EMPTY:** Log "No prior constraints found" in your state.
     - **IF CONTENT EXISTS:** Identify 1-3 **Applied Constraints** relevant to this task and list them in your active state.
+- **Generate Board:** Regenerate `anamnesis/.context/board.md` from `anamnesis/specs/tasks.md`.
+    - Parse all tasks and their statuses
+    - Group by status columns (Backlog, Open, In Progress, Blocked, Done)
+    - Calculate progress percentage
+    - Update board file with current state
+    - Use template from `anamnesis/templates/board.md`
 
 ### 0.2: Spec Check
 
@@ -178,12 +184,18 @@ Do not plan the solution until you have deconstructed the problem.
 
 ### 2.1: The Protocol
 
-1. **Read** `anamnesis/specs/tasks.md`. Identify the next **PENDING** task.
+1. **Read** `anamnesis/specs/tasks.md`. Identify the next **OPEN** task.
+   - **Dependency Check:** Before selecting a task, verify all tasks in its `Dependencies` field are `Done` or `Archive`.
+   - **Status Update:** When starting a task, update its Status to `In Progress`.
+   - **Blocked Detection:** If a task's dependencies are not met, mark it as `Blocked` and select another `Open` task.
+   - **Workstream Filter:** If focusing on a specific workstream, only consider tasks in that workstream.
 2. **Implement** ONLY that single task.
 3. **Verify** (Unit Test / Manual Check).
-4. **Mark** as `[x]` in `anamnesis/specs/tasks.md`.
-5. **Update** `anamnesis/.context/active_state.md` **ONLY** if there are new Learnings, Errors, or a Phase Change.
-6. **STOP** to plan the next step or Proceed if clear.
+4. **Mark** as `[x]` and update Status to `Done` in `anamnesis/specs/tasks.md`.
+5. **Unblock Check:** After completing a task, check if any `Blocked` tasks now have their dependencies met. Update their Status to `Open`.
+6. **Update Board:** Regenerate `anamnesis/.context/board.md` to reflect changes.
+7. **Update** `anamnesis/.context/active_state.md` **ONLY** if there are new Learnings, Errors, or a Phase Change.
+8. **STOP** to plan the next step or Proceed if clear.
 
 ### 2.2: Construction Order (Atoms First)
 
@@ -248,5 +260,38 @@ You are **NOT** done until you have executed this sequence:
 
 ### 4.3: Archival Rotation
 
+- [ ] **Archive Completed Tasks:** Move `Done` tasks to the `Archive` section in `anamnesis/specs/tasks.md`
+- [ ] **Update Board:** Regenerate `anamnesis/.context/board.md` to reflect final state
 - [ ] **Archive:** Move `anamnesis/.context/active_state.md` to `anamnesis/.context/history/YYYY-MM-DD_TaskName.md`
 - [ ] **Handover:** Update `anamnesis/.context/handover.md` — Where are we? What's next? (3 bullets max)
+
+---
+
+## User Commands
+
+> **Purpose:** Explicit commands users can invoke to trigger framework actions.
+
+### Board Commands
+
+| Command | Action |
+|---------|--------|
+| "Generate board" | Regenerate `anamnesis/.context/board.md` from current tasks |
+| "Show board" | Display current board status |
+| "Update board" | Sync board with latest task changes |
+
+### Task Commands
+
+| Command | Action |
+|---------|--------|
+| "Next task" | Identify and start the next `Open` task |
+| "Block task [ID]" | Mark task as `Blocked` with reason |
+| "Unblock task [ID]" | Check dependencies and update status |
+| "Archive done tasks" | Move all `Done` tasks to Archive section |
+
+### Workstream Commands
+
+| Command | Action |
+|---------|--------|
+| "Switch to [workstream]" | Change active workstream focus |
+| "List workstreams" | Show all available workstreams |
+| "Create workstream [name]" | Create new workstream for parallel work |
