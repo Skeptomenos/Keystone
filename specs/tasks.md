@@ -52,9 +52,9 @@
     - **Workstream:** docs
     - **Context/Constraints:** Make onboarding smoother for new users
 
-- [ ] **TASK-004:** Add visual diagrams to directives
+- [x] **TASK-004:** Add visual diagrams to directives
     - **Dependencies:** None
-    - **Status:** Backlog
+    - **Status:** Done
     - **Workstream:** docs
     - **Context/Constraints:** Mermaid.js flowcharts for THINKING.md and EXECUTION.md
 
