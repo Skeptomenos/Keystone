@@ -8,7 +8,7 @@ This framework solves the core problems of AI-assisted coding: **Amnesia** (forg
 
 ## 🚀 Quick Start (Zero-Friction)
 
-> **🤖 For AI Agents:** If you have been tasked with updating the Anamnesis framework in your current environment, please read and follow the instructions in the [INITIATOR.md](https://github.com/Skeptomenos/Anamnesis/blob/main/anamnesis_starter/INITIATOR.md) file of this repository. It contains the logic for structural migration, template syncing, and protocol updates.
+> **🤖 For AI Agents:** If you have been tasked with **initializing**, **retrofitting**, or **updating** the Anamnesis framework in your current environment, please read and follow the instructions in the [INITIATOR.md](https://github.com/Skeptomenos/Anamnesis/blob/main/anamnesis_starter/INITIATOR.md) file of this repository. It contains the complete logic for design thinking setup, structural migration, template syncing, and protocol updates. Adopt the "Wizard" role immediately upon reading that file.
 
 ### 1. Copy the Initiator
 Copy `INITIATOR.md` from this repository to your project root.
