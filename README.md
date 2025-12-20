@@ -6,40 +6,18 @@ This framework solves the core problems of AI-assisted coding: **Amnesia** (forg
 
 ---
 
-## 🚀 Quick Start
+## 🚀 Quick Start (Zero-Friction)
 
-### 1. Copy Framework to Your Project
+### 1. Copy the Initiator
+Copy `INITIATOR.md` from this repository to your project root.
 
-```bash
-cp -r anamnesis_starter/ my-new-project/
-cd my-new-project/
-```
+### 2. Run the Wizard
+Ask your AI: **"Initialize Anamnesis"** or **"Update Anamnesis"**.
 
-### 2. Customize Root File
-
-Edit `AGENTS.md` with your project details:
-- Project overview and tech stack
-- Common commands (build, test, lint)
-- Key constraints
-
-### 3. Initialize Context
-
-Fill in `.context/mission.md` with your project objective.
-
-### 4. Configure AI CLI
-
-**OpenCode** - Works natively with `AGENTS.md`
-
-**Gemini CLI** - Add to `~/.gemini/settings.json`:
-```json
-{
-  "context": {
-    "fileName": ["AGENTS.md", "anamnesis/templates/GEMINI.md"]
-  }
-}
-```
-
-**Claude Code** - Copy `anamnesis/templates/CLAUDE.md` to project root
+The AI will guide you through:
+- **New Projects:** Design thinking, ideation, and MVP scoping.
+- **Existing Projects:** Intelligent retrofit with source attribution and architecture mapping.
+- **Updates:** Seamless migration to the latest framework version using Shadow Files.
 
 ---
 
@@ -47,10 +25,10 @@ Fill in `.context/mission.md` with your project objective.
 
 Don't be alarmed if the AI doesn't start coding immediately. It follows a **Thinking → Execution → Epilogue** protocol:
 
-1. **Context:** Loads state from `.context/` and constraints from `PROJECT_LEARNINGS.md`.
+1. **Context:** Loads state from `project/` and constraints from `PROJECT_LEARNINGS.md`.
 2. **Thinking:** For complex tasks, enters First Principles mode—decomposes the problem, runs Elimination Test, explores options.
 3. **Consensus Gate:** Presents a **Plan Summary** and **WAITS** for your approval before any code. (Handshake Rule applies: No plan+code in same turn).
-4. **Execution:** Implements tasks one-by-one from `anamnesis/specs/tasks.md`, with OODA debugging if stuck.
+4. **Execution:** Implements tasks one-by-one from `project/tasks.md`, with OODA debugging if stuck.
 5. **Epilogue:** Reflects on session (T-RFL), distills learnings, archives state.
 
 ---
@@ -61,7 +39,7 @@ Don't be alarmed if the AI doesn't start coding immediately. It follows a **Thin
 sequenceDiagram
     participant User
     participant AI as AI Agent
-    participant Context as .context/
+    participant Context as project/
     participant Specs as anamnesis/specs/
 
     User->>AI: Request
@@ -130,11 +108,9 @@ flowchart TD
     Wisdom --> Complete
 ```
 
-| Layer | File | When Loaded | Purpose |
-|-------|------|-------------|---------|
 | **Root** | `AGENTS.md` | Always (auto-loaded) | Essential context, golden rules, pointers |
-| **Thinking** | `anamnesis/directives/THINKING.md` | New ideas, features, refactors, complex bugs | First Principles & Design Thinking |
-| **Execution** | `anamnesis/directives/EXECUTION.md` | Implementation tasks | Build, test, deliver protocols |
+| **Thinking** | `anamnesis/directives/THINKING.core.md` | New ideas, features, refactors, complex bugs | First Principles & Design Thinking |
+| **Execution** | `anamnesis/directives/EXECUTION.core.md` | Implementation tasks | Build, test, deliver protocols |
 | **Quality** | `anamnesis/standards/INDEX.md` | Code writing | Style and quality rules |
 | **Wisdom** | `PROJECT_LEARNINGS.md` | Every session | Project-specific constraints |
 
@@ -170,9 +146,9 @@ graph LR
     end
     
     subgraph "STATE MANAGEMENT"
-        P[.context/active_state.md]
-        Q[.context/handover.md]
-        R[.context/history/]
+        P[project/active_state.md]
+        Q[project/handover.md]
+        R[project/history/]
     end
     
     B --> F
@@ -188,19 +164,20 @@ graph LR
     Q --> R
 ```
 
-### 1. `THINKING.md` (The Mind)
+### 1. `THINKING.core.md` (The Mind)
 
-This guides problem decomposition BEFORE implementation (v4.0):
+This guides problem decomposition BEFORE implementation (v4.4):
+- **Shadow Files:** Separates framework logic (`.core`) from user logic (`.custom`).
 - **First Principles:** Strip problems to fundamental truths before building solutions.
 - **Design Thinking:** Understand users, define problems clearly, explore options.
 - **Root Cause Analysis:** Structured debugging for complex bugs.
 - **Consensus Gate:** Present thinking summary and WAIT for user validation.
 
-### 2. `EXECUTION.md` (The Hands)
+### 2. `EXECUTION.core.md` (The Hands)
 
-This guides implementation AFTER thinking is complete (v4.0):
+This guides implementation AFTER thinking is complete (v4.4):
 - **Spec-Driven Development (SDD):** No code without a persistent "Source of Truth".
-- **State Management:** Uses `.context/active_state.md` to track progress across sessions.
+- **State Management:** Uses `project/active_state.md` to track progress across sessions.
 - **OODA Loop:** Observe, Orient, Decide, Act for debugging.
 - **OODA Stop-Gap:** After 3 failed iterations, assess confidence and potentially return to thinking.
 
@@ -236,9 +213,10 @@ graph TD
     A --> E[PROJECT_LEARNINGS.md<br/>Cumulative wisdom]
     A --> F[DECISION_LOG.md<br/>Architectural decisions]
     A --> G[CHANGELOG.md<br/>Version history]
-    A --> H[.context/]
+    A --> H[project/]
     A --> I[anamnesis/]
     A --> J[specs/]
+    A --> K[INITIATOR.md<br/>Setup Wizard]
     
     H --> H1[active_state.md<br/>Current session]
     H --> H2[handover.md<br/>Previous session]
@@ -247,14 +225,16 @@ graph TD
     H --> H5[backlog.md<br/>Deferred ideas]
     H --> H6[board.md<br/>Auto-generated]
     H --> H7[workstreams/<br/>Parallel contexts]
+    H --> H8[tasks.md<br/>Implementation plan]
     
     I --> I1[directives/]
     I --> I2[standards/]
     I --> I3[specs/]
     I --> I4[templates/]
     
-    I1 --> I1a[THINKING.md<br/>First Principles]
-    I1 --> I1b[EXECUTION.md<br/>Build & Deliver]
+    I1 --> I1a[THINKING.core.md<br/>First Principles]
+    I1 --> I1b[EXECUTION.core.md<br/>Build & Deliver]
+    I1 --> I1c[*.custom.md<br/>User overrides]
     
     I2 --> I2a[INDEX.md<br/>Quality rules]
     I2 --> I2b[global.md<br/>Language-agnostic]
@@ -302,7 +282,7 @@ stateDiagram-v2
 
 ## 🛑 The "Golden Rules" (For the AI)
 
-1. **Update State:** If it's not in `.context/active_state.md`, it didn't happen.
+1. **Update State:** If it's not in `project/active_state.md`, it didn't happen.
 2. **Follow by Spec:** Code must match `anamnesis/specs/requirements.md`.
 3. **Telegraphic Context:** Internal notes should be caveman-style ("Server crash. Retry fail.").
 4. **Professional Docs:** Public docs must be Shakespearean.
@@ -315,8 +295,8 @@ stateDiagram-v2
 This repository is the **meta-project** that develops the Anamnesis framework itself.
 
 - **Framework Source:** `anamnesis_starter/` (distributable)
-- **Framework Version:** 4.3
-- **Dogfooding:** This repo uses its own framework (see `.context/` and `specs/`)
+- **Framework Version:** 4.4
+- **Dogfooding:** This repo uses its own framework (see `project/` and `specs/`)
 
 ### Contributing
 

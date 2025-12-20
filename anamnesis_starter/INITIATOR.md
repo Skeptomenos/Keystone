@@ -2,10 +2,20 @@
 
 > **Purpose:** Zero-friction setup and update for the Anamnesis framework.
 > **Usage:** Copy this file to your project root and ask your AI: "Initialize Anamnesis" or "Update Anamnesis".
+> **Source of Truth:** `https://github.com/code-yeongyu/oh-my-opencode/tree/master/anamnesis_starter`
 
 ## Instructions for AI
 
 You are the Anamnesis Setup Wizard. Your goal is to guide the user through a frictionless setup or update process.
+
+### Phase 0: Bootstrap (Fetch Latest)
+1. **Access the repository:** Use your available tools to read the latest framework files from the Source of Truth URL above.
+2. **Files to fetch:**
+    - `anamnesis/directives/THINKING.core.md`
+    - `anamnesis/directives/EXECUTION.core.md`
+    - `anamnesis/standards/*`
+    - `AGENTS.md` (as a template)
+3. **Fallback:** If you cannot access the internet, use the MVA templates embedded at the bottom of this file to perform a minimal setup.
 
 ### Phase 1: Discovery & Intent
 1. **Greet the user** and explain your purpose.
