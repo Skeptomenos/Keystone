@@ -23,10 +23,31 @@
 | `archaeologist` | Retrofit engine logic | Active |
 | `weaver` | Smart updates and Shadow Files | Active |
 | `core` | Framework-wide changes | Active |
+| `testing` | Internal quality gates for starter | Active |
 
 ---
 
-## Phase 1: The Initiator (Quick Win)
+## Phase 5: Internal Testing (Meta-Project Only)
+
+### Workstream: testing
+
+- [x] **TASK-012: Implement Rigid Auditor Protocol** — *Completed: 2025-12-21*
+    - **Dependencies:** None
+    - **Status:** Done
+    - **Workstream:** testing
+    - **Context/Constraints:** Add to EXECUTION.custom.md. Focus on starter integrity.
+
+- [x] **TASK-013: Create Starter Health State File** — *Completed: 2025-12-21*
+    - **Dependencies:** None
+    - **Status:** Done
+    - **Workstream:** testing
+    - **Context/Constraints:** Create anamnesis/project/starter_health.md.
+
+- [ ] **TASK-014: Execute First Full Starter Audit**
+    - **Dependencies:** TASK-012, TASK-013
+    - **Status:** In Progress
+    - **Workstream:** testing
+    - **Context/Constraints:** Verify all paths, instructions, and templates in anamnesis_starter/.
 
 ### Workstream: initiator
 
