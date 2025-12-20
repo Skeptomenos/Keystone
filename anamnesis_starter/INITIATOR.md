@@ -2,7 +2,7 @@
 
 > **Purpose:** Zero-friction setup and update for the Anamnesis framework.
 > **Usage:** Copy this file to your project root and ask your AI: "Initialize Anamnesis" or "Update Anamnesis".
-> **Source of Truth:** `https://github.com/code-yeongyu/oh-my-opencode/tree/master/anamnesis_starter`
+> **Source of Truth:** `https://github.com/Skeptomenos/Anamnesis/tree/main/anamnesis_starter`
 
 ## Instructions for AI
 
