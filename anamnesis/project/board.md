@@ -1,8 +1,8 @@
 # Project Board
 
-> **Auto-generated from `project/tasks.md`**
-> **Last Updated:** 2025-12-21 03:00
-> **Active Workstream:** core
+> **Auto-generated from `anamnesis/project/tasks.md`**
+> **Last Updated:** 2025-12-21 03:30
+> **Active Workstream:** testing
 
 ---
 
@@ -10,9 +10,9 @@
 
 | Total | Backlog | Open | In Progress | Blocked | Done | Archive |
 |-------|---------|------|-------------|---------|------|---------|
-| 11    | 0       | 0    | 0           | 0       | 0    | 11      |
+| 14    | 0       | 0    | 0           | 0       | 0    | 14      |
 
-**Progress:** [██████████] 100% (11/11 tasks)
+**Progress:** [██████████] 100% (14/14 tasks)
 
 ---
 
@@ -53,6 +53,9 @@
 - [x] **TASK-009:** Implement Dry-Run Diff (MIGRATION_PREVIEW.md)
 - [x] **TASK-010:** Update AGENTS.md for Zero-Friction Model
 - [x] **TASK-011:** Update MIGRATION.md for v4.4
+- [x] **TASK-012:** Implement Rigid Auditor Protocol
+- [x] **TASK-013:** Create Starter Health State File
+- [x] **TASK-014:** Execute First Full Starter Audit
 
 ---
 
@@ -64,3 +67,4 @@
 | archaeologist| 3     | 3    | 100%     |
 | weaver     | 3     | 3    | 100%     |
 | core       | 2     | 2    | 100%     |
+| testing    | 3     | 3    | 100%     |

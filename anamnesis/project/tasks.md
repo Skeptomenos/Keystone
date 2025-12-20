@@ -31,82 +31,6 @@
 
 ### Workstream: testing
 
-- [x] **TASK-012: Implement Rigid Auditor Protocol** — *Completed: 2025-12-21*
-    - **Dependencies:** None
-    - **Status:** Done
-    - **Workstream:** testing
-    - **Context/Constraints:** Add to EXECUTION.custom.md. Focus on starter integrity.
-
-- [x] **TASK-013: Create Starter Health State File** — *Completed: 2025-12-21*
-    - **Dependencies:** None
-    - **Status:** Done
-    - **Workstream:** testing
-    - **Context/Constraints:** Create anamnesis/project/starter_health.md.
-
-- [ ] **TASK-014: Execute First Full Starter Audit**
-    - **Dependencies:** TASK-012, TASK-013
-    - **Status:** In Progress
-    - **Workstream:** testing
-    - **Context/Constraints:** Verify all paths, instructions, and templates in anamnesis_starter/.
-
-### Workstream: initiator
-
-*All tasks completed and moved to Archive.*
-
----
-
-## Phase 2: The Archaeologist (Retrofit)
-
-### Workstream: archaeologist
-
-- [x] **TASK-004: Implement Project Discovery & Mapping Logic** — *Completed: 2025-12-21*
-    - **Dependencies:** None
-    - **Status:** Done
-    - **Workstream:** archaeologist
-    - **Context/Constraints:** Logic for scanning files and generating a DISCOVERY.md map.
-
-- [x] **TASK-005: Implement Source Attribution Protocol** — *Completed: 2025-12-21*
-    - **Dependencies:** TASK-004
-    - **Status:** Done
-    - **Workstream:** archaeologist
-    - **Context/Constraints:** Requirements must cite source files/lines.
-
-- [x] **TASK-006: Implement Architecture Reality Check (Mermaid)** — *Completed: 2025-12-21*
-    - **Dependencies:** TASK-004
-    - **Status:** Done
-    - **Workstream:** archaeologist
-    - **Context/Constraints:** Generate current-state diagrams for user verification.
-
----
-
-## Phase 3: The Weaver (Smart Updates)
-
-### Workstream: weaver
-
-- [x] **TASK-007: Implement Shadow File Architecture** — *Completed: 2025-12-21*
-    - **Dependencies:** None
-    - **Status:** Done
-    - **Workstream:** weaver
-    - **Context/Constraints:** Split directives into `.core.md` and `.custom.md`. Update AGENTS.md to read both.
-
-- [x] **TASK-008: Implement Semantic Protocol Versioning** — *Completed: 2025-12-21*
-    - **Dependencies:** TASK-007
-    - **Status:** Done
-    - **Workstream:** weaver
-    - **Context/Constraints:** Add versioning to Markdown sections to prevent incompatible updates.
-
-- [x] **TASK-009: Implement Dry-Run Diff (MIGRATION_PREVIEW.md)** — *Completed: 2025-12-21*
-    - **Dependencies:** TASK-008
-    - **Status:** Done
-    - **Workstream:** weaver
-    - **Context/Constraints:** Show users exactly what will change before applying updates.
-
----
-
-## Phase 4: Integration & Documentation
-
-### Workstream: core
-
 *All tasks completed and moved to Archive.*
 
 ---
@@ -157,3 +81,15 @@
     - **Dependencies:** All previous tasks
     - **Status:** Archive
     - **Workstream:** core
+- [x] **TASK-012: Implement Rigid Auditor Protocol** — *Completed: 2025-12-21*
+    - **Dependencies:** None
+    - **Status:** Archive
+    - **Workstream:** testing
+- [x] **TASK-013: Create Starter Health State File** — *Completed: 2025-12-21*
+    - **Dependencies:** None
+    - **Status:** Archive
+    - **Workstream:** testing
+- [x] **TASK-014: Execute First Full Starter Audit** — *Completed: 2025-12-21*
+    - **Dependencies:** TASK-012, TASK-013
+    - **Status:** Archive
+    - **Workstream:** testing
