@@ -108,6 +108,28 @@ sequenceDiagram
 
 The framework uses a **Progressive Disclosure** pattern to optimize AI context usage:
 
+```mermaid
+flowchart TD
+    Start[AI Request] --> Root{Load AGENTS.md<br/>Always Loaded}
+    Root --> Simple{Simple Task?}
+    Simple -->|Yes| Quick[Answer Immediately<br/>Escape Hatch]
+    Simple -->|No| Complex{Complex Task?}
+    
+    Complex -->|Yes| Thinking[Load THINKING.md<br/>First Principles Mode]
+    Complex -->|No| Execution[Load EXECUTION.md<br/>Implementation Mode]
+    
+    Thinking --> Plan[Present Plan<br/>Consensus Gate]
+    Plan --> UserApprove{User Approval?}
+    UserApprove -->|Yes| Execution
+    UserApprove -->|No| Thinking
+    
+    Execution --> Quality[Load standards/INDEX.md<br/>When Writing Code]
+    Execution --> Wisdom[Load PROJECT_LEARNINGS.md<br/>Every Session]
+    
+    Quality --> Complete[Task Complete]
+    Wisdom --> Complete
+```
+
 | Layer | File | When Loaded | Purpose |
 |-------|------|-------------|---------|
 | **Root** | `AGENTS.md` | Always (auto-loaded) | Essential context, golden rules, pointers |
@@ -121,6 +143,50 @@ The framework uses a **Progressive Disclosure** pattern to optimize AI context u
 ---
 
 ## 🧠 The Core Components
+
+```mermaid
+graph LR
+    subgraph "THINKING LAYER"
+        A[THINKING.md] --> B[First Principles]
+        A --> C[Design Thinking]
+        A --> D[Root Cause Analysis]
+    end
+    
+    subgraph "EXECUTION LAYER"
+        E[EXECUTION.md] --> F[Spec-Driven Dev]
+        E --> G[State Management]
+        E --> H[OODA Loop]
+    end
+    
+    subgraph "QUALITY LAYER"
+        I[standards/INDEX.md] --> J[Global Rules]
+        I --> K[Language Specific]
+    end
+    
+    subgraph "WISDOM LAYER"
+        L[PROJECT_LEARNINGS.md] --> M[Invariants]
+        L --> N[Patterns]
+        L --> O[Anti-Patterns]
+    end
+    
+    subgraph "STATE MANAGEMENT"
+        P[.context/active_state.md]
+        Q[.context/handover.md]
+        R[.context/history/]
+    end
+    
+    B --> F
+    D --> H
+    J --> F
+    K --> F
+    M --> B
+    N --> F
+    O --> H
+    
+    F --> P
+    P --> Q
+    Q --> R
+```
 
 ### 1. `THINKING.md` (The Mind)
 
@@ -162,48 +228,63 @@ Standardized templates for Spec-Driven Development.
 
 The framework expects this structure in your project:
 
-```text
-# Project Root
-AGENTS.md                    # Root file (auto-loaded by AI CLI tools)
-CLAUDE.md                    # Optional: Claude Code wrapper
-GEMINI.md                    # Optional: Gemini CLI wrapper
-PROJECT_LEARNINGS.md         # Cumulative project wisdom
-DECISION_LOG.md              # Architectural decisions
-CHANGELOG.md                 # Version history
+```mermaid
+graph TD
+    A[Project Root] --> B[AGENTS.md<br/>Root file - auto-loaded]
+    A --> C[CLAUDE.md<br/>Optional Claude wrapper]
+    A --> D[GEMINI.md<br/>Optional Gemini wrapper]
+    A --> E[PROJECT_LEARNINGS.md<br/>Cumulative wisdom]
+    A --> F[DECISION_LOG.md<br/>Architectural decisions]
+    A --> G[CHANGELOG.md<br/>Version history]
+    A --> H[.context/]
+    A --> I[anamnesis/]
+    A --> J[specs/]
+    
+    H --> H1[active_state.md<br/>Current session]
+    H --> H2[handover.md<br/>Previous session]
+    H --> H3[history/<br/>Archive trail]
+    H --> H4[mission.md<br/>Living objective]
+    H --> H5[backlog.md<br/>Deferred ideas]
+    H --> H6[board.md<br/>Auto-generated]
+    H --> H7[workstreams/<br/>Parallel contexts]
+    
+    I --> I1[directives/]
+    I --> I2[standards/]
+    I --> I3[specs/]
+    I --> I4[templates/]
+    
+    I1 --> I1a[THINKING.md<br/>First Principles]
+    I1 --> I1b[EXECUTION.md<br/>Build & Deliver]
+    
+    I2 --> I2a[INDEX.md<br/>Quality rules]
+    I2 --> I2b[global.md<br/>Language-agnostic]
+    I2 --> I2c[python.md<br/>Python-specific]
+    I2 --> I2d[typescript.md<br/>TypeScript-specific]
+    
+    I3 --> I3a[problem.md<br/>Problem definition]
+    I3 --> I3b[options.md<br/>Solution alternatives]
+    I3 --> I3c[requirements.md<br/>The What]
+    I3 --> I3d[tasks.md<br/>The Plan]
+```
 
-.context/
-├── active_state.md          # Current session state (hot)
-├── handover.md              # Previous session summary (baton)
-├── history/                 # Archived states (audit trail)
-├── mission.md               # Living objective
-├── backlog.md               # Deferred ideas
-├── board.md                # Kanban board (auto-generated)
-└── workstreams/            # Parallel work contexts
+---
 
-anamnesis/                   # The Framework
-├── directives/
-│   ├── THINKING.md          # First Principles & Design
-│   └── EXECUTION.md         # Build & Deliver
-├── standards/
-│   ├── INDEX.md             # Quality rules index
-│   ├── global.md            # Language-agnostic
-│   ├── python.md            # Python-specific
-│   └── typescript.md        # TypeScript-specific
-├── specs/                   # Source of Truth (SDD)
-│   ├── problem.md           # Problem definition
-│   ├── options.md           # Solution alternatives
-│   ├── product.md           # The "Why" & "Vibe"
-│   ├── tech.md              # The Constraints
-│   ├── requirements.md      # The "What" (EARS Syntax)
-│   ├── design.md            # The Visuals (Mermaid)
-│   └── tasks.md             # The Plan
-└── templates/               # Recreatable file templates
-    ├── active_state.md
-    ├── handover.md
-    ├── board.md
-    ├── workstream.md
-    ├── CLAUDE.md
-    └── GEMINI.md
+## 📋 Task Management Lifecycle (v4.3)
+
+```mermaid
+stateDiagram-v2
+    [*] --> Backlog: Idea captured
+    Backlog --> Open: Prioritized + Dependencies met
+    Open --> In Progress: Start work
+    In Progress --> Blocked: Cannot proceed
+    Blocked --> In Progress: Resolved
+    In Progress --> Done: Completed + Verified
+    Done --> Archive: Clean up
+    Archive --> [*]
+    
+    note right of In Progress: One per workstream
+    note right of Backlog: Not prioritized
+    note right of Archive: Historical reference
 ```
 
 ---

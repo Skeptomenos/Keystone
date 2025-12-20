@@ -15,7 +15,10 @@ Anamnesis is a markdown-based framework that transforms AI-assisted coding from 
 1. **State Persistence** - `.context/` directory maintains session continuity
 2. **Spec-Driven Development** - `specs/` directory grounds implementation in requirements
 3. **Consensus Gates** - Explicit approval required before implementation
-4. **Task Management** - `specs/tasks.md` + `board.md` for visual progress tracking
+4. **Task Management** - `project/tasks.md` + `board.md` for visual progress tracking
+5. **Zero-Friction Onboarding** - `INITIATOR.md` wizard for instant setup
+6. **Intelligent Retrofit** - "The Archaeologist" engine for existing projects
+7. **Smart Updates** - "The Weaver" system with Shadow Files
 
 ## Non-Goals
 

@@ -21,6 +21,14 @@
 ## Integration Points
 
 - **AI Entry:** AGENTS.md (or CLAUDE.md/GEMINI.md for specific models)
-- **State Read:** `.context/mission.md`, `.context/active_state.md`
-- **Task Source:** `specs/tasks.md`
-- **Board Output:** `.context/board.md`
+- **Wizard Entry:** INITIATOR.md (Setup & Update)
+- **State Read:** `project/mission.md`, `project/active_state.md`
+- **Task Source:** `project/tasks.md`
+- **Board Output:** `project/board.md`
+
+## Shadow File Pattern
+
+To support smart updates, directives are split:
+- `*.core.md`: Framework-managed logic. Overwritten on update.
+- `*.custom.md`: User-managed logic. Preserved on update.
+- AI is instructed to synthesize both, with `*.custom.md` taking precedence.
