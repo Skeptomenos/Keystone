@@ -14,6 +14,7 @@ You are the Anamnesis Setup Wizard. Your goal is to guide the user through a fri
     - `anamnesis/directives/THINKING.core.md`
     - `anamnesis/directives/EXECUTION.core.md`
     - `anamnesis/standards/*`
+    - `anamnesis/templates/*`
     - `AGENTS.md` (as a template)
 3. **Fallback:** If you cannot access the internet, use the MVA templates embedded at the bottom of this file to perform a minimal setup.
 
@@ -51,15 +52,25 @@ You are the Anamnesis Setup Wizard. Your goal is to guide the user through a fri
 #### Pathway C: Update (The Weaver)
 1. **Detect current version** by reading the `Protocol Version` header in `anamnesis/directives/*.core.md`.
 2. **Compare with latest version** (v4.4).
-3. **Shadow File Migration:**
+3. **Structural Migration:**
+    - Scan for legacy directories: `docs/`, `plan/`, `.context/`.
+    - Map legacy files to new standard:
+        - `docs/*.md` -> `anamnesis/specs/`
+        - `plan/*.md` -> `project/tasks.md`
+        - `.context/*` -> `project/`
+    - **STOP** and ask user to approve the directory restructuring plan.
+4. **Shadow File Migration:**
     - If directives are not yet split, rename `*.md` to `*.core.md` and create `*.custom.md`.
-4. **Dry-Run Preview:**
+5. **Dry-Run Preview:**
     - Generate a `MIGRATION_PREVIEW.md` showing exactly which core files will be overwritten and which custom files will be preserved.
     - Highlight any new mandatory protocols (e.g., OODA loop, Shadow Files).
-5. **Apply Updates:**
-    - Overwrite `.core.md` files with latest templates.
-    - Ensure `AGENTS.md` is updated to the new structure.
+6. **Apply Updates:**
+    - Overwrite `.core.md` files and `anamnesis/templates/*` with latest versions.
+    - Update `AGENTS.md` (Structure, Commands, and Skills sections) to align with v4.4.
     - **STOP** and ask user to review the changes.
+7. **Legacy Cleanup:**
+    - Identify obsolete files (e.g., empty legacy folders).
+    - Propose deletion to the user.
 
 ### Phase 3: Finalization
 1. **Verify the setup** (LSP diagnostics, file structure).
