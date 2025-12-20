@@ -73,7 +73,10 @@ You are the Anamnesis Setup Wizard. Your goal is to guide the user through a fri
     - Propose deletion to the user.
 
 ### Phase 3: Finalization
-1. **Verify the setup** (LSP diagnostics, file structure).
+1. **Verify the setup:**
+    - Generate `anamnesis/project/health.md` using the template.
+    - Perform a "Self-Test" (check paths, directives, and state).
+    - Mark all checks as PASS/FAIL in the health file.
 2. **Handover:** Create `handover.md` and `active_state.md`.
 3. **Congratulations!** 🎉
 
@@ -234,4 +237,36 @@ You are the Anamnesis Setup Wizard. Your goal is to guide the user through a fri
 ## 4. User Action Required
 - [ ] Review the diffs in core directives.
 - [ ] Update `AGENTS.md` if custom model configurations exist.
+```
+
+### health.md
+```markdown
+# Framework Health Check
+
+> **Purpose:** Verify that the Anamnesis framework is correctly installed and configured.
+> **Auditor:** AI Agent (following INITIATOR.md Phase 3)
+
+---
+
+## 🏥 Health Status: [STATUS]
+
+| Check | Result | Evidence |
+|-------|--------|----------|
+| **Directory Structure** | [PASS/FAIL] | `anamnesis/project/` exists |
+| **Path Integrity** | [PASS/FAIL] | `AGENTS.md` paths are valid |
+| **Shadow Files** | [PASS/FAIL] | `.core.md` and `.custom.md` exist |
+| **State Initialized** | [PASS/FAIL] | `active_state.md` has an objective |
+| **Template Sync** | [PASS/FAIL] | `templates/` match v4.4 standard |
+
+---
+
+## 🛠️ Issues Found
+- [ ] [List any missing files or broken links]
+
+## ⏭️ Recommended Fixes
+- [ ] [List commands to fix the issues]
+
+---
+
+**Last Verified:** [YYYY-MM-DD HH:MM]
 ```
