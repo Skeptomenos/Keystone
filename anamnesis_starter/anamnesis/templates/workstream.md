@@ -23,7 +23,7 @@
 
 ## Related Tasks
 
-<!-- Tasks in anamnesis/specs/tasks.md with Workstream: [name] -->
+<!-- Tasks in anamnesis/project/tasks.md with Workstream: [name] -->
 
 | Task ID | Title | Status |
 |---------|-------|--------|

@@ -176,3 +176,36 @@ For projects with many tasks, you can use this pattern to bulk update:
 
 - **v4.2:** Basic task management with checkboxes
 - **v4.3:** Enhanced task awareness with dependencies, status workflow, workstreams, and kanban board
+- **v4.4:** Zero-Friction onboarding with `INITIATOR.md`, Shadow File architecture (`.core` vs `.custom`), and intelligent retrofit.
+
+## Upgrading to Anamnesis 4.4 (Zero-Friction)
+
+### What's New in 4.4
+
+- **INITIATOR.md Wizard:** Single-file entry point for setup, retrofit, and updates.
+- **Shadow Files:** Directives split into `*.core.md` (framework) and `*.custom.md` (user) to prevent update conflicts.
+- **Intelligent Retrofit:** "The Archaeologist" engine for mapping existing projects with source attribution.
+- **Semantic Protocol Versioning:** Version headers in core directives to manage migrations.
+- **Directory Rename:** `.context/` renamed to `project/` for better clarity.
+
+### Migration Steps
+
+#### Step 1: Run the Wizard
+Copy `INITIATOR.md` to your project root and ask your AI: "Update Anamnesis to v4.4".
+
+#### Step 2: Manual Directory Rename (If not using Wizard)
+If you prefer manual migration:
+```bash
+mv anamnesis/.context anamnesis/project
+```
+
+#### Step 3: Split Directives
+Rename your directives and create custom overrides:
+```bash
+mv anamnesis/directives/THINKING.md anamnesis/directives/THINKING.core.md
+mv anamnesis/directives/EXECUTION.md anamnesis/directives/EXECUTION.core.md
+touch anamnesis/directives/THINKING.custom.md anamnesis/directives/EXECUTION.custom.md
+```
+
+#### Step 4: Update AGENTS.md
+Ensure your `AGENTS.md` points to the new `project/` paths and mentions the Shadow File protocol.

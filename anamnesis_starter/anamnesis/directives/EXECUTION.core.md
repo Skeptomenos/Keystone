@@ -1,5 +1,7 @@
 # Execution Directives (Build & Deliver)
 
+> **Protocol Version:** 4.4
+
 > **PROGRESSIVE DISCLOSURE:**
 > This file guides implementation AFTER thinking is complete.
 > The root file (`AGENTS.md`) references this file for execution tasks.
@@ -35,13 +37,13 @@
 
 > **THE GOLDEN RULE OF CONTINUITY:**
 > You are part of a relay team. You are rarely the first and never the last.
-> 1. **Start** by reading `anamnesis/.context/active_state.md` and `anamnesis/.context/handover.md`.
-> 2. **Work** by updating `anamnesis/.context/active_state.md` when you complete a logical block of work.
+> 1. **Start** by reading `anamnesis/project/active_state.md` and `anamnesis/project/handover.md`.
+> 2. **Work** by updating `anamnesis/project/active_state.md` when you complete a logical block of work.
 > 3. **Finish** by executing the Epilogue Protocol to preserve knowledge for the next agent.
 > **If you fail to update these files, your work is considered lost.**
 
 > **THE TELEGRAPHIC RULE (INTERNAL CONTEXT):**
-> When writing to `anamnesis/.context/` files or `anamnesis/PROJECT_LEARNINGS.md`:
+> When writing to `anamnesis/project/` files or `anamnesis/PROJECT_LEARNINGS.md`:
 > - **Be extremely concise.** Sacrifice grammar for density (e.g., "Server crashed. Retry failed." > "The server appears to have crashed...").
 > - **Use bullet points.** Avoid paragraphs.
 > - **Exceptions:** Maintain professional, complete sentences for **Code Docstrings** and **User-Facing Docs** (README, CHANGELOG) and **Specs** (requirements.md).
@@ -65,7 +67,7 @@
 │     │           │           │                       │           │
 │     │           │           └── OODA Loop ──────────┤           │
 │     │           │               (if stuck)          │           │
-│     └───────────┴─── Return to THINKING ←───────────┘           │
+│     │     └───────────┴─── Return to THINKING ←───────────┘           │
 │                      (if fundamentals wrong)                    │
 └─────────────────────────────────────────────────────────────────┘
 ```
@@ -81,15 +83,15 @@ This phase ensures continuity and learning across sessions.
 - **Environment Check:** Verify your surroundings.
     - Run `ls -F` to see immediate context.
     - Run `git status` to ensure a clean slate (or understand current diffs).
-- **Check State:** Read `anamnesis/.context/active_state.md`.
-    - *Scenario A (Empty):* Read `anamnesis/.context/handover.md` (if exists) to get context. Initialize `anamnesis/.context/active_state.md` using the **Template** from `anamnesis/templates/active_state.md`.
+- **Check State:** Read `anamnesis/project/active_state.md`.
+    - *Scenario A (Empty):* Read `anamnesis/project/handover.md` (if exists) to get context. Initialize `anamnesis/project/active_state.md` using the **Template** from `anamnesis/templates/active_state.md`.
     - *Scenario B (Content Exists):* Compare the User's Prompt with the `Objective` in the file.
         - **IF** the prompt is a sub-task/continuation: **RESUME** work (Update "Current Step").
-        - **IF** the prompt is a NEW, unrelated objective: **ARCHIVE** the old state (move to `anamnesis/.context/history/`) and **RESET** `anamnesis/.context/active_state.md` with the new Objective.
+        - **IF** the prompt is a NEW, unrelated objective: **ARCHIVE** the old state (move to `anamnesis/project/history/`) and **RESET** `anamnesis/project/active_state.md` with the new Objective.
 - **Check Constraints:** Read `anamnesis/PROJECT_LEARNINGS.md`.
     - **IF EMPTY:** Log "No prior constraints found" in your state.
     - **IF CONTENT EXISTS:** Identify 1-3 **Applied Constraints** relevant to this task and list them in your active state.
-- **Generate Board:** Regenerate `anamnesis/.context/board.md` from `anamnesis/specs/tasks.md`.
+- **Generate Board:** Regenerate `anamnesis/project/board.md` from `anamnesis/project/tasks.md`.
     - Parse all tasks and their statuses
     - Group by status columns (Backlog, Open, In Progress, Blocked, Done)
     - Calculate progress percentage
@@ -103,17 +105,17 @@ This phase ensures continuity and learning across sessions.
     - Read `product.md` (Why) and `tech.md` (Constraints) to load the "System Constraints".
     - **IF MISSING:** Suggest creating specs in `anamnesis/specs/`.
 
-**Template for `anamnesis/.context/active_state.md`:**
+**Template for `anamnesis/project/active_state.md`:**
 
 See `anamnesis/templates/active_state.md` for the full template. Key sections:
-- **Current Objective** — What we're building (references `anamnesis/.context/mission.md`)
+- **Current Objective** — What we're building (references `anamnesis/project/mission.md`)
 - **Iteration Log** — Significant experiments and learnings
 - **Pre-Close Checklist** — Quality gate before closing work
 
 ### 0.3: State Maintenance (The Heartbeat)
 
-- **Update Strategy:** You must update `anamnesis/.context/active_state.md` **at the end of every logical block of work** (e.g., after planning, after coding a module, after testing).
-- **No Duplication Rule:** Do not copy the full task list from `anamnesis/specs/tasks.md` into `active_state.md`. Use `active_state.md` for **High-Level Goals** and **Learnings/Errors**. The `tasks.md` file is the Source of Truth for execution status.
+- **Update Strategy:** You must update `anamnesis/project/active_state.md` **at the end of every logical block of work** (e.g., after planning, after coding a module, after testing).
+- **No Duplication Rule:** Do not copy the full task list from `anamnesis/project/tasks.md` into `active_state.md`. Use `active_state.md` for **High-Level Goals** and **Learnings/Errors**. The `tasks.md` file is the Source of Truth for execution status.
 - **Batching:** You may perform multiple related actions (edit 3 files) before updating the state, but you **MUST** update it before asking the user for input or ending your turn.
 - **Style:** Use **Telegraphic Style**. Maximize info/token.
 
@@ -122,7 +124,7 @@ See `anamnesis/templates/active_state.md` for the full template. Key sections:
 When an action fails, **DO NOT** guess.
 
 1. **Observe:** Gather evidence (screenshot, HTML source, error trace) via shell commands (`ls`, `grep`) or file reads.
-2. **Orient:** State explicitly in `anamnesis/.context/active_state.md` why your mental model was wrong based on the evidence.
+2. **Orient:** State explicitly in `anamnesis/project/active_state.md` why your mental model was wrong based on the evidence.
 3. **Decide:** Formulate a single, testable hypothesis.
 4. **Act:** Implement the minimal change to test that hypothesis.
 
@@ -162,7 +164,7 @@ Do not plan the solution until you have deconstructed the problem.
 
 ### 1.2: Recursive Decomposition (The Knife)
 
-- **Decompose:** Break complex requests down into **Atomic Units** in `anamnesis/specs/tasks.md`.
+- **Decompose:** Break complex requests down into **Atomic Units** in `anamnesis/project/tasks.md`.
 - **Granularity:** Each task must be < 1 hour execution.
 - **Inline Constraints:** Do not just link to specs. **Copy** the relevant constraints into the task.
     - *Bad:* "Implement Login (see tech.md)"
@@ -191,10 +193,6 @@ Do not plan the solution until you have deconstructed the problem.
 
 ---
 
-> **OPERATIONAL MANDATES:** For reliability rules (I/O Fortress, Clean Slate, Hybrid First, Preservation of Knowledge), see `anamnesis/standards/global.md` Section 9.
-
----
-
 ## Phase 2: Build & Implement (THE STOP-AND-WAIT)
 
 > **PRE-FLIGHT GATE:**
@@ -203,17 +201,17 @@ Do not plan the solution until you have deconstructed the problem.
 
 ### 2.1: The Protocol
 
-1. **Read** `anamnesis/specs/tasks.md`. Identify the next **OPEN** task.
+1. **Read** `anamnesis/project/tasks.md`. Identify the next **OPEN** task.
    - **Dependency Check:** Before selecting a task, verify all tasks in its `Dependencies` field are `Done` or `Archive`.
    - **Status Update:** When starting a task, update its Status to `In Progress`.
    - **Blocked Detection:** If a task's dependencies are not met, mark it as `Blocked` and select another `Open` task.
    - **Workstream Filter:** If focusing on a specific workstream, only consider tasks in that workstream.
 2. **Implement** ONLY that single task.
 3. **Verify** (Unit Test / Manual Check).
-4. **Mark** as `[x]` and update Status to `Done` in `anamnesis/specs/tasks.md`.
+4. **Mark** as `[x]` and update Status to `Done` in `anamnesis/project/tasks.md`.
 5. **Unblock Check:** After completing a task, check if any `Blocked` tasks now have their dependencies met. Update their Status to `Open`.
-6. **Update Board:** Regenerate `anamnesis/.context/board.md` to reflect changes.
-7. **Update** `anamnesis/.context/active_state.md` **ONLY** if there are new Learnings, Errors, or a Phase Change.
+6. **Update Board:** Regenerate `anamnesis/project/board.md` to reflect changes.
+7. **Update** `anamnesis/project/active_state.md` **ONLY** if there are new Learnings, Errors, or a Phase Change.
 8. **STOP** to plan the next step or Proceed if clear.
 
 ### 2.2: Construction Order (Atoms First)
@@ -279,10 +277,10 @@ You are **NOT** done until you have executed this sequence:
 
 ### 4.3: Archival Rotation
 
-- [ ] **Archive Completed Tasks:** Move `Done` tasks to the `Archive` section in `anamnesis/specs/tasks.md`
-- [ ] **Update Board:** Regenerate `anamnesis/.context/board.md` to reflect final state
-- [ ] **Archive:** Move `anamnesis/.context/active_state.md` to `anamnesis/.context/history/YYYY-MM-DD_TaskName.md`
-- [ ] **Handover:** Update `anamnesis/.context/handover.md` — Where are we? What's next? (3 bullets max)
+- [ ] **Archive Completed Tasks:** Move `Done` tasks to the `Archive` section in `anamnesis/project/tasks.md`
+- [ ] **Update Board:** Regenerate `anamnesis/project/board.md` to reflect final state
+- [ ] **Archive:** Move `anamnesis/project/active_state.md` to `anamnesis/project/history/YYYY-MM-DD_TaskName.md`
+- [ ] **Handover:** Update `anamnesis/project/handover.md` — Where are we? What's next? (3 bullets max)
 
 ---
 
@@ -294,7 +292,7 @@ You are **NOT** done until you have executed this sequence:
 
 | Command | Action |
 |---------|--------|
-| "Generate board" | Regenerate `anamnesis/.context/board.md` from current tasks |
+| "Generate board" | Regenerate `anamnesis/project/board.md` from current tasks |
 | "Show board" | Display current board status |
 | "Update board" | Sync board with latest task changes |
 
@@ -314,3 +312,4 @@ You are **NOT** done until you have executed this sequence:
 | "Switch to [workstream]" | Change active workstream focus |
 | "List workstreams" | Show all available workstreams |
 | "Create workstream [name]" | Create new workstream for parallel work |
+

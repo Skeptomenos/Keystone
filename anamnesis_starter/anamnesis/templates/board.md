@@ -1,6 +1,6 @@
 # Project Board
 
-> **Auto-generated from `anamnesis/specs/tasks.md`**
+> **Auto-generated from `anamnesis/project/tasks.md`**
 > **Last Updated:** [YYYY-MM-DD HH:MM]
 > **Active Workstream:** [workstream-name]
 

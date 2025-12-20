@@ -1,7 +1,7 @@
 # Active State
 
 > **Purpose:** Current session context. Short-lived (1-2 days typically).
-> **Also read:** `anamnesis/.context/mission.md` for long-term objective.
+> **Also read:** `anamnesis/project/mission.md` for long-term objective.
 
 ---
 
@@ -26,10 +26,10 @@
 **Available:** main, [list other workstreams]
 
 > To switch workstreams, use command: "Switch to [workstream-name]"
-> Workstream files: `anamnesis/.context/workstreams/[name].md`
+> Workstream files: `anamnesis/project/workstreams/[name].md`
 
 ### Parked Items
-<!-- Short-term paused items. Move to anamnesis/.context/backlog.md if not resuming soon. -->
+<!-- Short-term paused items. Move to anamnesis/project/backlog.md if not resuming soon. -->
 - [ ] [Item] — [reason paused]
 
 ---

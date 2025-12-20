@@ -41,15 +41,15 @@ your-project/
 │   │   ├── options.md           # Solution options
 │   │   ├── requirements.md      # EARS syntax requirements
 │   │   ├── design.md            # Architecture diagrams
-│   │   ├── tasks.md             # Atomic task list
 │   │   ├── tech.md              # Technical decisions
 │   │   └── product.md           # Product definition
 │   │
-│   ├── .context/                # Project state (living files)
+│   ├── project/                 # Project state (living files)
 │   │   ├── mission.md           # Living objective
 │   │   ├── backlog.md           # Ideas and deferred work
 │   │   ├── tech-stack.md        # Approved tools
 │   │   ├── board.md             # Kanban board (auto-generated)
+│   │   ├── tasks.md             # Implementation plan
 │   │   └── workstreams/         # Parallel work contexts
 │   │
 │   ├── PROJECT_LEARNINGS.md     # Process wisdom
@@ -57,14 +57,15 @@ your-project/
 │   └── README.md                # This file
 │
 ├── AGENTS.md                    # Entry point for AI agents
+├── INITIATOR.md                 # Setup & Update Wizard
 └── CHANGELOG.md                 # Project version history
 ```
 
 ## Getting Started
 
-1. **Read AGENTS.md** — Entry point that tells AI what to read when
-2. **Fill in `.context/mission.md`** — Define your project objective
-3. **Start working** — AI will follow the framework automatically
+1. **Copy INITIATOR.md** — Copy this file to your project root.
+2. **Run Wizard** — Ask your AI: "Initialize Anamnesis" or "Update Anamnesis".
+3. **Follow Instructions** — The AI will guide you through the setup.
 
 ## Documentation
 
@@ -100,7 +101,7 @@ The framework includes enhanced task management with:
 | "Switch to [workstream]" | Change active workstream |
 | "Archive done tasks" | Move Done tasks to Archive section |
 
-See `anamnesis/specs/tasks.md` for task template and `anamnesis/docs/MIGRATION.md` for upgrading existing projects.
+See `anamnesis/project/tasks.md` for task template and `anamnesis/docs/MIGRATION.md` for upgrading existing projects.
 
 ## Key Concepts
 
@@ -108,7 +109,7 @@ See `anamnesis/specs/tasks.md` for task template and `anamnesis/docs/MIGRATION.m
 - **Standards:** Code quality rules organized by language/domain
 - **Templates:** Files that get archived and recreated frequently
 - **Specs:** Feature specifications (one set per project)
-- **.context/:** Living project state that evolves over time
+- **project/:** Living project state that evolves over time
 
 ## 📝 How to Use Specs (Spec-Driven Development)
 
@@ -122,7 +123,7 @@ Specs are living documents that serve as the "Source of Truth". You do not need 
 5.  **Execute:** AI implements tasks one by one, checking them off.
 
 ### User Responsibility
-*   **Mission:** You must fill in `.context/mission.md` manually at the start.
+*   **Mission:** You must fill in `project/mission.md` manually at the start.
 *   **Approval:** You must review and approve spec changes before the AI builds.
 
 ---
@@ -133,7 +134,7 @@ Specs are living documents that serve as the "Source of Truth". You do not need 
 sequenceDiagram
     participant User
     participant AI as AI Agent
-    participant Context as .context/
+    participant Context as project/
     participant Specs as anamnesis/specs/
 
     User->>AI: Request

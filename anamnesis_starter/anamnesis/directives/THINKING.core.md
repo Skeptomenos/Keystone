@@ -1,5 +1,7 @@
 # Hybrid Thinking Directives (First Principles & Structured Analysis)
 
+> **Protocol Version:** 4.4
+
 > **PROGRESSIVE DISCLOSURE:**
 > This file guides problem decomposition BEFORE implementation using a hybrid approach that combines first-principles thinking with structured six-question analysis.
 > The root file (`AGENTS.md`) references this file for thinking tasks.
@@ -584,7 +586,7 @@ Include in ADR:
 
 ### T-RFL.5: Handover Synthesis
 
-Distill for the next agent (`anamnesis/.context/handover.md`):
+Distill for the next agent (`anamnesis/project/handover.md`):
 - **Where are we?** (3 bullets max, including confidence levels and risk status)
 - **What's next?** (Concrete next steps, including any pending validations)
 - **Key Insights:** (Most important learnings from six-question process)
