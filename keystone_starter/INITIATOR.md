@@ -53,12 +53,16 @@ You are the Keystone Setup Wizard. Your goal is to guide the user through a fric
 1. **Detect current version** by reading the `Protocol Version` header in `keystone/directives/*.core.md`.
 2. **Compare with latest version** (v4.4).
 3. **Structural Migration:**
-    - Scan for legacy directories: `docs/`, `plan/`, `.context/`.
-    - Map legacy files to new standard:
+    - Scan for legacy directories: `anamnesis/`, `docs/`, `plan/`, `.context/`.
+    - **Anamnesis to Keystone Rename:**
+        - If `anamnesis/` exists, rename it to `keystone/`.
+        - Update all internal file references from `anamnesis/` to `keystone/`.
+        - Replace strings "Anamnesis" with "Keystone" in `AGENTS.md`, `README.md`, and project state files.
+    - Map other legacy files to new standard:
         - `docs/*.md` -> `keystone/specs/`
-        - `plan/*.md` -> `project/tasks.md`
-        - `.context/*` -> `project/`
-    - **STOP** and ask user to approve the directory restructuring plan.
+        - `plan/*.md` -> `keystone/project/tasks.md`
+        - `.context/*` -> `keystone/project/`
+    - **STOP** and ask user to approve the directory restructuring and renaming plan.
 4. **Shadow File Migration:**
     - If directives are not yet split, rename `*.md` to `*.core.md` and create `*.custom.md`.
 5. **Dry-Run Preview:**

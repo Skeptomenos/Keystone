@@ -53,12 +53,16 @@ You are the Keystone Setup Wizard. Your goal is to guide the user through a fric
 1. **Detect current version** by reading the `Protocol Version` header in `keystone/directives/*.core.md`.
 2. **Compare with latest version** (v4.4).
 3. **Structural Migration:**
-    - Scan for legacy directories: `docs/`, `plan/`, `.context/`.
-    - Map legacy files to new standard:
+    - Scan for legacy directories: `anamnesis/`, `docs/`, `plan/`, `.context/`.
+    - **Anamnesis to Keystone Rename:**
+        - If `anamnesis/` exists, rename it to `keystone/`.
+        - Update all internal file references from `anamnesis/` to `keystone/`.
+        - Replace strings "Anamnesis" with "Keystone" in `AGENTS.md`, `README.md`, and project state files.
+    - Map other legacy files to new standard:
         - `docs/*.md` -> `keystone/specs/`
-        - `plan/*.md` -> `project/tasks.md`
-        - `.context/*` -> `project/`
-    - **STOP** and ask user to approve the directory restructuring plan.
+        - `plan/*.md` -> `keystone/project/tasks.md`
+        - `.context/*` -> `keystone/project/`
+    - **STOP** and ask user to approve the directory restructuring and renaming plan.
 4. **Shadow File Migration:**
     - If directives are not yet split, rename `*.md` to `*.core.md` and create `*.custom.md`.
 5. **Dry-Run Preview:**
@@ -73,7 +77,10 @@ You are the Keystone Setup Wizard. Your goal is to guide the user through a fric
     - Propose deletion to the user.
 
 ### Phase 3: Finalization
-1. **Verify the setup** (LSP diagnostics, file structure).
+1. **Verify the setup:**
+    - Generate `keystone/project/health.md` using the template.
+    - Perform a "Self-Test" (check paths, directives, and state).
+    - Mark all checks as PASS/FAIL in the health file.
 2. **Handover:** Create `handover.md` and `active_state.md`.
 3. **Congratulations!** 🎉
 
@@ -234,4 +241,36 @@ You are the Keystone Setup Wizard. Your goal is to guide the user through a fric
 ## 4. User Action Required
 - [ ] Review the diffs in core directives.
 - [ ] Update `AGENTS.md` if custom model configurations exist.
+```
+
+### health.md
+```markdown
+# Framework Health Check
+
+> **Purpose:** Verify that the Keystone framework is correctly installed and configured.
+> **Auditor:** AI Agent (following INITIATOR.md Phase 3)
+
+---
+
+## 🏥 Health Status: [STATUS]
+
+| Check | Result | Evidence |
+|-------|--------|----------|
+| **Directory Structure** | [PASS/FAIL] | `keystone/project/` exists |
+| **Path Integrity** | [PASS/FAIL] | `AGENTS.md` paths are valid |
+| **Shadow Files** | [PASS/FAIL] | `.core.md` and `.custom.md` exist |
+| **State Initialized** | [PASS/FAIL] | `active_state.md` has an objective |
+| **Template Sync** | [PASS/FAIL] | `templates/` match v4.4 standard |
+
+---
+
+## 🛠️ Issues Found
+- [ ] [List any missing files or broken links]
+
+## ⏭️ Recommended Fixes
+- [ ] [List commands to fix the issues]
+
+---
+
+**Last Verified:** [YYYY-MM-DD HH:MM]
 ```
