@@ -6,6 +6,24 @@
 
 **Version:** 4.6.0
 
+---
+
+## 🤖 For AI Agents
+
+If you are an AI agent interacting with this repository, follow these protocols based on your task:
+
+### 1. Initializing or Updating a Project
+If you have been tasked with **initializing**, **retrofitting**, or **updating** the Keystone framework in a project, read and follow the instructions in [INITIATOR.md](INITIATOR.md). Adopt the "Wizard" role immediately.
+
+### 2. Contributing to the Framework
+If you are contributing to the Keystone framework itself (this meta-project):
+- **Dogfooding:** Follow the framework's own protocols defined in `keystone/directives/`.
+- **State:** Read `keystone/project/mission.md` and `keystone/project/workstreams/registry.md` to orient yourself.
+- **Isolation:** Only edit the workstream file assigned to you in `keystone/project/workstreams/`.
+- **Verification:** Run `./keystone/bin/audit.sh` before finalizing any changes to the `keystone_starter/` distributable.
+
+---
+
 ## Setup Instructions
 
 Copy the entire `keystone_starter/` folder to your new project root, then rename it to your project name.
@@ -40,8 +58,7 @@ your-project/
 │   │   ├── board.md             # Global Kanban (auto-generated)
 │   │   └── workstreams/         # Parallel work contexts
 │   │       ├── registry.md      # Session & Workstream map
-│   │       └── [name]/          # Isolated workstream folder
-│   │           └── workstream.md # Unified state & tasks
+│   │       └── [name].md        # Unified state & tasks per context
 │   │
 │   ├── PROJECT_LEARNINGS.md     # Process wisdom
 │   ├── DECISION_LOG.md          # Architectural decisions
@@ -64,14 +81,14 @@ your-project/
 The framework is optimized for **Parallel AI Engineering**:
 - **Unified Workstreams:** Tasks, Active State, and Handover are consolidated into a single `workstream.md` file per context.
 - **Agent Skills:** Automated tools for scaffolding workstreams (`keystone-init`) and aggregating progress (`keystone-board`).
-- **Isolation:** Each AI session owns its own directory, preventing Git merge conflicts and context bleed.
+- **Isolation:** Each AI session owns its own workstream file, preventing Git merge conflicts and context bleed.
 
 ### User Commands
 
 | Command | Action |
 |---------|--------|
 | "Create workstream [name]" | Call `skills_keystone_init` to scaffold a new context |
-| "Generate board" | Call `skills_keystone_board` to sync global progress |
+| "Generate board" | Call `skills_keystone_board` |
 | "Next task" | Find and start next Open task in active workstream |
 | "Switch to [workstream]" | Change active workstream focus |
 
