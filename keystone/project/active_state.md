@@ -33,10 +33,10 @@ Refactor complete. Finalizing session.
 
 ## Iteration Log
 
-### 2025-12-21: Phase 4 Completion
-- **Tried:** Finalized AGENTS.md, updated MIGRATION.md for v4.4, and synced all framework templates.
-- **Result:** The Zero-Friction refactor is fully implemented and documented.
-- **Learning:** The Shadow File pattern combined with the INITIATOR.md wizard creates a sustainable and low-friction ecosystem for Keystone.
+### 2025-12-21: Transition to Smart Merging
+- **Tried:** Removed Shadow File architecture (`.core`/`.custom`) and implemented "Smart Merging" logic in `INITIATOR.md`.
+- **Result:** Cleaner directory structure with single directive files. The AI is now responsible for merging framework updates with user customizations.
+- **Learning:** While Shadow Files are safer, Smart Merging provides a better user experience by reducing file clutter. The instructions must remain extremely rigorous to prevent logic loss.
 
 ---
 

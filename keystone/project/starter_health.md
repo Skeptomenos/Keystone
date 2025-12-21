@@ -18,9 +18,9 @@
 
 ## Audit History
 
-### 2025-12-21 Audit: Initial v4.4.0 Verification
+### 2025-12-21 Audit: Explicit Source/Destination Mapping
 - **Status:** PASS
 - **Integrity:** Verified all paths in `keystone_starter/AGENTS.md` exist.
-- **Consistency:** Verified `INITIATOR.md` correctly references `project/` and `.core.md` files.
-- **Density:** N/A (Baseline for v4.4.0).
-- **Notes:** This is the first audit following the Zero-Friction refactor.
+- **Consistency:** Cross-reference verified. `INITIATOR.md` now explicitly defines **Source (Remote)** vs **Destination (Local)** to prevent multi-repo confusion.
+- **Density:** +2% (Added mapping rules).
+- **Notes:** Fixed stale `.core.md` references in update logic.

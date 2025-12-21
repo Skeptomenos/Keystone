@@ -33,6 +33,27 @@
 
 *All tasks completed and moved to Archive.*
 
+## Phase 6: Smart Merging Refactor
+
+### Workstream: core
+
+- [x] **TASK-015: Implement Smart Merge Protocol in INITIATOR.md** — *Completed: 2025-12-21*
+    - **Dependencies:** TASK-007
+    - **Status:** Archive
+    - **Workstream:** core
+- [x] **TASK-016: Consolidate Shadow Files into single directives** — *Completed: 2025-12-21*
+    - **Dependencies:** TASK-015
+    - **Status:** Archive
+    - **Workstream:** core
+- [x] **TASK-017: Update AGENTS.md and README.md for Smart Merging** — *Completed: 2025-12-21*
+    - **Dependencies:** TASK-016
+    - **Status:** Archive
+    - **Workstream:** core
+- [x] **TASK-018: Remove redundant root INITIATOR.md** — *Completed: 2025-12-21*
+    - **Dependencies:** None
+    - **Status:** Archive
+    - **Workstream:** core
+
 ---
 
 ## Archive

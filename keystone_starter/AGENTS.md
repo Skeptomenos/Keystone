@@ -32,7 +32,7 @@ keystone/         # AI framework
 ### Golden Rules
 
 1. **Wizard:** Use `INITIATOR.md` for setup and updates.
-2. **Shadow Files:** Directives are split into `*.core.md` (framework) and `*.custom.md` (user). Read BOTH; `*.custom.md` takes precedence.
+2. **Smart Merging:** Directives (`THINKING.md`, `EXECUTION.md`) are single files that merge framework logic with your custom rules. Read the whole file; custom rules are usually at the bottom.
 3. **State:** Read `keystone/project/mission.md` + `keystone/project/active_state.md` at session start.
 4. **Specs:** Complex tasks (>1hr) require `keystone/specs/`. No code without spec.
 5. **Consensus:** Present plan, WAIT for approval before coding.
@@ -51,9 +51,9 @@ keystone/         # AI framework
 | Task | File |
 |------|------|
 | Session start | `keystone/project/mission.md` + `keystone/project/active_state.md` |
-| New feature, refactor | `keystone/directives/THINKING.{core,custom}.md` |
-| Complex bug | `keystone/directives/THINKING.{core,custom}.md` (T1-RCA) |
-| Implementation | `keystone/directives/EXECUTION.{core,custom}.md` |
+| New feature, refactor | `keystone/directives/THINKING.md` |
+| Complex bug | `keystone/directives/THINKING.md` (T1-RCA) |
+| Implementation | `keystone/directives/EXECUTION.md` |
 | Code review | `keystone/standards/INDEX.md` |
 | Project constraints | `keystone/PROJECT_LEARNINGS.md` |
 

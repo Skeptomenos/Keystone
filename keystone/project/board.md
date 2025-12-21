@@ -1,8 +1,8 @@
 # Project Board
 
 > **Auto-generated from `keystone/project/tasks.md`**
-> **Last Updated:** 2025-12-21 03:30
-> **Active Workstream:** testing
+> **Last Updated:** 2025-12-21 09:45
+> **Active Workstream:** core
 
 ---
 
@@ -10,9 +10,9 @@
 
 | Total | Backlog | Open | In Progress | Blocked | Done | Archive |
 |-------|---------|------|-------------|---------|------|---------|
-| 14    | 0       | 0    | 0           | 0       | 0    | 14      |
+| 18    | 0       | 0    | 0           | 0       | 0    | 18      |
 
-**Progress:** [██████████] 100% (14/14 tasks)
+**Progress:** [██████████] 100% (18/18 tasks)
 
 ---
 
@@ -56,6 +56,10 @@
 - [x] **TASK-012:** Implement Rigid Auditor Protocol
 - [x] **TASK-013:** Create Starter Health State File
 - [x] **TASK-014:** Execute First Full Starter Audit
+- [x] **TASK-015:** Implement Smart Merge Protocol in INITIATOR.md
+- [x] **TASK-016:** Consolidate Shadow Files into single directives
+- [x] **TASK-017:** Update AGENTS.md and README.md for Smart Merging
+- [x] **TASK-018:** Remove redundant root INITIATOR.md
 
 ---
 
@@ -66,5 +70,5 @@
 | initiator  | 3     | 3    | 100%     |
 | archaeologist| 3     | 3    | 100%     |
 | weaver     | 3     | 3    | 100%     |
-| core       | 2     | 2    | 100%     |
+| core       | 6     | 6    | 100%     |
 | testing    | 3     | 3    | 100%     |
