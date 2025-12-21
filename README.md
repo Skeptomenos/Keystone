@@ -304,6 +304,10 @@ This repository is the **meta-project** that develops the Keystone framework its
 
 Changes to `keystone_starter/` affect all downstream projects. Follow the framework's own protocols when contributing.
 
+### Maintainer Tools
+
+- **Rigid Auditor:** Run `./keystone/bin/audit.sh` to verify the integrity of the `keystone_starter/` distributable before pushing changes.
+
 ### Version History
 
 See [CHANGELOG.md](CHANGELOG.md) for detailed version history.
