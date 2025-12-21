@@ -9,20 +9,20 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 - **INITIATOR.md Wizard:** Single-file entry point for setup, retrofit, and updates.
-- **Shadow File Architecture:** Directives split into `*.core.md` and `*.custom.md` to allow framework updates without breaking user customizations.
+- **Smart Merging Protocol:** Directives are now single files (`THINKING.md`, `EXECUTION.md`) that merge framework updates with user customizations.
 - **Intelligent Retrofit Engine:** "The Archaeologist" for mapping existing projects with source attribution and reality check gates.
 - **Semantic Protocol Versioning:** Version headers in core directives to manage migrations.
 - **MVA Templates:** Minimal Viable Keystone templates embedded in `INITIATOR.md` for offline setup.
 
 ### Changed
 - **Directory Structure:** Renamed `.context/` to `project/` for better clarity and alignment with project-specific state.
-- **AGENTS.md:** Updated to support Shadow Files and the Wizard onboarding flow.
-- **Directives:** Updated `THINKING.core.md` and `EXECUTION.core.md` with versioning and new protocols.
+- **AGENTS.md:** Updated to support Smart Merging and the Wizard onboarding flow.
+- **Directives:** Updated `THINKING.md` and `EXECUTION.md` with versioning and new protocols.
 - **Templates:** All templates updated to use the new `project/` directory paths.
 
 ### Removed
 - **.context/ directory:** Replaced by `project/`.
-
+- **Shadow File Architecture:** Replaced by Smart Merging for reduced directory clutter.
 ## [4.3.0] - 2025-12-09
 
 ### Added

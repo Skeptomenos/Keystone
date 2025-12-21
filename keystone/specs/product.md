@@ -18,7 +18,7 @@ Keystone is a markdown-based framework that transforms AI-assisted coding from c
 4. **Task Management** - `project/tasks.md` + `board.md` for visual progress tracking
 5. **Zero-Friction Onboarding** - `INITIATOR.md` wizard for instant setup
 6. **Intelligent Retrofit** - "The Archaeologist" engine for existing projects
-7. **Smart Updates** - "The Weaver" system with Shadow Files
+7. **Smart Updates** - "The Weaver" system with Smart Merging Protocol
 
 ## Non-Goals
 

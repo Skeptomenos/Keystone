@@ -21,7 +21,7 @@
 |------------|-------------|--------|
 | `initiator` | INITIATOR.md development | Active |
 | `archaeologist` | Retrofit engine logic | Active |
-| `weaver` | Smart updates and Shadow Files | Active |
+| `weaver` | Smart updates and Merging | Active |
 | `core` | Framework-wide changes | Active |
 | `testing` | Internal quality gates for starter | Active |
 

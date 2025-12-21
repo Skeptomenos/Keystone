@@ -27,7 +27,7 @@ knowledge_base/                    # META-PROJECT (this repo)
 ├── keystone_starter/             # DISTRIBUTABLE STARTER (copy to new projects)
 │   ├── keystone/                 # The framework
 │   │   ├── project/               # Project state
-│   │   ├── directives/            # THINKING.core.md, EXECUTION.core.md
+│   │   ├── directives/            # THINKING.md, EXECUTION.md
 │   │   ├── standards/             # Code quality rules
 │   │   ├── specs/                 # Feature specifications
 │   │   ├── templates/             # Recreatable file templates
@@ -39,7 +39,7 @@ knowledge_base/                    # META-PROJECT (this repo)
 │   └── INITIATOR.md               # Setup & Update Wizard
 ├── keystone/                     # This project's framework instance
 │   ├── project/                   # Session state
-│   ├── directives/                # THINKING.core.md, EXECUTION.core.md
+│   ├── directives/                # THINKING.md, EXECUTION.md
 │   ├── standards/                 # Code quality rules
 │   ├── specs/                     # Feature specifications
 │   └── templates/                 # Recreatable file templates

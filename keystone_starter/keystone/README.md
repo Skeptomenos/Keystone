@@ -2,7 +2,7 @@
 
 > A stateful, spec-driven framework for AI-assisted software engineering.
 
-**Version:** 4.3
+**Version:** 4.4
 
 ## Setup Instructions
 

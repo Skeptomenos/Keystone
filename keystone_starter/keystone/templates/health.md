@@ -11,7 +11,7 @@
 |-------|--------|----------|
 | **Directory Structure** | [PASS/FAIL] | `keystone/project/` exists |
 | **Path Integrity** | [PASS/FAIL] | `AGENTS.md` paths are valid |
-| **Shadow Files** | [PASS/FAIL] | `.core.md` and `.custom.md` exist |
+| **Smart Merging** | [PASS/FAIL] | Directives contain both core and custom logic |
 | **State Initialized** | [PASS/FAIL] | `active_state.md` has an objective |
 | **Template Sync** | [PASS/FAIL] | `templates/` match v4.4 standard |
 

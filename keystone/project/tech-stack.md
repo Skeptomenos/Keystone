@@ -17,7 +17,7 @@
 
 ## Architecture Patterns
 
-- **Shadow Files:** Separation of `.core.md` (framework) and `.custom.md` (user).
+- **Smart Merging:** Surgical merging of framework updates into local files.
 - **Spec-Driven Development (SDD):** Requirements-first implementation.
 - **OODA Loop:** Observe, Orient, Decide, Act for debugging and recovery.
 - **Source Attribution:** Linking specs to source code evidence.

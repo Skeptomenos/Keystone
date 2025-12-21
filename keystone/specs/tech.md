@@ -26,9 +26,10 @@
 - **Task Source:** `project/tasks.md`
 - **Board Output:** `project/board.md`
 
-## Shadow File Pattern
+## Smart Merging Pattern
 
-To support smart updates, directives are split:
-- `*.core.md`: Framework-managed logic. Overwritten on update.
-- `*.custom.md`: User-managed logic. Preserved on update.
-- AI is instructed to synthesize both, with `*.custom.md` taking precedence.
+To support seamless updates while preserving customizations:
+- Directives (`THINKING.md`, `EXECUTION.md`) are single files.
+- The `INITIATOR.md` wizard performs a surgical merge of framework updates into local files.
+- User-added rules (typically at the bottom of files) are strictly preserved.
+- Shared files (`AGENTS.md`, `README.md`) use a section-based merge strategy.

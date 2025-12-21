@@ -19,7 +19,7 @@ src/               # Source code
 tests/             # Tests
 keystone/         # AI framework
 ├── project/       # Session state
-├── directives/    # THINKING.core.md, EXECUTION.core.md
+├── directives/    # THINKING.md, EXECUTION.md
 ├── standards/     # Code quality rules
 ├── specs/         # Feature specifications
 └── templates/     # Recreatable file templates

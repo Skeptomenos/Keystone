@@ -176,14 +176,14 @@ For projects with many tasks, you can use this pattern to bulk update:
 
 - **v4.2:** Basic task management with checkboxes
 - **v4.3:** Enhanced task awareness with dependencies, status workflow, workstreams, and kanban board
-- **v4.4:** Zero-Friction onboarding with `INITIATOR.md`, Shadow File architecture (`.core` vs `.custom`), and intelligent retrofit.
+- **v4.4:** Zero-Friction onboarding with `INITIATOR.md`, Smart Merging Protocol, and intelligent retrofit.
 
 ## Upgrading to Keystone 4.4 (Zero-Friction)
 
 ### What's New in 4.4
 
 - **INITIATOR.md Wizard:** Single-file entry point for setup, retrofit, and updates.
-- **Shadow Files:** Directives split into `*.core.md` (framework) and `*.custom.md` (user) to prevent update conflicts.
+- **Smart Merging:** Directives are single files (`THINKING.md`, `EXECUTION.md`) that merge framework updates with user customizations.
 - **Intelligent Retrofit:** "The Archaeologist" engine for mapping existing projects with source attribution.
 - **Semantic Protocol Versioning:** Version headers in core directives to manage migrations.
 - **Directory Rename:** `.context/` renamed to `project/` for better clarity.
@@ -199,13 +199,13 @@ If you prefer manual migration:
 mv keystone/.context keystone/project
 ```
 
-#### Step 3: Split Directives
-Rename your directives and create custom overrides:
+#### Step 3: Consolidate Directives
+If you are using the experimental Shadow File architecture (`.core.md` / `.custom.md`), merge them into single `.md` files:
 ```bash
-mv keystone/directives/THINKING.md keystone/directives/THINKING.core.md
-mv keystone/directives/EXECUTION.md keystone/directives/EXECUTION.core.md
-touch keystone/directives/THINKING.custom.md keystone/directives/EXECUTION.custom.md
+# Example for THINKING.md
+cat keystone/directives/THINKING.core.md keystone/directives/THINKING.custom.md > keystone/directives/THINKING.md
+rm keystone/directives/THINKING.core.md keystone/directives/THINKING.custom.md
 ```
 
 #### Step 4: Update AGENTS.md
-Ensure your `AGENTS.md` points to the new `project/` paths and mentions the Shadow File protocol.
+Ensure your `AGENTS.md` points to the new `project/` paths and mentions the Smart Merging protocol.

@@ -34,9 +34,9 @@ This plan outlines the refactor of the Keystone framework to reduce onboarding f
 ## Phase 3: The Weaver (Smart Updates)
 **Goal:** Enable framework updates without losing project-specific customizations.
 
-- **TASK-007: Implement Shadow File Architecture**
-    - Split directives into `.core.md` (framework) and `.custom.md` (user).
-    - Update `AGENTS.md` to instruct AI to read both, with `.custom` taking precedence.
+- **TASK-007: Implement Smart Merging Protocol**
+    - Instruct AI to surgically merge framework updates into local directive files.
+    - Update `AGENTS.md` to emphasize reading the whole file for custom rules.
 - **TASK-008: Implement Semantic Protocol Versioning**
     - Add versioning to Markdown sections to prevent incompatible updates.
 - **TASK-009: Implement Dry-Run Diff**
@@ -48,7 +48,7 @@ This plan outlines the refactor of the Keystone framework to reduce onboarding f
 **Goal:** Finalize the v4.4 release.
 
 - **TASK-010: Update AGENTS.md for Zero-Friction Model**
-    - Ensure the root entry point supports the new wizard and shadow files.
+    - Ensure the root entry point supports the new wizard and smart merging.
 - **TASK-011: Update MIGRATION.md for v4.4**
     - Document the transition and provide clear instructions for existing users.
 
@@ -62,7 +62,7 @@ This plan outlines the refactor of the Keystone framework to reduce onboarding f
 - **Architecture Drift:** Mitigated by **Reality Check** (user confirms current state).
 
 ### Update Risks
-- **Customization Loss:** Mitigated by **Shadow File Pattern** (separate core/custom).
+- **Customization Loss:** Mitigated by **Smart Merging Protocol** (surgical merge).
 - **Breaking Changes:** Mitigated by **Semantic Versioning**.
 - **Update Anxiety:** Mitigated by **Dry-Run Diff**.
 

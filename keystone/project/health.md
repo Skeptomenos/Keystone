@@ -11,7 +11,7 @@
 |-------|--------|----------|
 | **Directory Structure** | PASS | `keystone/project/` and `keystone/directives/` exist. |
 | **Path Integrity** | PASS | `AGENTS.md` correctly references `keystone/project/` and `keystone/directives/`. |
-| **Shadow Files** | PASS | `.core.md` and `.custom.md` exist for both THINKING and EXECUTION. |
+| **Smart Merging** | PASS | Directives are single files containing both core and custom logic. |
 | **State Initialized** | PASS | `keystone/project/active_state.md` exists and is updated. |
 | **Template Sync** | PASS | `keystone/templates/` contains the latest v4.4 standard files. |
 

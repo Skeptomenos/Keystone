@@ -7,11 +7,11 @@
 
 ## Current Idea
 
-We are evolving the Keystone framework into a "Zero-Friction" AI-assisted engineering system. This involves creating an intelligent setup wizard (`INITIATOR.md`), a robust retrofit engine ("The Archaeologist") for existing codebases, and a sustainable update mechanism ("The Weaver") using Shadow Files to separate core framework logic from project-specific customizations.
+We are evolving the Keystone framework into a "Zero-Friction" AI-assisted engineering system. This involves creating an intelligent setup wizard (`INITIATOR.md`), a robust retrofit engine ("The Archaeologist") for existing codebases, and a sustainable update mechanism ("The Weaver") using a Smart Merging Protocol to integrate core framework logic with project-specific customizations.
 
 ## Evolution
 
-- [2025-12]: Pivoted to "Zero-Friction" model. Introduced INITIATOR.md, The Archaeologist (Retrofit), and The Weaver (Smart Updates/Shadow Files).
+- [2025-12]: Pivoted to "Zero-Friction" model. Introduced INITIATOR.md, The Archaeologist (Retrofit), and The Weaver (Smart Updates).
 
 ## Success Looks Like
 
@@ -23,7 +23,7 @@ We are evolving the Keystone framework into a "Zero-Friction" AI-assisted engine
 ## Constraints
 
 - **Meta-project separation:** Changes to the framework must be made in `keystone_starter/`.
-- **Shadow File Pattern:** Core logic must be separated from custom logic.
+- **Smart Merging Protocol:** Framework updates must be surgically merged into local files.
 - **Handshake Rule:** AI must propose and wait for approval before implementation.
 - **Source Attribution:** Retrofit specs must cite source files.
 

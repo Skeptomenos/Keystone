@@ -19,7 +19,7 @@ Ask your AI: **"Initialize Keystone"** or **"Update Keystone"**.
 The AI will guide you through:
 - **New Projects:** Design thinking, ideation, and MVP scoping.
 - **Existing Projects:** Intelligent retrofit with source attribution and architecture mapping.
-- **Updates:** Seamless migration to the latest framework version using Shadow Files.
+- **Updates:** Seamless migration to the latest framework version using Smart Merging.
 
 ---
 
@@ -111,8 +111,8 @@ flowchart TD
 ```
 
 | **Root** | `AGENTS.md` | Always (auto-loaded) | Essential context, golden rules, pointers |
-| **Thinking** | `keystone/directives/THINKING.core.md` | New ideas, features, refactors, complex bugs | First Principles & Design Thinking |
-| **Execution** | `keystone/directives/EXECUTION.core.md` | Implementation tasks | Build, test, deliver protocols |
+| **Thinking** | `keystone/directives/THINKING.md` | New ideas, features, refactors, complex bugs | First Principles & Design Thinking |
+| **Execution** | `keystone/directives/EXECUTION.md` | Implementation tasks | Build, test, deliver protocols |
 | **Quality** | `keystone/standards/INDEX.md` | Code writing | Style and quality rules |
 | **Wisdom** | `PROJECT_LEARNINGS.md` | Every session | Project-specific constraints |
 
@@ -166,16 +166,16 @@ graph LR
     Q --> R
 ```
 
-### 1. `THINKING.core.md` (The Mind)
+### 1. `THINKING.md` (The Mind)
 
 This guides problem decomposition BEFORE implementation (v4.4):
-- **Shadow Files:** Separates framework logic (`.core`) from user logic (`.custom`).
+- **Smart Merging:** Directives are single files that merge framework logic with your custom rules.
 - **First Principles:** Strip problems to fundamental truths before building solutions.
 - **Design Thinking:** Understand users, define problems clearly, explore options.
 - **Root Cause Analysis:** Structured debugging for complex bugs.
 - **Consensus Gate:** Present thinking summary and WAIT for user validation.
 
-### 2. `EXECUTION.core.md` (The Hands)
+### 2. `EXECUTION.md` (The Hands)
 
 This guides implementation AFTER thinking is complete (v4.4):
 - **Spec-Driven Development (SDD):** No code without a persistent "Source of Truth".
@@ -234,9 +234,9 @@ graph TD
     I --> I3[specs/]
     I --> I4[templates/]
     
-    I1 --> I1a[THINKING.core.md<br/>First Principles]
-    I1 --> I1b[EXECUTION.core.md<br/>Build & Deliver]
-    I1 --> I1c[*.custom.md<br/>User overrides]
+    I1 --> I1a[THINKING.md<br/>First Principles]
+    I1 --> I1b[EXECUTION.md<br/>Build & Deliver]
+    I1 --> I1c[Custom Rules<br/>Merged in-file]
     
     I2 --> I2a[INDEX.md<br/>Quality rules]
     I2 --> I2b[global.md<br/>Language-agnostic]
