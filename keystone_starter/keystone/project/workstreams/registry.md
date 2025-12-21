@@ -5,11 +5,13 @@
 
 | Workstream | Feature Plan | Session Name | Status | Last Heartbeat |
 | :--- | :--- | :--- | :--- | :--- |
-| `main` | `keystone/project/workstreams/main/workstream.md` | `root-session` | `Active` | [YYYY-MM-DD] |
+| `core` | `keystone/plans/unified-workstreams.md` | `root-session` | `Active` | 2025-12-21 |
+| `initiator` | `keystone/specs/product.md` | `root-session` | `Done` | 2025-12-21 |
+| `testing` | `keystone/specs/requirements.md` | `root-session` | `Done` | 2025-12-21 |
 
 ---
 
 ## Registry Rules
-1. **Unique Names**: Workstream names must match their directory name in `keystone/project/workstreams/`.
+1. **Unique Names**: Workstream names must match their filename in `keystone/project/workstreams/`.
 2. **Session Ownership**: Only one session should be `Active` per workstream at a time.
 3. **Heartbeat**: Agents should update the `Last Heartbeat` when calling the `keystone-board` skill.

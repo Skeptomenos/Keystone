@@ -32,8 +32,8 @@
 
 > **THE GOLDEN RULE OF CONTINUITY:**
 > You are part of a relay team. You are rarely the first and never the last.
-> 1. **Start** by reading your workstream's `workstream.md` (Unified State).
-> 2. **Work** by updating the `## 🧠 Active State` section in `workstream.md` when you complete a logical block of work.
+> 1. **Start** by reading your workstream's `[name].md` file in `keystone/project/workstreams/`.
+> 2. **Work** by updating the `## 🧠 Active State` section in that file when you complete a logical block of work.
 > 3. **Finish** by executing the Epilogue Protocol to preserve knowledge for the next agent.
 > **If you fail to update these files, your work is considered lost.**
 
@@ -44,7 +44,7 @@
 
 > **THE DISTRIBUTED WORKSTREAM RULE (ISOLATION):**
 > To support parallel AI sessions, Keystone uses a distributed task model.
-> 1. **Ownership**: You own exactly ONE workstream file: `keystone/project/workstreams/[name]/workstream.md`.
+> 1. **Ownership**: You own exactly ONE workstream file: `keystone/project/workstreams/[name].md`.
 > 2. **Write Access**: You are strictly forbidden from editing workstream files in other directories.
 > 3. **Identity Anchor**: At session start, identify your workstream from `registry.md` or ask the user.
 > 4. **Prefixed IDs**: For NEW tasks, use your workstream name as a prefix (e.g., `AUTH-001`) to prevent global ID collisions.
@@ -78,14 +78,14 @@
 - **Identify Identity:** 
     - Read `keystone/project/workstreams/registry.md`.
     - If multiple workstreams are active, ask: *"Which workstream is this session focused on?"*
-    - Once identified, read the local `workstream.md` in that folder.
+    - Once identified, read the local `[name].md` file in `keystone/project/workstreams/`.
 - **Check Constraints:** Read `keystone/PROJECT_LEARNINGS.md`.
 - **Generate Board:** Call `skills_keystone_board` to see the global project status.
 
 ### 0.2: Spec Check
 
 - **For NEW features/projects:** Ensure `keystone/directives/THINKING.md` was followed first.
-- **Load existing specs** from `keystone/specs/` or the `Driving Plan` linked in `workstream.md`.
+- **Load existing specs** from `keystone/specs/` or the `Driving Plan` linked in your workstream file.
 
 ---
 
@@ -93,7 +93,7 @@
 
 ### 1.1: Recursive Decomposition (The Knife)
 
-- **Decompose:** Break complex requests down into **Atomic Units** in your `workstream.md` under `## 📋 Tasks`.
+- **Decompose:** Break complex requests down into **Atomic Units** in your workstream file under `## 📋 Tasks`.
 - **Prefixed IDs**: Use your workstream prefix for all new tasks.
 
 ### 1.2: The Consensus Gate (CRITICAL)
@@ -107,7 +107,7 @@
 
 ### 2.1: The Protocol
 
-1. **Read** your `workstream.md`. Identify the next **OPEN** task.
+1. **Read** your workstream file. Identify the next **OPEN** task.
 2. **Implement** ONLY that single task.
 3. **Verify** (Unit Test / Manual Check).
 4. **Mark** as `[x]` and update Status to `Done`.
@@ -142,9 +142,9 @@
 
 ### 4.3: Archival Rotation
 
-- [ ] **Archive Completed Tasks**: Move `Done` tasks to the `Archive` section in `workstream.md`.
+- [ ] **Archive Completed Tasks**: Move `Done` tasks to the `Archive` section in your workstream file.
 - [ ] **Update Board**: Call `skills_keystone_board`.
-- [ ] **Handover**: Update `workstream.md` -> `## 💾 Context for Resume`.
+- [ ] **Handover**: Update your workstream file -> `## 💾 Context for Resume`.
 - [ ] **Registry**: Update your status to `Paused` or `Done` in `registry.md`.
 
 ---

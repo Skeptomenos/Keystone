@@ -137,10 +137,14 @@ def generate_board(all_tasks, registry):
 
     for task in all_tasks.values():
         status = task.status
+        is_blocked = task.is_blocked(all_tasks)
+
         if status.lower() == "done":
             columns["Done"].append(task)
-        elif task.is_blocked(all_tasks):
+        elif is_blocked:
             columns["Blocked"].append(task)
+        elif status.lower() == "blocked" and not is_blocked:
+            columns["Open"].append(task)
         elif status in columns:
             columns[status].append(task)
         else:
@@ -184,11 +188,14 @@ def generate_board(all_tasks, registry):
                 dep_str = (
                     f" (Deps: {', '.join(t.dependencies)})" if t.dependencies else ""
                 )
-                md.append(f"- [ ] **{t.id}:** {t.title} `[{t.workstream}]`{dep_str}")
+                mark = "x" if t.status.lower() == "done" else " "
+                md.append(
+                    f"- [{mark}] **{t.id}:** {t.title} `[{t.workstream}]`{dep_str}"
+                )
 
     md.append("\n---")
     md.append("\n## Source Map")
-    sources = sorted(list(set(t.source_file for t in all_tasks.values())))
+    sources = sorted(list(set(str(t.source_file) for t in all_tasks.values())))
     for src in sources:
         md.append(f"- `{src}`")
 
@@ -200,24 +207,21 @@ def main():
     all_tasks_list = []
 
     root_tasks_file = PROJECT_DIR / "tasks.md"
-    all_tasks_list.extend(parse_task_file(root_tasks_file))
+    if root_tasks_file.exists():
+        all_tasks_list.extend(parse_task_file(root_tasks_file))
 
     if WORKSTREAMS_DIR.exists():
-        for ws_dir in WORKSTREAMS_DIR.iterdir():
-            if ws_dir.is_dir() and ws_dir.name != "history":
-                unified_file = ws_dir / "workstream.md"
-                if unified_file.exists():
-                    all_tasks_list.extend(parse_task_file(unified_file))
-                else:
-                    ws_tasks_file = ws_dir / "tasks.md"
-                    if ws_tasks_file.exists():
-                        all_tasks_list.extend(parse_task_file(ws_tasks_file))
+        for ws_file in WORKSTREAMS_DIR.glob("*.md"):
+            if ws_file.name != "registry.md":
+                all_tasks_list.extend(parse_task_file(ws_file))
 
     all_tasks = {}
     for t in all_tasks_list:
         if t.id in all_tasks:
-            print(f"⚠️ Warning: Duplicate Task ID detected: {t.id}. Overwriting...")
-        all_tasks[t.id] = t
+            if "tasks.md" in str(all_tasks[t.id].source_file):
+                all_tasks[t.id] = t
+        else:
+            all_tasks[t.id] = t
 
     registry = get_registry_info()
     generate_board(all_tasks, registry)

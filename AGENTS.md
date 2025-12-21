@@ -1,53 +1,28 @@
-# Keystone
+# [Project Name]
 
-> A stateful, spec-driven framework for AI-assisted software engineering.
-
-> **⚠️ META-PROJECT:** This IS the framework source. Changes propagate to all downstream projects.
+> **Root File:** Auto-loaded by AI CLI tools. Keep concise (<80 lines).
 
 ## Overview
 
-Keystone solves core AI-assisted coding problems:
-- **Amnesia** → Persistent state (`project/`)
-- **Hallucination** → Spec-Driven Development (`specs/`)
-- **Vibe Coding** → Consensus Gates
-- **Monolithic Code** → Atomic decomposition
-
-**Version:** 4.4
+[2-3 sentences: What is this? What problem does it solve?]
 
 ## Tech Stack
 
-- **Format:** Markdown (.md)
-- **Diagrams:** Mermaid.js
-- **Version Control:** Git with Conventional Commits
+- **Language:** [e.g., Python 3.11+]
+- **Framework:** [e.g., FastAPI]
 
-## Repository Structure
+## Structure
 
 ```
-knowledge_base/                    # META-PROJECT (this repo)
-├── keystone_starter/             # DISTRIBUTABLE STARTER (copy to new projects)
-│   ├── keystone/                 # The framework
-│   │   ├── project/               # Project state
-│   │   ├── directives/            # THINKING.md, EXECUTION.md
-│   │   ├── standards/             # Code quality rules
-│   │   ├── specs/                 # Feature specifications
-│   │   ├── templates/             # Recreatable file templates
-│   │   ├── DECISION_LOG.md
-│   │   ├── PROJECT_LEARNINGS.md
-│   │   └── README.md
-│   ├── AGENTS.md                  # AI entry point
-│   ├── CHANGELOG.md
-│   └── INITIATOR.md               # Setup & Update Wizard
-├── keystone/                     # This project's framework instance
-│   ├── project/                   # Session state
-│   ├── directives/                # THINKING.md, EXECUTION.md
-│   ├── standards/                 # Code quality rules
-│   ├── specs/                     # Feature specifications
-│   └── templates/                 # Recreatable file templates
-├── AGENTS.md                      # THIS FILE (meta-project entry)
-├── CHANGELOG.md
-├── DECISION_LOG.md
-├── PROJECT_LEARNINGS.md
-└── README.md
+src/               # Source code
+keystone/         # AI framework
+├── project/       # Session state
+│   ├── workstreams/ # Distributed tasks
+│   └── board.md   # Consolidated view
+├── directives/    # THINKING.md, EXECUTION.md
+├── standards/     # Code quality rules
+├── specs/         # Feature specifications
+└── templates/     # Recreatable file templates
 ```
 
 ---
@@ -56,18 +31,12 @@ knowledge_base/                    # META-PROJECT (this repo)
 
 ### Golden Rules
 
-1. **Wizard:** Use `keystone_starter/INITIATOR.md` for setup and updates.
-2. **Smart Merging:** Directives (`THINKING.md`, `EXECUTION.md`) are single files that merge framework logic with your custom rules. Read the whole file; custom rules are usually at the bottom.
-3. **State:** Read `keystone/project/mission.md` + `keystone/project/active_state.md` at session start.
-4. **Specs:** Complex tasks (>1hr) require `keystone/specs/`. No code without spec.
-5. **Consensus:** Present plan, WAIT for approval before coding.
-6. **Epilogue:** MANDATORY after feature/design completion.
-7. **NO IMPLEMENTATION WITHOUT APPROVAL:** ⚠️ CRITICAL ⚠️
-   - Planning, reading, and research: ALWAYS allowed.
-   - Writing, editing, or deleting files: REQUIRES explicit user approval.
-   - You MUST present your plan and ask "Ready to proceed?" or similar.
-   - WAIT for user to say "go", "proceed", "do it", "yes", or clear equivalent.
-   - **HANDSHAKE RULE:** You CANNOT plan and implement in the same response.
+1. **Wizard:** Use `INITIATOR.md` for setup and updates.
+2. **Smart Merging:** Directives are single files that merge framework logic with custom rules.
+3. **State:** Read `keystone/project/mission.md` + `registry.md` at session start.
+4. **Consensus:** Present plan, WAIT for approval before coding.
+5. **Epilogue:** MANDATORY after task completion. Call `skills_keystone_board`.
+6. **NO IMPLEMENTATION WITHOUT APPROVAL:** ⚠️ CRITICAL ⚠️
 
 > **ESCAPE HATCH:** Simple questions or read-only tasks → skip protocol, act immediately.
 
@@ -75,12 +44,10 @@ knowledge_base/                    # META-PROJECT (this repo)
 
 | Task | File |
 |------|------|
-| Session start | `keystone/project/mission.md` + `keystone/project/active_state.md` |
-| New feature, refactor | `keystone/directives/THINKING.md` |
-| Complex bug | `keystone/directives/THINKING.md` (T1-RCA) |
+| Session start | `keystone/project/mission.md` + `registry.md` |
+| New feature | `keystone/directives/THINKING.md` |
 | Implementation | `keystone/directives/EXECUTION.md` |
-| Code review | `keystone/standards/INDEX.md` |
-| Project constraints | `PROJECT_LEARNINGS.md` |
+| Project constraints | `keystone/PROJECT_LEARNINGS.md` |
 
 ---
 
@@ -88,37 +55,34 @@ knowledge_base/                    # META-PROJECT (this repo)
 
 ### Task Selection Rules
 
-1. **Dependency Check:** Never start a task if its dependencies aren't `Done` or `Archive`.
-2. **Status Flow:** Backlog → Open → In Progress → Done → Archive.
-3. **Board Sync:** Regenerate `board.md` at session start, end, and on user command.
+1. **Isolation**: Only edit tasks in your assigned workstream folder.
+2. **Prefixes**: Use workstream-specific prefixes for all task IDs.
+3. **Board Sync**: Call `skills_keystone_board` to update the global view.
 
 ### User Commands
 
 | Command | Action |
 |---------|--------|
-| "Generate board" | Regenerate board from tasks |
-| "Next task" | Find and start next Open task |
-| "Switch to [workstream]" | Change active workstream |
-| "Archive done tasks" | Move Done tasks to Archive |
+| "Generate board" | Call `skills_keystone_board` |
+| "Next task" | Find and start next Open task in workstream |
+| "Switch to [ws]" | Change active workstream focus |
 
 ### When to Read (Task-Related)
 
 | Task | File |
 |------|------|
-| Task selection | `keystone/project/tasks.md` (check dependencies) |
+| Task selection | `keystone/project/workstreams/[ws]/tasks.md` |
 | Progress overview | `keystone/project/board.md` |
-| Workstream context | `keystone/project/workstreams/[name].md` |
+| Registry | `keystone/project/workstreams/registry.md` |
 
 ---
 
 ## Commands
 
 ```bash
-git status                    # Check state
-git diff                      # Review changes
-ls keystone_starter/         # Inspect distributable framework
+# Build: [cmd]    Test: [cmd]    Lint: [cmd]    Run: [cmd]
 ```
 
 ## State Files
 
-`keystone/project/active_state.md` (current) | `keystone/project/handover.md` (previous) | `keystone/project/tasks.md` (plan) | `keystone/project/board.md` (progress)
+`active_state.md` | `handover.md` | `tasks.md` | `board.md`

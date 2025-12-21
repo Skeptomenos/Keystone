@@ -22,7 +22,7 @@ You are the Keystone Setup Wizard. Your goal is to guide the user through a fric
     - `keystone/standards/*`
     - `keystone/templates/*`
     - `keystone/project/workstreams/registry.md`
-    - `.opencode/skills/*`
+    - `.opencode/skills/*` (Fetch the entire skills directory)
     - `AGENTS.md`
 
 ### The Preservation Protocol (MANDATORY)
@@ -54,9 +54,10 @@ You are the Keystone Setup Wizard. Your goal is to guide the user through a fric
 2. **The Sandbox Split (Migration)**:
    - **IF** a root `tasks.md` exists:
      - Identify each workstream section (e.g., `### Workstream: [name]`).
-     - **Create Unified File**: Write `keystone/project/workstreams/[name].md` using the `workstream_unified.md` template.
+     - Create a directory `keystone/project/workstreams/[name]/`.
+     - **Create Unified File**: Write `keystone/project/workstreams/[name]/workstream.md` using the `workstream_unified.md` template.
      - **Migrate Tasks**: Move the tasks from the root file into the `## 📋 Tasks` section of the new unified file.
-     - **Migrate State**: If a root `active_state.md` exists, append its "Iteration Log" to the `main.md` workstream file.
+     - **Migrate State**: If a root `active_state.md` exists, append its "Iteration Log" to the `main` workstream's unified file.
      - **Archive**: Move root `tasks.md`, `active_state.md`, and `handover.md` to `keystone/project/history/`.
 3. **Registry Initialization**: Create `keystone/project/workstreams/registry.md` and add detected workstreams.
 4. **Skill Injection**: Install/Update the `keystone-board` and `keystone-init` skills in `.opencode/skills/`.
@@ -68,7 +69,7 @@ You are the Keystone Setup Wizard. Your goal is to guide the user through a fric
 3. **Skill Briefing**: 
    - Explain the new `skills_keystone_init` (for new workstreams) and `skills_keystone_board` (for progress tracking).
    - Remind the user: *"You can make these skills available across all projects by copying `.opencode/skills/` to `~/.config/opencode/skills/`."*
-4. **Handover**: Update the `main.md` workstream file.
+4. **Handover**: Update `active_state.md` in the main workstream.
 
 ---
 
@@ -86,7 +87,7 @@ You are the Keystone Setup Wizard. Your goal is to guide the user through a fric
 
 | Workstream | Feature Plan | Session Name | Status | Last Heartbeat |
 | :--- | :--- | :--- | :--- | :--- |
-| `main` | `keystone/project/workstreams/main.md` | `root-session` | `Active` | [YYYY-MM-DD] |
+| `main` | `keystone/project/workstreams/main/workstream.md` | `root-session` | `Active` | [YYYY-MM-DD] |
 ```
 
 ### workstream.md (Unified)
