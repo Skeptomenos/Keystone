@@ -58,6 +58,7 @@ You are the Keystone Setup Wizard. Your goal is to guide the user through a fric
      - **Migrate Tasks**: Move the tasks from the root file into the `## 📋 Tasks` section of the new unified file.
      - **Migrate State**: If a root `active_state.md` exists, append its "Iteration Log" to the `main.md` workstream file.
      - **Archive**: Move root `tasks.md`, `active_state.md`, and `handover.md` to `keystone/project/history/`.
+
 3. **Registry Initialization**: Create `keystone/project/workstreams/registry.md` and add detected workstreams.
 4. **Skill Injection**: Install/Update the `keystone-board` and `keystone-init` skills in `.opencode/skills/`.
 5. **Smart Merge Migration**: Consolidate directives.
