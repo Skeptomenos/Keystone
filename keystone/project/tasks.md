@@ -67,6 +67,19 @@
     - **Status:** Archive
     - **Workstream:** archaeologist
 
+## Phase 8: Quality Automation
+
+### Workstream: testing
+
+- [x] **TASK-021: Create automated audit script (audit.sh)** — *Completed: 2025-12-21*
+    - **Dependencies:** TASK-012
+    - **Status:** Archive
+    - **Workstream: testing**
+- [x] **TASK-022: Create placeholder state files in keystone_starter** — *Completed: 2025-12-21*
+    - **Dependencies:** TASK-021
+    - **Status:** Archive
+    - **Workstream: testing**
+
 ---
 
 ## Archive

@@ -1,8 +1,8 @@
 # Project Board
 
 > **Auto-generated from `keystone/project/tasks.md`**
-> **Last Updated:** 2025-12-21 10:15
-> **Active Workstream:** archaeologist
+> **Last Updated:** 2025-12-21 10:45
+> **Active Workstream:** testing
 
 ---
 
@@ -10,9 +10,9 @@
 
 | Total | Backlog | Open | In Progress | Blocked | Done | Archive |
 |-------|---------|------|-------------|---------|------|---------|
-| 20    | 0       | 0    | 0           | 0       | 0    | 20      |
+| 22    | 0       | 0    | 0           | 0       | 0    | 22      |
 
-**Progress:** [██████████] 100% (20/20 tasks)
+**Progress:** [██████████] 100% (22/22 tasks)
 
 ---
 
@@ -62,6 +62,8 @@
 - [x] **TASK-018:** Remove redundant root INITIATOR.md
 - [x] **TASK-019:** Implement Surgical Scan Protocol in INITIATOR.md
 - [x] **TASK-020:** Update DISCOVERY.md template with scan results section
+- [x] **TASK-021:** Create automated audit script (audit.sh)
+- [x] **TASK-022:** Create placeholder state files in keystone_starter
 
 ---
 
@@ -73,4 +75,4 @@
 | archaeologist| 5     | 5    | 100%     |
 | weaver     | 3     | 3    | 100%     |
 | core       | 6     | 6    | 100%     |
-| testing    | 3     | 3    | 100%     |
+| testing    | 5     | 5    | 100%     |

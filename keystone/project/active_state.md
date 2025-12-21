@@ -33,10 +33,10 @@ Refactor complete. Finalizing session.
 
 ## Iteration Log
 
-### 2025-12-21: Surgical Scan Protocol Implementation
-- **Tried:** Implemented the "Surgical Scan Protocol" in `INITIATOR.md` to replace the vague "Scan the codebase" instruction.
-- **Result:** The AI now has a structured 3-pass algorithm (Surface, DNA, Deep Dive) for retrofitting existing projects.
-- **Learning:** Providing a specific search pattern significantly reduces latency and hallucination risk during the discovery phase.
+### 2025-12-21: Automated Rigid Auditor Implementation
+- **Tried:** Created `keystone/bin/audit.sh` to automate path integrity, template sync, and protocol consistency checks.
+- **Result:** Audit identified missing state files in the starter. Fixed by creating placeholder files.
+- **Learning:** Automation is essential for meta-projects. The auditor caught a "Day 1" failure where the AI was instructed to read non-existent files.
 
 ---
 
