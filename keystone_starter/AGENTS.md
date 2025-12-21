@@ -10,15 +10,15 @@
 
 - **Language:** [e.g., Python 3.11+]
 - **Framework:** [e.g., FastAPI]
-- **Database:** [e.g., PostgreSQL]
 
 ## Structure
 
 ```
 src/               # Source code
-tests/             # Tests
 keystone/         # AI framework
 ├── project/       # Session state
+│   ├── workstreams/ # Distributed tasks
+│   └── board.md   # Consolidated view
 ├── directives/    # THINKING.md, EXECUTION.md
 ├── standards/     # Code quality rules
 ├── specs/         # Feature specifications
@@ -32,17 +32,11 @@ keystone/         # AI framework
 ### Golden Rules
 
 1. **Wizard:** Use `INITIATOR.md` for setup and updates.
-2. **Smart Merging:** Directives (`THINKING.md`, `EXECUTION.md`) are single files that merge framework logic with your custom rules. Read the whole file; custom rules are usually at the bottom.
-3. **State:** Read `keystone/project/mission.md` + `keystone/project/active_state.md` at session start.
-4. **Specs:** Complex tasks (>1hr) require `keystone/specs/`. No code without spec.
-5. **Consensus:** Present plan, WAIT for approval before coding.
-6. **Epilogue:** MANDATORY after feature/design completion.
-7. **NO IMPLEMENTATION WITHOUT APPROVAL:** ⚠️ CRITICAL ⚠️
-   - Planning, reading, and research: ALWAYS allowed.
-   - Writing, editing, or deleting files: REQUIRES explicit user approval.
-   - You MUST present your plan and ask "Ready to proceed?" or similar.
-   - WAIT for user to say "go", "proceed", "do it", "yes", or clear equivalent.
-   - **HANDSHAKE RULE:** You CANNOT plan and implement in the same response.
+2. **Smart Merging:** Directives are single files that merge framework logic with custom rules.
+3. **State:** Read `keystone/project/mission.md` + `registry.md` at session start.
+4. **Consensus:** Present plan, WAIT for approval before coding.
+5. **Epilogue:** MANDATORY after task completion. Call `skills_keystone_board`.
+6. **NO IMPLEMENTATION WITHOUT APPROVAL:** ⚠️ CRITICAL ⚠️
 
 > **ESCAPE HATCH:** Simple questions or read-only tasks → skip protocol, act immediately.
 
@@ -50,11 +44,9 @@ keystone/         # AI framework
 
 | Task | File |
 |------|------|
-| Session start | `keystone/project/mission.md` + `keystone/project/active_state.md` |
-| New feature, refactor | `keystone/directives/THINKING.md` |
-| Complex bug | `keystone/directives/THINKING.md` (T1-RCA) |
+| Session start | `keystone/project/mission.md` + `registry.md` |
+| New feature | `keystone/directives/THINKING.md` |
 | Implementation | `keystone/directives/EXECUTION.md` |
-| Code review | `keystone/standards/INDEX.md` |
 | Project constraints | `keystone/PROJECT_LEARNINGS.md` |
 
 ---
@@ -63,26 +55,25 @@ keystone/         # AI framework
 
 ### Task Selection Rules
 
-1. **Dependency Check:** Never start a task if its dependencies aren't `Done` or `Archive`.
-2. **Status Flow:** Backlog → Open → In Progress → Done → Archive.
-3. **Board Sync:** Regenerate `board.md` at session start, end, and on user command.
+1. **Isolation**: Only edit tasks in your assigned workstream folder.
+2. **Prefixes**: Use workstream-specific prefixes for all task IDs.
+3. **Board Sync**: Call `skills_keystone_board` to update the global view.
 
 ### User Commands
 
 | Command | Action |
 |---------|--------|
-| "Generate board" | Regenerate board from tasks |
-| "Next task" | Find and start next Open task |
-| "Switch to [workstream]" | Change active workstream |
-| "Archive done tasks" | Move Done tasks to Archive |
+| "Generate board" | Call `skills_keystone_board` |
+| "Next task" | Find and start next Open task in workstream |
+| "Switch to [ws]" | Change active workstream focus |
 
 ### When to Read (Task-Related)
 
 | Task | File |
 |------|------|
-| Task selection | `keystone/project/tasks.md` (check dependencies) |
+| Task selection | `keystone/project/workstreams/[ws]/tasks.md` |
 | Progress overview | `keystone/project/board.md` |
-| Workstream context | `keystone/project/workstreams/[name].md` |
+| Registry | `keystone/project/workstreams/registry.md` |
 
 ---
 
@@ -94,4 +85,4 @@ keystone/         # AI framework
 
 ## State Files
 
-`keystone/project/active_state.md` (current) | `keystone/project/handover.md` (previous) | `keystone/project/tasks.md` (plan) | `keystone/project/board.md` (progress)
+`active_state.md` | `handover.md` | `tasks.md` | `board.md`

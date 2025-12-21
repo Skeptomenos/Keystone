@@ -5,6 +5,25 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [4.6.0] - 2025-12-21
+
+### Added
+- **Unified Workstream Model:** Consolidated `tasks.md`, `active_state.md`, and `workstream.md` into a single `workstream.md` file per context.
+- **Keystone Board Skill:** Agent skill (`aggregate.py`) that parses unified workstream files and generates a global project board with cross-workstream dependency resolution.
+- **Keystone Init Skill:** Instruction-only skill for scaffolding new workstreams and registering them in the global registry.
+- **Workstream Registry:** Centralized `registry.md` to track parallel session ownership and status.
+- **Prefixed IDs:** Mandatory task ID prefixes (e.g., `AUTH-001`) to prevent collisions in parallel work.
+
+### Changed
+- **EXECUTION.md:** Fully refactored for the Unified Workstream Model. Added "Identity Anchor" protocol for session self-awareness.
+- **THINKING.md:** Added "Delegation Planning" phase to design modular features for parallel execution.
+- **INITIATOR.md:** Updated with "Sandbox Split" migration logic to graduate legacy projects to the unified model.
+- **Templates:** Replaced split templates with `workstream_unified.md`.
+
+### Removed
+- **Global active_state.md:** Decentralized to workstream folders.
+- **Global handover.md:** Deprecated in favor of "Context for Resume" section in unified workstream files.
+
 ## [4.4.0] - 2025-12-21
 
 ### Added

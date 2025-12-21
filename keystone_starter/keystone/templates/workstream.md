@@ -3,6 +3,7 @@
 > **Purpose:** Parallel work context for [objective].
 > **Created:** [YYYY-MM-DD]
 > **Status:** Active | Paused | Completed
+> **Session Name:** [Session Name]
 
 ---
 
@@ -23,25 +24,18 @@
 
 ## Related Tasks
 
-<!-- Tasks in keystone/project/tasks.md with Workstream: [name] -->
-
-| Task ID | Title | Status |
-|---------|-------|--------|
-| TASK-XXX | [Title] | [Status] |
+<!-- Tasks are stored in keystone/project/workstreams/[name]/tasks.md -->
+<!-- Use prefixed IDs like [PREFIX]-001 -->
 
 ---
 
 ## Parked Items
-
-<!-- Short-term paused items within this workstream -->
 
 - [ ] [Item] — [reason paused]
 
 ---
 
 ## Context for Resume
-
-<!-- Notes for when switching back to this workstream -->
 
 - **Last worked on:** [YYYY-MM-DD]
 - **Next steps:** [What to do when resuming]

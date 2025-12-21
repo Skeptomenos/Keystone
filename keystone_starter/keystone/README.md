@@ -2,129 +2,36 @@
 
 > A stateful, spec-driven framework for AI-assisted software engineering.
 
-**Version:** 4.4
+This framework solves the core problems of AI-assisted coding: **Amnesia** (forgetting context), **Hallucination** (guessing), **Vibe Coding** (lack of specs), and **Monolithic Code** (bad architecture).
 
-## Setup Instructions
+---
 
-Copy the entire `keystone_starter/` folder to your new project root, then rename it to your project name.
+## 🚀 Quick Start (Zero-Friction)
 
-```bash
-cp -r keystone_starter/ my-new-project/
-cd my-new-project/
-```
+> **🤖 For AI Agents:** If you have been tasked with **initializing**, **retrofitting**, or **updating** the Keystone framework, please read and follow the instructions in [INITIATOR.md](INITIATOR.md). Adopt the "Wizard" role immediately.
 
-## Structure
+### 1. Copy the Initiator
+Copy `keystone_starter/INITIATOR.md` to your project root.
 
-```
-your-project/
-├── keystone/                   # The framework (you are here)
-│   ├── directives/              # How AI should think and act
-│   │   ├── THINKING.md          # First Principles & Design
-│   │   └── EXECUTION.md         # Build & Deliver
-│   │
-│   ├── standards/               # Code quality rules
-│   │   ├── INDEX.md             # Which standards to read when
-│   │   ├── global.md            # Language-agnostic rules
-│   │   ├── python.md            # Python-specific
-│   │   └── typescript.md        # TypeScript-specific
-│   │
-│   ├── templates/               # Frequently recreated files
-│   │   ├── active_state.md      # Session state template
-│   │   ├── handover.md          # Handover template
-│   │   ├── board.md             # Kanban board template
-│   │   ├── workstream.md        # Workstream template
-│   │   ├── CLAUDE.md            # Claude-specific AGENTS variant
-│   │   └── GEMINI.md            # Gemini-specific AGENTS variant
-│   │
-│   ├── specs/                   # Specification files
-│   │   ├── problem.md           # Problem definition
-│   │   ├── options.md           # Solution options
-│   │   ├── requirements.md      # EARS syntax requirements
-│   │   ├── design.md            # Architecture diagrams
-│   │   ├── tech.md              # Technical decisions
-│   │   └── product.md           # Product definition
-│   │
-│   ├── project/                 # Project state (living files)
-│   │   ├── mission.md           # Living objective
-│   │   ├── backlog.md           # Ideas and deferred work
-│   │   ├── tech-stack.md        # Approved tools
-│   │   ├── board.md             # Kanban board (auto-generated)
-│   │   ├── tasks.md             # Implementation plan
-│   │   └── workstreams/         # Parallel work contexts
-│   │
-│   ├── PROJECT_LEARNINGS.md     # Process wisdom
-│   ├── DECISION_LOG.md          # Architectural decisions
-│   └── README.md                # This file
-│
-├── AGENTS.md                    # Entry point for AI agents
-├── INITIATOR.md                 # Setup & Update Wizard
-└── CHANGELOG.md                 # Project version history
-```
+### 2. Run the Wizard
+Ask your AI: **"Initialize Keystone"** or **"Update Keystone"**.
 
-## Getting Started
+The AI will guide you through:
+- **New Projects:** Design thinking, ideation, and MVP scoping.
+- **Existing Projects:** Intelligent retrofit with source attribution.
+- **Updates:** Seamless migration to the latest version (v4.6.0) using the Unified Workstream Model.
 
-1. **Copy INITIATOR.md** — Copy this file to your project root.
-2. **Run Wizard** — Ask your AI: "Initialize Keystone" or "Update Keystone".
-3. **Follow Instructions** — The AI will guide you through the setup.
+---
 
-## Documentation
+## 🔄 The Workflow You Will See
 
-| Document | Purpose |
-|----------|---------|
-| [Migration Guide](docs/MIGRATION.md) | Upgrade from earlier versions |
+Keystone follows a **Thinking → Execution → Epilogue** protocol:
 
-## Task Management (v4.3+)
-
-The framework includes enhanced task management with:
-- **Dependencies:** Track task relationships and blocking items
-- **Status Workflow:** Backlog → Open → In Progress → Blocked → Done → Archive
-- **Workstreams:** Organize parallel work contexts for features or investigations
-- **Kanban Board:** Visual progress tracking via auto-generated `board.md`
-
-### Task States
-
-| Status | Meaning | Next Action |
-|--------|---------|-------------|
-| `Backlog` | Idea captured, not prioritized | Prioritize or park |
-| `Open` | Ready to work, dependencies met | Start work |
-| `In Progress` | Currently being worked on | Complete or block |
-| `Blocked` | Cannot proceed, waiting | Resolve blocker |
-| `Done` | Verified complete | Archive when ready |
-| `Archive` | Historical reference | None |
-
-### User Commands
-
-| Command | Action |
-|---------|--------|
-| "Generate board" | Regenerate `board.md` from `tasks.md` |
-| "Next task" | Find and start next Open task |
-| "Switch to [workstream]" | Change active workstream |
-| "Archive done tasks" | Move Done tasks to Archive section |
-
-See `keystone/project/tasks.md` for task template and `keystone/docs/MIGRATION.md` for upgrading existing projects.
-
-## Key Concepts
-
-- **Directives:** Rules for how AI should think (THINKING.md) and execute (EXECUTION.md)
-- **Standards:** Code quality rules organized by language/domain
-- **Templates:** Files that get archived and recreated frequently
-- **Specs:** Feature specifications (one set per project)
-- **project/:** Living project state that evolves over time
-
-## 📝 How to Use Specs (Spec-Driven Development)
-
-Specs are living documents that serve as the "Source of Truth". You do not need to write them manually; the AI helps you draft them.
-
-### The Lifecycle
-1.  **Define (`problem.md`):** You explain the goal. AI drafts the problem statement, user persona, and success metrics.
-2.  **Explore (`options.md`):** AI proposes 2-3 technical approaches. You choose one.
-3.  **Specify (`requirements.md`):** AI converts the choice into "When... Then..." rules.
-4.  **Plan (`tasks.md`):** AI breaks it down into atomic, checklist-style tasks.
-5.  **Execute:** AI implements tasks one by one, checking them off.
-
-### User Responsibility
-*   **Mission:** You must fill in `project/mission.md` manually at the start.
-*   **Approval:** You must review and approve spec changes before the AI builds.
+1. **Context:** Loads global mission and workstream-local state.
+2. **Thinking:** For complex tasks, enters First Principles mode—decomposes the problem, runs Elimination Test, explores options.
+3. **Consensus Gate:** Presents a **Plan Summary** and **WAITS** for your approval.
+4. **Execution:** Implements tasks one-by-one from the workstream's `workstream.md`.
+5. **Epilogue:** Reflects on session, distills learnings, and calls `skills_keystone_board` to sync global progress.
 
 ---
 
@@ -134,14 +41,15 @@ Specs are living documents that serve as the "Source of Truth". You do not need 
 sequenceDiagram
     participant User
     participant AI as AI Agent
-    participant Context as project/
+    participant Context as workstream.md
+    participant Board as board.md
     participant Specs as keystone/specs/
 
     User->>AI: Request
 
     rect rgb(40, 40, 40)
     Note right of AI: CONTEXT
-    AI->>Context: Load state & constraints
+    AI->>Context: Load local state & tasks
     end
 
     alt Simple Task
@@ -150,7 +58,7 @@ sequenceDiagram
         rect rgb(60, 30, 70)
         Note right of AI: THINKING
         AI->>AI: First Principles & Elimination Test
-        AI->>Specs: Draft problem.md, options.md
+        AI->>Specs: Draft specs
         AI->>User: 🛑 Consensus Gate - WAIT
         end
         
@@ -159,17 +67,15 @@ sequenceDiagram
         rect rgb(30, 50, 80)
         Note right of AI: EXECUTION
         loop Task by Task
-            AI->>Specs: Read → Build → Test → Mark Done
-            opt 3+ Failures
-                AI-->>AI: OODA Stop-Gap (may return to Thinking)
-            end
+            AI->>Context: Read → Build → Test → Mark Done
+            AI->>Board: Call skills_keystone_board
         end
         end
 
         rect rgb(30, 70, 40)
         Note right of AI: EPILOGUE (Reflect)
         AI->>AI: T-RFL: Synthesize learnings
-        AI->>Context: Archive state, handover
+        AI->>Context: Update Handover Context
         AI->>User: Session complete
         end
     end
@@ -177,11 +83,60 @@ sequenceDiagram
 
 ---
 
-## ⚡ Pro-Tips for the User
+## 📚 Progressive Disclosure Architecture
 
-- **The "Escape Hatch":** If you just want to ask "How do I list files?", the AI knows to skip the heavy process. Just ask.
-- **The "Consensus Gate":** The AI will **STOP** after planning. You must explicitly say "Proceed" or "Approved" to start coding.
-- **The "Handshake Rule":** The AI is forbidden from planning and executing in the same response. It MUST stop and wait for your go-ahead.
-- **The "Epilogue":** If the AI says "I'm done" but hasn't updated the docs, just type: **"Execute Epilogue."**
-- **Debug Loop:** If the AI gets stuck, it will enter into **OODA Loop** (Observe, Orient, Decide, Act). It will ask you to run commands to gather evidence. **Run them.**
-- **Root File Customization:** The `AGENTS.md` file should be customized for each project. Fill in your tech stack, common commands, and key constraints.
+The framework optimizes AI context usage by reading only what is necessary:
+
+| Layer | File | When Loaded | Purpose |
+|-------|------|-------------|---------|
+| **Root** | `AGENTS.md` | Always | Essential context, golden rules, pointers |
+| **Global** | `mission.md` | Session Start | The "North Star" objective |
+| **Local** | `workstream.md` | Session Start | Tasks, Active State, and Handover for this context |
+| **Thinking** | `THINKING.md` | New Features | First Principles & Design Thinking |
+| **Execution** | `EXECUTION.md` | Implementation | Build, test, deliver protocols |
+| **Wisdom** | `PROJECT_LEARNINGS.md` | Every Session | Project-specific constraints |
+
+---
+
+## 🧠 The Core Components
+
+### 1. Unified Workstreams
+Instead of multiple files, each workstream (e.g., `auth`, `ui`) has a single `workstream.md` file. This file is the **Source of Truth** for that specific thread of work, containing its own tasks and debugging logs.
+
+### 2. Agent Skills
+Keystone includes built-in skills for the OpenCode environment:
+- **`keystone-init`**: Scaffolds new workstreams and registers them.
+- **`keystone-board`**: Aggregates all distributed tasks into a global project board.
+
+### 3. Spec-Driven Development (SDD)
+No code is written without a spec. The AI helps you draft `problem.md`, `options.md`, and `requirements.md` before implementation begins.
+
+---
+
+## 📂 Directory Structure
+
+```mermaid
+graph TD
+    A[Project Root] --> B[AGENTS.md]
+    A --> C[PROJECT_LEARNINGS.md]
+    A --> D[INITIATOR.md]
+    A --> E[.opencode/skills/]
+    A --> F[keystone/project/]
+    
+    F --> F1[mission.md]
+    F --> F2[board.md]
+    F --> F3[workstreams/]
+    
+    F3 --> F3a[registry.md]
+    F3 --> F3b[auth/workstream.md]
+    F3 --> F3c[ui/workstream.md]
+```
+
+---
+
+## 🛑 The "Golden Rules" (For the AI)
+
+1. **Isolation:** Only edit the `workstream.md` file in your assigned directory.
+2. **Prefixes:** Use workstream-specific prefixes (e.g., `AUTH-001`) for all tasks.
+3. **Handshake:** Never plan and execute in the same response.
+4. **Epilogue:** Always call `skills_keystone_board` at the end of a session.

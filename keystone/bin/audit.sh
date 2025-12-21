@@ -51,7 +51,7 @@ fi
 # Check B: Template Sync (MVA vs Actual)
 echo -n "Checking Template Sync... "
 # This is a simplified check: verify that MVA headers exist in INITIATOR.md
-MVA_HEADERS=("mission.md" "tasks.md" "problem.md" "DISCOVERY.md" "MIGRATION_PREVIEW.md" "health.md")
+MVA_HEADERS=("mission.md" "workstream.md" "problem.md" "DISCOVERY.md" "MIGRATION_PREVIEW.md" "health.md")
 MISSING_MVA=()
 
 for h in "${MVA_HEADERS[@]}"; do

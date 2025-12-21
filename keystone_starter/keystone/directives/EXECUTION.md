@@ -1,15 +1,10 @@
 # Execution Directives (Build & Deliver)
 
-> **Protocol Version:** 4.4
+> **Protocol Version:** 4.6
 
 > **PROGRESSIVE DISCLOSURE:**
 > This file guides implementation AFTER thinking is complete.
 > The root file (`AGENTS.md`) references this file for execution tasks.
-> Read this when:
-> - Implementing a plan from THINKING.md
-> - Simple to moderate bug fixes
-> - Following existing specifications
-> - Continuing work from a previous session
 
 ---
 
@@ -37,21 +32,22 @@
 
 > **THE GOLDEN RULE OF CONTINUITY:**
 > You are part of a relay team. You are rarely the first and never the last.
-> 1. **Start** by reading `keystone/project/active_state.md` and `keystone/project/handover.md`.
-> 2. **Work** by updating `keystone/project/active_state.md` when you complete a logical block of work.
+> 1. **Start** by reading your workstream's `workstream.md` (Unified State).
+> 2. **Work** by updating the `## 🧠 Active State` section in `workstream.md` when you complete a logical block of work.
 > 3. **Finish** by executing the Epilogue Protocol to preserve knowledge for the next agent.
 > **If you fail to update these files, your work is considered lost.**
 
 > **THE TELEGRAPHIC RULE (INTERNAL CONTEXT):**
 > When writing to `keystone/project/` files or `keystone/PROJECT_LEARNINGS.md`:
-> - **Be extremely concise.** Sacrifice grammar for density (e.g., "Server crashed. Retry failed." > "The server appears to have crashed...").
+> - **Be extremely concise.** Sacrifice grammar for density.
 > - **Use bullet points.** Avoid paragraphs.
-> - **Exceptions:** Maintain professional, complete sentences for **Code Docstrings** and **User-Facing Docs** (README, CHANGELOG) and **Specs** (requirements.md).
 
-> **THE "AD-HOC" ESCAPE HATCH:**
-> IF the user request is a simple question, a read-only query, or a task that does NOT modify the codebase (e.g., "How do I run this?", "List files in S3", "Explain this function"):
-> - **SKIP** Phases 0, 1, 2, 3, 4.
-> - **ACT** immediately. Do not generate state files. Do not archive. Just answer.
+> **THE DISTRIBUTED WORKSTREAM RULE (ISOLATION):**
+> To support parallel AI sessions, Keystone uses a distributed task model.
+> 1. **Ownership**: You own exactly ONE workstream file: `keystone/project/workstreams/[name]/workstream.md`.
+> 2. **Write Access**: You are strictly forbidden from editing workstream files in other directories.
+> 3. **Identity Anchor**: At session start, identify your workstream from `registry.md` or ask the user.
+> 4. **Prefixed IDs**: For NEW tasks, use your workstream name as a prefix (e.g., `AUTH-001`) to prevent global ID collisions.
 
 ---
 
@@ -76,240 +72,89 @@
 
 ## Phase 0: Context & State Management (THE BRAIN)
 
-This phase ensures continuity and learning across sessions.
-
 ### 0.1: Initialization (Context & Environment)
 
-- **Environment Check:** Verify your surroundings.
-    - Run `ls -F` to see immediate context.
-    - Run `git status` to ensure a clean slate (or understand current diffs).
-- **Check State:** Read `keystone/project/active_state.md`.
-    - *Scenario A (Empty):* Read `keystone/project/handover.md` (if exists) to get context. Initialize `keystone/project/active_state.md` using the **Template** from `keystone/templates/active_state.md`.
-    - *Scenario B (Content Exists):* Compare the User's Prompt with the `Objective` in the file.
-        - **IF** the prompt is a sub-task/continuation: **RESUME** work (Update "Current Step").
-        - **IF** the prompt is a NEW, unrelated objective: **ARCHIVE** the old state (move to `keystone/project/history/`) and **RESET** `keystone/project/active_state.md` with the new Objective.
+- **Environment Check:** Verify your surroundings (`ls -F`, `git status`).
+- **Identify Identity:** 
+    - Read `keystone/project/workstreams/registry.md`.
+    - If multiple workstreams are active, ask: *"Which workstream is this session focused on?"*
+    - Once identified, read the local `workstream.md` in that folder.
 - **Check Constraints:** Read `keystone/PROJECT_LEARNINGS.md`.
-    - **IF EMPTY:** Log "No prior constraints found" in your state.
-    - **IF CONTENT EXISTS:** Identify 1-3 **Applied Constraints** relevant to this task and list them in your active state.
-- **Generate Board:** Regenerate `keystone/project/board.md` from `keystone/project/tasks.md`.
-    - Parse all tasks and their statuses
-    - Group by status columns (Backlog, Open, In Progress, Blocked, Done)
-    - Calculate progress percentage
-    - Update board file with current state
-    - Use template from `keystone/templates/board.md`
+- **Generate Board:** Call `skills_keystone_board` to see the global project status.
 
 ### 0.2: Spec Check
 
-- **For NEW features/projects:** Ensure `keystone/directives/THINKING.md` was followed first. Check that `keystone/specs/problem.md` and `keystone/specs/options.md` exist.
-- **For implementation:** Load existing specs from `keystone/specs/`.
-    - Read `product.md` (Why) and `tech.md` (Constraints) to load the "System Constraints".
-    - **IF MISSING:** Suggest creating specs in `keystone/specs/`.
-
-**Template for `keystone/project/active_state.md`:**
-
-See `keystone/templates/active_state.md` for the full template. Key sections:
-- **Current Objective** — What we're building (references `keystone/project/mission.md`)
-- **Iteration Log** — Significant experiments and learnings
-- **Pre-Close Checklist** — Quality gate before closing work
-
-### 0.3: State Maintenance (The Heartbeat)
-
-- **Update Strategy:** You must update `keystone/project/active_state.md` **at the end of every logical block of work** (e.g., after planning, after coding a module, after testing).
-- **No Duplication Rule:** Do not copy the full task list from `keystone/project/tasks.md` into `active_state.md`. Use `active_state.md` for **High-Level Goals** and **Learnings/Errors**. The `tasks.md` file is the Source of Truth for execution status.
-- **Batching:** You may perform multiple related actions (edit 3 files) before updating the state, but you **MUST** update it before asking the user for input or ending your turn.
-- **Style:** Use **Telegraphic Style**. Maximize info/token.
-
-### 0.4: The OODA Loop (Debugging Protocol)
-
-When an action fails, **DO NOT** guess.
-
-1. **Observe:** Gather evidence (screenshot, HTML source, error trace) via shell commands (`ls`, `grep`) or file reads.
-2. **Orient:** State explicitly in `keystone/project/active_state.md` why your mental model was wrong based on the evidence.
-3. **Decide:** Formulate a single, testable hypothesis.
-4. **Act:** Implement the minimal change to test that hypothesis.
-
-#### OODA Stop-Gap (Confidence Check)
-
-**After 3 failed iterations of the OODA loop:**
-
-1. **STOP** and assess your confidence level (0-100%)
-2. State explicitly: *"I am X% confident I'm on the right track because [reason]"*
-3. Take action based on confidence:
-
-| Confidence | Action |
-|------------|--------|
-| < 50% | **Return to Thinking.** Read `keystone/directives/THINKING.md` Phase T1-RCA. Reassess fundamentals. |
-| 50-80% | **Consult User.** Present your hypothesis and ask for guidance or additional context. |
-| > 80% | **Continue** with explicit justification for why you believe the next attempt will succeed. |
+- **For NEW features/projects:** Ensure `keystone/directives/THINKING.md` was followed first.
+- **Load existing specs** from `keystone/specs/` or the `Driving Plan` linked in `workstream.md`.
 
 ---
 
 ## Phase 1: Specification & Planning (THE BLUEPRINT)
 
-Do not plan the solution until you have deconstructed the problem.
+### 1.1: Recursive Decomposition (The Knife)
 
-### 1.1: The Spec Loop
+- **Decompose:** Break complex requests down into **Atomic Units** in your `workstream.md` under `## 📋 Tasks`.
+- **Prefixed IDs**: Use your workstream prefix for all new tasks.
 
-- **For NEW work:** Verify thinking phase is complete. Check for `keystone/specs/problem.md` and `keystone/specs/options.md`.
-- **Artifacts:**
-    - `problem.md`: The problem definition, assumptions, constraints.
-    - `options.md`: Solution alternatives considered.
-    - `product.md`: The User Persona, Anti-Goals, and "Vibe".
-    - `tech.md`: The Stack, Forbidden Libraries, and Version Pins.
-    - `requirements.md`: Logic defined in **EARS Syntax** (When... Then...).
-    - `design.md`: **Mermaid Diagrams** for flows (Sequence/State).
-    - `tasks.md`: Atomic checklist.
-- **Action:** If specs are missing/outdated, Update them FIRST.
-- **Pragmatism:** Do not over-engineer. Use specs to capture *decisions*. If a file (e.g., `design.md`) adds no value for a simple task, skip it.
+### 1.2: The Consensus Gate (CRITICAL)
 
-### 1.2: Recursive Decomposition (The Knife)
-
-- **Decompose:** Break complex requests down into **Atomic Units** in `keystone/project/tasks.md`.
-- **Granularity:** Each task must be < 1 hour execution.
-- **Inline Constraints:** Do not just link to specs. **Copy** the relevant constraints into the task.
-    - *Bad:* "Implement Login (see tech.md)"
-    - *Good:* "Implement Login. **Constraint:** Use Zod for validation (from tech.md)."
-
-### 1.3: Modularity (The Box)
-
-- **Group:** Organize Atomic Units into logical **Modules**.
-- **Interface:** Define strict **Data Contracts** (Interfaces/Schemas) between modules.
-- **Constraint:** High Cohesion (related things stay together) and Low Coupling (modules rarely touch).
-
-### 1.4: Radical Simplicity (The Filter)
-
-- **Buy vs. Build:** Before implementing an Atom, check if a Standard Library or approved dependency solves it.
-- **Tool Preference:** Do not write a Python script to do what a standard shell command (`grep`, `find`, `sed`) can do in one line.
-- **Implementation:** Use the most readable, standard solution. **Complexity is a failure of decomposition.**
-
-### 1.5: The Consensus Gate (CRITICAL)
-
-- **Rule:** Before writing code or finalizing spec files, you must **Present a Plan Summary** in the chat.
-- **Action:**
-    1. Draft the plan/specs internally.
-    2. Output a **Text Summary** of the approach, key requirements, and task list to the user.
-    3. Ask: *"Does this plan align with your goals?"*
-    4. **STOP** and await user confirmation.
+- **Rule:** Before writing code, you must **Present a Plan Summary** in the chat.
+- **STOP** and await user confirmation.
 
 ---
 
 ## Phase 2: Build & Implement (THE STOP-AND-WAIT)
 
-> **PRE-FLIGHT GATE:**
-> Ensure you have explicit user approval ("Go", "Proceed") before starting this phase.
-> If you just presented the plan, you MUST stop and wait for the handshake.
-
 ### 2.1: The Protocol
 
-1. **Read** `keystone/project/tasks.md`. Identify the next **OPEN** task.
-   - **Dependency Check:** Before selecting a task, verify all tasks in its `Dependencies` field are `Done` or `Archive`.
-   - **Status Update:** When starting a task, update its Status to `In Progress`.
-   - **Blocked Detection:** If a task's dependencies are not met, mark it as `Blocked` and select another `Open` task.
-   - **Workstream Filter:** If focusing on a specific workstream, only consider tasks in that workstream.
+1. **Read** your `workstream.md`. Identify the next **OPEN** task.
 2. **Implement** ONLY that single task.
 3. **Verify** (Unit Test / Manual Check).
-4. **Mark** as `[x]` and update Status to `Done` in `keystone/project/tasks.md`.
-5. **Unblock Check:** After completing a task, check if any `Blocked` tasks now have their dependencies met. Update their Status to `Open`.
-6. **Update Board:** Regenerate `keystone/project/board.md` to reflect changes.
-7. **Update** `keystone/project/active_state.md` **ONLY** if there are new Learnings, Errors, or a Phase Change.
-8. **STOP** to plan the next step or Proceed if clear.
-
-### 2.2: Construction Order (Atoms First)
-
-- **Atoms First:** Implement the Atomic Units (Pure Logic) first.
-- **Verify Early:** Write unit tests for Atoms immediately. You are testing math/logic, not side effects.
-- **Orchestration Last:** Only write the "Glue Code" (Scripts/Controllers) after the building blocks are proven solid.
-
-### 2.3: Strict Logic/IO Separation
-
-- **Pure Logic:** Core calculations must never touch the network, disk, or database.
-- **I/O Edge:** Push all side effects to the boundaries (Adapters/Services).
-- **Benefit:** This makes the core logic 100% testable without mocks.
-
-### 2.4: Persistence & Safety
-
-- **Data Integrity:** Any change to a persistent data structure (DB Schema, File Format, API Response) requires a **Migration Strategy** (Backward Compatibility).
-- **Safety Toggles:** Wrap any high-risk logic (e.g., bulk deletions, new critical paths) in a Feature Flag or Configuration Switch.
+4. **Mark** as `[x]` and update Status to `Done`.
+5. **Update Board**: Call `skills_keystone_board` to reflect changes globally.
+6. **STOP** to plan the next step or Proceed if clear.
 
 ---
 
 ## Phase 3: Verify & Secure (TWO-TIERED)
 
-### 3.1: Unit Tests (The Microscope)
-
-- Test Atomic Units in isolation.
-- Mock all external dependencies.
-
-### 3.2: Contract Tests (The Handshake)
-
-- Validate data consistency at the boundaries.
-- **Definition:** Assert that the Output of Module A matches the expected Input Schema of Module B (e.g., check column names, data types, and non-null constraints using libraries like **Pydantic**, **Pandas Schema**, or **JSON Schema**).
-- **Fail Fast:** Validate inputs at the entry point of every module.
-
-### 3.3: Drift Detection (Reverse-Sync)
+### 3.1: Drift Detection (Reverse-Sync)
 
 - **Check:** Does the implemented code contradict `keystone/specs/requirements.md`?
-- **Action:**
-    - *If Code is Wrong:* Fix Code.
-    - *If Spec is Wrong (Justified):* **Update `keystone/specs/requirements.md`** to match reality.
+- **Action:** Fix Code or Update Spec.
 
 ---
 
 ## Phase 4: Delivery & Epilogue (DEFINITION OF DONE)
 
-> **EPILOGUE IS MANDATORY:** This phase is NOT optional cleanup. It includes reflective thinking (see `keystone/directives/THINKING.md` Phase T-RFL) to extract genuine insights. Skipping Epilogue means the work is incomplete.
-
-You are **NOT** done until you have executed this sequence:
+> **EPILOGUE IS MANDATORY.**
 
 ### 4.1: Documentation Sync
 
-- [ ] **Spec Check:** Ensure `keystone/specs/*` reflect the final codebase
-- [ ] **User Facing:** Update `CHANGELOG.md` if features changed (professional tone)
-- [ ] **Decision Record:** If dependency/schema/deprecation/**significant trade-off** occurred → `keystone/DECISION_LOG.md`
-- [ ] **Code Facing:** Ensure docstrings match code reality
+- [ ] **Spec Check:** Ensure `keystone/specs/*` reflect reality.
+- [ ] **User Facing:** Update `CHANGELOG.md` if needed.
+- [ ] **Decision Record:** Update `keystone/DECISION_LOG.md`.
 
 ### 4.2: Reflective Learning (T-RFL)
 
-- [ ] **Engage T-RFL:** Read `keystone/directives/THINKING.md` Phase T-RFL
-- [ ] **Reflect:** What worked? What didn't? What surprised?
-- [ ] **Extract:** Identify ONE reusable pattern or anti-pattern
-- [ ] **Commit:** Update `keystone/PROJECT_LEARNINGS.md` (Learning/Mandate/Outcome format, telegraphic)
+- [ ] **Engage T-RFL:** Read `keystone/directives/THINKING.md` Phase T-RFL.
+- [ ] **Commit:** Update `keystone/PROJECT_LEARNINGS.md`.
 
 ### 4.3: Archival Rotation
 
-- [ ] **Archive Completed Tasks:** Move `Done` tasks to the `Archive` section in `keystone/project/tasks.md`
-- [ ] **Update Board:** Regenerate `keystone/project/board.md` to reflect final state
-- [ ] **Archive:** Move `keystone/project/active_state.md` to `keystone/project/history/YYYY-MM-DD_TaskName.md`
-- [ ] **Handover:** Update `keystone/project/handover.md` — Where are we? What's next? (3 bullets max)
+- [ ] **Archive Completed Tasks**: Move `Done` tasks to the `Archive` section in `workstream.md`.
+- [ ] **Update Board**: Call `skills_keystone_board`.
+- [ ] **Handover**: Update `workstream.md` -> `## 💾 Context for Resume`.
+- [ ] **Registry**: Update your status to `Paused` or `Done` in `registry.md`.
 
 ---
 
 ## User Commands
 
-> **Purpose:** Explicit commands users can invoke to trigger framework actions.
-
-### Board Commands
-
 | Command | Action |
 |---------|--------|
-| "Generate board" | Regenerate `keystone/project/board.md` from current tasks |
-| "Show board" | Display current board status |
-| "Update board" | Sync board with latest task changes |
-
-### Task Commands
-
-| Command | Action |
-|---------|--------|
-| "Next task" | Identify and start the next `Open` task |
-| "Block task [ID]" | Mark task as `Blocked` with reason |
-| "Unblock task [ID]" | Check dependencies and update status |
-| "Archive done tasks" | Move all `Done` tasks to Archive section |
-
-### Workstream Commands
-
-| Command | Action |
-|---------|--------|
+| "Create workstream [name]" | Call `skills_keystone_init` to scaffold a new workstream |
+| "Generate board" | Call `skills_keystone_board` |
+| "Next task" | Identify and start the next `Open` task in active workstream |
 | "Switch to [workstream]" | Change active workstream focus |
-| "List workstreams" | Show all available workstreams |
-| "Create workstream [name]" | Create new workstream for parallel work |
-
+| "Archive done tasks" | Move all `Done` tasks to Archive section |

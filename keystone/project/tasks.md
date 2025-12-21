@@ -80,6 +80,19 @@
     - **Status:** Archive
     - **Workstream: testing**
 
+## Phase 9: Multi-Workstream Management
+
+### Workstream: core
+
+- [ ] **CORE-001: Implement keystone-board Agent Skill**
+    - **Dependencies:** None
+    - **Status: In Progress**
+    - **Workstream: core**
+- [ ] **CORE-002: Update EXECUTION.md with Multi-Workstream Protocol**
+    - **Dependencies: CORE-001**
+    - **Status: Open**
+    - **Workstream: core**
+
 ---
 
 ## Archive
