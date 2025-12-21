@@ -1,8 +1,8 @@
 # Project Board
 
 > **Auto-generated from `keystone/project/tasks.md`**
-> **Last Updated:** 2025-12-21 09:45
-> **Active Workstream:** core
+> **Last Updated:** 2025-12-21 10:15
+> **Active Workstream:** archaeologist
 
 ---
 
@@ -10,9 +10,9 @@
 
 | Total | Backlog | Open | In Progress | Blocked | Done | Archive |
 |-------|---------|------|-------------|---------|------|---------|
-| 18    | 0       | 0    | 0           | 0       | 0    | 18      |
+| 20    | 0       | 0    | 0           | 0       | 0    | 20      |
 
-**Progress:** [██████████] 100% (18/18 tasks)
+**Progress:** [██████████] 100% (20/20 tasks)
 
 ---
 
@@ -60,6 +60,8 @@
 - [x] **TASK-016:** Consolidate Shadow Files into single directives
 - [x] **TASK-017:** Update AGENTS.md and README.md for Smart Merging
 - [x] **TASK-018:** Remove redundant root INITIATOR.md
+- [x] **TASK-019:** Implement Surgical Scan Protocol in INITIATOR.md
+- [x] **TASK-020:** Update DISCOVERY.md template with scan results section
 
 ---
 
@@ -68,7 +70,7 @@
 | Workstream | Total | Done | Progress |
 |------------|-------|------|----------|
 | initiator  | 3     | 3    | 100%     |
-| archaeologist| 3     | 3    | 100%     |
+| archaeologist| 5     | 5    | 100%     |
 | weaver     | 3     | 3    | 100%     |
 | core       | 6     | 6    | 100%     |
 | testing    | 3     | 3    | 100%     |

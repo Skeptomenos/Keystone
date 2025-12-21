@@ -54,7 +54,14 @@ When updating or retrofitting, you MUST adhere to these preservation rules:
 4. **Generate the framework structure** (copying from **Remote** templates).
 
 #### Pathway B: Existing Project (The Archaeologist)
-1. **Scan the codebase** to understand the tech stack, architecture, and existing patterns.
+1. **Execute Surgical Scan Protocol:**
+    - **Pass 1 (Surface):** List files in the root and first level of subdirectories (ignore `node_modules`, `venv`, `.git`).
+    - **Pass 2 (DNA):** Identify the tech stack by looking for:
+        - *Dependency Maps:* `package.json`, `requirements.txt`, `go.mod`, `Cargo.toml`, `Gemfile`, `pom.xml`.
+        - *Infrastructure:* `Dockerfile`, `docker-compose.yml`, `.github/`.
+        - *Config:* `tsconfig.json`, `pyproject.toml`, `.env.example`.
+        - *Entry Points:* `index.ts`, `main.py`, `app.go`, `src/App.tsx`.
+    - **Pass 3 (Deep Dive):** Read ONLY the high-signal files identified in Pass 2 to extract core logic and dependencies.
 2. **Generate a `DISCOVERY.md` map:**
     - List all significant files read and why.
     - Identify core modules and their responsibilities.
@@ -215,23 +222,28 @@ When updating or retrofitting, you MUST adhere to these preservation rules:
 > **Purpose:** Document the AI's understanding of the existing codebase.
 > **Status:** Draft (Awaiting User Verification)
 
-## 1. Tech Stack Detected
+## 1. Surgical Scan Results
+- **Pass 1 (Surface):** [Summary of directory structure]
+- **Pass 2 (DNA):** [High-signal files detected]
+- **Pass 3 (Deep Dive):** [Key dependencies and entry points extracted]
+
+## 2. Tech Stack Detected
 - **Languages:** [e.g., TypeScript, Python]
 - **Frameworks:** [e.g., React, FastAPI]
 - **Infrastructure:** [e.g., Docker, AWS]
 
-## 2. Core Modules
+## 3. Core Modules
 | Module | Path | Responsibility |
 |--------|------|----------------|
 | [Name] | [Path] | [Description] |
 
-## 3. Significant Files Scanned
+## 4. Significant Files Scanned
 - [ ] `[Path]` — [Reason for scanning]
 
-## 4. Architectural Patterns
+## 5. Architectural Patterns
 - [e.g., Layered Architecture, Microservices]
 
-## 5. Open Questions
+## 6. Open Questions
 - [ ] [Question about codebase behavior]
 ```
 
@@ -370,23 +382,28 @@ When updating or retrofitting, you MUST adhere to these preservation rules:
 > **Purpose:** Document the AI's understanding of the existing codebase.
 > **Status:** Draft (Awaiting User Verification)
 
-## 1. Tech Stack Detected
+## 1. Surgical Scan Results
+- **Pass 1 (Surface):** [Summary of directory structure]
+- **Pass 2 (DNA):** [High-signal files detected]
+- **Pass 3 (Deep Dive):** [Key dependencies and entry points extracted]
+
+## 2. Tech Stack Detected
 - **Languages:** [e.g., TypeScript, Python]
 - **Frameworks:** [e.g., React, FastAPI]
 - **Infrastructure:** [e.g., Docker, AWS]
 
-## 2. Core Modules
+## 3. Core Modules
 | Module | Path | Responsibility |
 |--------|------|----------------|
 | [Name] | [Path] | [Description] |
 
-## 3. Significant Files Scanned
+## 4. Significant Files Scanned
 - [ ] `[Path]` — [Reason for scanning]
 
-## 4. Architectural Patterns
+## 5. Architectural Patterns
 - [e.g., Layered Architecture, Microservices]
 
-## 5. Open Questions
+## 6. Open Questions
 - [ ] [Question about codebase behavior]
 ```
 

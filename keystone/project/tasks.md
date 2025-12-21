@@ -54,6 +54,19 @@
     - **Status:** Archive
     - **Workstream:** core
 
+## Phase 7: Discovery Optimization
+
+### Workstream: archaeologist
+
+- [x] **TASK-019: Implement Surgical Scan Protocol in INITIATOR.md** — *Completed: 2025-12-21*
+    - **Dependencies:** TASK-004
+    - **Status:** Archive
+    - **Workstream:** archaeologist
+- [x] **TASK-020: Update DISCOVERY.md template with scan results section** — *Completed: 2025-12-21*
+    - **Dependencies:** TASK-019
+    - **Status:** Archive
+    - **Workstream:** archaeologist
+
 ---
 
 ## Archive

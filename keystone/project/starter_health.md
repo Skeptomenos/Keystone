@@ -18,9 +18,9 @@
 
 ## Audit History
 
-### 2025-12-21 Audit: Explicit Source/Destination Mapping
+### 2025-12-21 Audit: Surgical Scan Protocol
 - **Status:** PASS
 - **Integrity:** Verified all paths in `keystone_starter/AGENTS.md` exist.
-- **Consistency:** Cross-reference verified. `INITIATOR.md` now explicitly defines **Source (Remote)** vs **Destination (Local)** to prevent multi-repo confusion.
-- **Density:** +2% (Added mapping rules).
-- **Notes:** Fixed stale `.core.md` references in update logic.
+- **Consistency:** Cross-reference verified. `INITIATOR.md` now contains the "Surgical Scan Protocol" for efficient project discovery.
+- **Density:** +3% (Added scan rules and updated DISCOVERY.md template).
+- **Notes:** Replaced vague "Scan the codebase" with a structured 3-pass algorithm.

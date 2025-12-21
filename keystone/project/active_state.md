@@ -33,10 +33,10 @@ Refactor complete. Finalizing session.
 
 ## Iteration Log
 
-### 2025-12-21: Transition to Smart Merging
-- **Tried:** Removed Shadow File architecture (`.core`/`.custom`) and implemented "Smart Merging" logic in `INITIATOR.md`.
-- **Result:** Cleaner directory structure with single directive files. The AI is now responsible for merging framework updates with user customizations.
-- **Learning:** While Shadow Files are safer, Smart Merging provides a better user experience by reducing file clutter. The instructions must remain extremely rigorous to prevent logic loss.
+### 2025-12-21: Surgical Scan Protocol Implementation
+- **Tried:** Implemented the "Surgical Scan Protocol" in `INITIATOR.md` to replace the vague "Scan the codebase" instruction.
+- **Result:** The AI now has a structured 3-pass algorithm (Surface, DNA, Deep Dive) for retrofitting existing projects.
+- **Learning:** Providing a specific search pattern significantly reduces latency and hallucination risk during the discovery phase.
 
 ---
 
