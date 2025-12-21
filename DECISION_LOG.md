@@ -1,6 +1,6 @@
 # Decision Log
 
-This document tracks significant architectural decisions (ADRs) for the Anamnesis framework.
+This document tracks significant architectural decisions (ADRs) for the Keystone framework.
 
 ## [2025-11-20] Pivot to State-Based Memory
 *   **Context:** v1 used ephemeral log files per task (`logs/task_123.md`).
@@ -151,4 +151,4 @@ This document tracks significant architectural decisions (ADRs) for the Anamnesi
     *   (+) Users maintain control over when implementation begins
     *   (+) Universal rule works for all models (strict for all is safer than permissive for some)
     *   (-) Slightly more friction for highly capable models that rarely over-execute
-*   **Future Work:** When `anamnesis_starter/anamnesis/directives/` is created, add reinforcing gates to THINKING.md (end of design phases) and EXECUTION.md (pre-implementation checkpoint) for defense in depth.
+*   **Future Work:** When `keystone_starter/keystone/directives/` is created, add reinforcing gates to THINKING.md (end of design phases) and EXECUTION.md (pre-implementation checkpoint) for defense in depth.

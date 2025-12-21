@@ -1,4 +1,4 @@
-# Anamnesis
+# Keystone
 
 > A stateful, spec-driven framework for AI-assisted software engineering.
 
@@ -8,13 +8,13 @@ This framework solves the core problems of AI-assisted coding: **Amnesia** (forg
 
 ## 🚀 Quick Start (Zero-Friction)
 
-> **🤖 For AI Agents:** If you have been tasked with **initializing**, **retrofitting**, or **updating** the Anamnesis framework in your current environment, please read and follow the instructions in the [INITIATOR.md](https://github.com/Skeptomenos/Anamnesis/blob/main/anamnesis_starter/INITIATOR.md) file of this repository. It contains the complete logic for design thinking setup, structural migration, template syncing, and protocol updates. Adopt the "Wizard" role immediately upon reading that file.
+> **🤖 For AI Agents:** If you have been tasked with **initializing**, **retrofitting**, or **updating** the Keystone framework in your current environment, please read and follow the instructions in the [INITIATOR.md](https://github.com/Skeptomenos/Keystone/blob/main/keystone_starter/INITIATOR.md) file of this repository. It contains the complete logic for design thinking setup, structural migration, template syncing, and protocol updates. Adopt the "Wizard" role immediately upon reading that file.
 
 ### 1. Copy the Initiator
 Copy `INITIATOR.md` from this repository to your project root.
 
 ### 2. Run the Wizard
-Ask your AI: **"Initialize Anamnesis"** or **"Update Anamnesis"**.
+Ask your AI: **"Initialize Keystone"** or **"Update Keystone"**.
 
 The AI will guide you through:
 - **New Projects:** Design thinking, ideation, and MVP scoping.
@@ -42,7 +42,7 @@ sequenceDiagram
     participant User
     participant AI as AI Agent
     participant Context as project/
-    participant Specs as anamnesis/specs/
+    participant Specs as keystone/specs/
 
     User->>AI: Request
 
@@ -111,9 +111,9 @@ flowchart TD
 ```
 
 | **Root** | `AGENTS.md` | Always (auto-loaded) | Essential context, golden rules, pointers |
-| **Thinking** | `anamnesis/directives/THINKING.core.md` | New ideas, features, refactors, complex bugs | First Principles & Design Thinking |
-| **Execution** | `anamnesis/directives/EXECUTION.core.md` | Implementation tasks | Build, test, deliver protocols |
-| **Quality** | `anamnesis/standards/INDEX.md` | Code writing | Style and quality rules |
+| **Thinking** | `keystone/directives/THINKING.core.md` | New ideas, features, refactors, complex bugs | First Principles & Design Thinking |
+| **Execution** | `keystone/directives/EXECUTION.core.md` | Implementation tasks | Build, test, deliver protocols |
+| **Quality** | `keystone/standards/INDEX.md` | Code writing | Style and quality rules |
 | **Wisdom** | `PROJECT_LEARNINGS.md` | Every session | Project-specific constraints |
 
 **Why?** LLMs have limited instruction-following capacity (~150-200 instructions). The slim root file (~70 lines) provides essential context, and detailed protocols are read only when needed. The separation of Thinking and Execution allows different cognitive modes for different tasks.
@@ -186,7 +186,7 @@ This guides implementation AFTER thinking is complete (v4.4):
 ### 3. `standards/` (The Quality)
 
 This defines the syntax rules:
-- **Index:** `anamnesis/standards/INDEX.md` routes to language-specific files.
+- **Index:** `keystone/standards/INDEX.md` routes to language-specific files.
 - **Global:** Rules that apply everywhere (e.g. "I/O Fortress").
 - **Language Specific:** Python, TypeScript, Rust, etc.
 
@@ -197,7 +197,7 @@ This file gets smarter over time. It captures:
 - **Patterns:** Solutions that worked.
 - **Anti-Patterns:** Approaches that failed.
 
-### 5. `anamnesis/templates/` (The Tools)
+### 5. `keystone/templates/` (The Tools)
 
 Standardized templates for Spec-Driven Development.
 
@@ -216,7 +216,7 @@ graph TD
     A --> F[DECISION_LOG.md<br/>Architectural decisions]
     A --> G[CHANGELOG.md<br/>Version history]
     A --> H[project/]
-    A --> I[anamnesis/]
+    A --> I[keystone/]
     A --> J[specs/]
     A --> K[INITIATOR.md<br/>Setup Wizard]
     
@@ -285,7 +285,7 @@ stateDiagram-v2
 ## 🛑 The "Golden Rules" (For the AI)
 
 1. **Update State:** If it's not in `project/active_state.md`, it didn't happen.
-2. **Follow by Spec:** Code must match `anamnesis/specs/requirements.md`.
+2. **Follow by Spec:** Code must match `keystone/specs/requirements.md`.
 3. **Telegraphic Context:** Internal notes should be caveman-style ("Server crash. Retry fail.").
 4. **Professional Docs:** Public docs must be Shakespearean.
 5. **No Coding Without Approval:** Planning is free. Coding requires a handshake.
@@ -294,15 +294,15 @@ stateDiagram-v2
 
 ## 🏗️ Meta-Project Information
 
-This repository is the **meta-project** that develops the Anamnesis framework itself.
+This repository is the **meta-project** that develops the Keystone framework itself.
 
-- **Framework Source:** `anamnesis_starter/` (distributable)
+- **Framework Source:** `keystone_starter/` (distributable)
 - **Framework Version:** 4.4
 - **Dogfooding:** This repo uses its own framework (see `project/` and `specs/`)
 
 ### Contributing
 
-Changes to `anamnesis_starter/` affect all downstream projects. Follow the framework's own protocols when contributing.
+Changes to `keystone_starter/` affect all downstream projects. Follow the framework's own protocols when contributing.
 
 ### Version History
 
@@ -312,7 +312,7 @@ See [CHANGELOG.md](CHANGELOG.md) for detailed version history.
 
 ## 📚 Documentation
 
-For complete user guide, see: **[anamnesis/README.md](anamnesis_starter/anamnesis/README.md)**
+For complete user guide, see: **[keystone/README.md](keystone_starter/keystone/README.md)**
 
 The inner README contains:
 - Task Management (v4.3) with detailed examples

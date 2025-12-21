@@ -1,6 +1,6 @@
 # Changelog
 
-All notable changes to the **Anamnesis** framework will be documented in this file.
+All notable changes to the **Keystone** framework will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
@@ -14,7 +14,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - Auto-generated kanban board (`board.md`)
 - **User Commands:** "Generate board", "Next task", "Switch to [workstream]", "Archive done tasks"
 - **Meta-project specs/:** Full specification directory (problem.md, product.md, requirements.md, design.md, options.md, tech.md, tasks.md)
-- **Migration Guide:** `anamnesis/docs/MIGRATION.md` for v4.2 → v4.3 upgrades
+- **Migration Guide:** `keystone/docs/MIGRATION.md` for v4.2 → v4.3 upgrades
 
 ### Changed
 - **AGENTS.md:** Updated repository structure diagram, added Task Management section

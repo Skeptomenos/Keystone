@@ -1,53 +1,28 @@
-# Keystone
+# [Project Name]
 
-> A stateful, spec-driven framework for AI-assisted software engineering.
-
-> **⚠️ META-PROJECT:** This IS the framework source. Changes propagate to all downstream projects.
+> **Root File:** Auto-loaded by AI CLI tools. Keep concise (<80 lines).
 
 ## Overview
 
-Keystone solves core AI-assisted coding problems:
-- **Amnesia** → Persistent state (`project/`)
-- **Hallucination** → Spec-Driven Development (`specs/`)
-- **Vibe Coding** → Consensus Gates
-- **Monolithic Code** → Atomic decomposition
-
-**Version:** 4.4
+[2-3 sentences: What is this? What problem does it solve?]
 
 ## Tech Stack
 
-- **Format:** Markdown (.md)
-- **Diagrams:** Mermaid.js
-- **Version Control:** Git with Conventional Commits
+- **Language:** [e.g., Python 3.11+]
+- **Framework:** [e.g., FastAPI]
+- **Database:** [e.g., PostgreSQL]
 
-## Repository Structure
+## Structure
 
 ```
-knowledge_base/                    # META-PROJECT (this repo)
-├── keystone_starter/             # DISTRIBUTABLE STARTER (copy to new projects)
-│   ├── keystone/                 # The framework
-│   │   ├── project/               # Project state
-│   │   ├── directives/            # THINKING.core.md, EXECUTION.core.md
-│   │   ├── standards/             # Code quality rules
-│   │   ├── specs/                 # Feature specifications
-│   │   ├── templates/             # Recreatable file templates
-│   │   ├── DECISION_LOG.md
-│   │   ├── PROJECT_LEARNINGS.md
-│   │   └── README.md
-│   ├── AGENTS.md                  # AI entry point
-│   ├── CHANGELOG.md
-│   └── INITIATOR.md               # Setup & Update Wizard
-├── keystone/                     # This project's framework instance
-│   ├── project/                   # Session state
-│   ├── directives/                # THINKING.core.md, EXECUTION.core.md
-│   ├── standards/                 # Code quality rules
-│   ├── specs/                     # Feature specifications
-│   └── templates/                 # Recreatable file templates
-├── AGENTS.md                      # THIS FILE (meta-project entry)
-├── CHANGELOG.md
-├── DECISION_LOG.md
-├── PROJECT_LEARNINGS.md
-└── README.md
+src/               # Source code
+tests/             # Tests
+keystone/         # AI framework
+├── project/       # Session state
+├── directives/    # THINKING.core.md, EXECUTION.core.md
+├── standards/     # Code quality rules
+├── specs/         # Feature specifications
+└── templates/     # Recreatable file templates
 ```
 
 ---
@@ -80,7 +55,7 @@ knowledge_base/                    # META-PROJECT (this repo)
 | Complex bug | `keystone/directives/THINKING.{core,custom}.md` (T1-RCA) |
 | Implementation | `keystone/directives/EXECUTION.{core,custom}.md` |
 | Code review | `keystone/standards/INDEX.md` |
-| Project constraints | `PROJECT_LEARNINGS.md` |
+| Project constraints | `keystone/PROJECT_LEARNINGS.md` |
 
 ---
 
@@ -114,9 +89,7 @@ knowledge_base/                    # META-PROJECT (this repo)
 ## Commands
 
 ```bash
-git status                    # Check state
-git diff                      # Review changes
-ls keystone_starter/         # Inspect distributable framework
+# Build: [cmd]    Test: [cmd]    Lint: [cmd]    Run: [cmd]
 ```
 
 ## State Files

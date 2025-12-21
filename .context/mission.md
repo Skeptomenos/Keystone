@@ -1,4 +1,4 @@
-# Project Objective: Anamnesis Framework
+# Project Objective: Keystone Framework
 
 > **Purpose:** To solve the core problems of AI-assisted coding (Amnesia, Hallucination, Vibe Coding, Monoliths) through a stateful, spec-driven framework.
 
@@ -17,7 +17,7 @@ The framework now has:
 
 ## Success Looks Like
 
-- [x] **Separation:** `anamnesis_starter/` is a standalone, copy-pasteable directory.
+- [x] **Separation:** `keystone_starter/` is a standalone, copy-pasteable directory.
 - [x] **Cleanup:** Old `coding/` and `docs/product/` directories are removed.
 - [x] **v4.2 Defense:** Handshake Rule and Defense-in-Depth implemented.
 - [x] **v4.3 Tasks:** Task management with 6-status workflow, dependencies, workstreams.

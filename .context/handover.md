@@ -33,10 +33,10 @@
 ## Files Modified
 
 - `README.md` (root) - Comprehensive adoption guide
-- `anamnesis_starter/anamnesis/README.md` - Expanded user guide
-- `anamnesis_starter/anamnesis/directives/THINKING.md` - Added phase overview
-- `anamnesis_starter/anamnesis/directives/EXECUTION.md` - Added phase overview
-- `anamnesis_starter/anamnesis/docs/VISUAL_GUIDE.md` - New comprehensive visual reference
+- `keystone_starter/keystone/README.md` - Expanded user guide
+- `keystone_starter/keystone/directives/THINKING.md` - Added phase overview
+- `keystone_starter/keystone/directives/EXECUTION.md` - Added phase overview
+- `keystone_starter/keystone/docs/VISUAL_GUIDE.md` - New comprehensive visual reference
 - `specs/tasks.md` - All tasks marked Done
 - `.context/board.md` - Updated to 100% completion
 - `PROJECT_LEARNINGS.md` - Added visual documentation optimization learning

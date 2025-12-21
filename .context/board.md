@@ -42,7 +42,7 @@
 
 ## Done
 
-- [x] **TASK-001:** Implement v4.3 task management in anamnesis_starter
+- [x] **TASK-001:** Implement v4.3 task management in keystone_starter
     - *Completed:* 2025-12-09
     - *Workstream:* main
 

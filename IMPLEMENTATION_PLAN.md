@@ -1,17 +1,17 @@
-# Implementation Plan: Anamnesis Zero-Friction Refactor
+# Implementation Plan: Keystone Zero-Friction Refactor
 
 ## Overview
 
-This plan outlines the refactor of the Anamnesis framework to reduce onboarding friction, enable intelligent retrofitting of existing projects, and implement a sustainable update mechanism.
+This plan outlines the refactor of the Keystone framework to reduce onboarding friction, enable intelligent retrofitting of existing projects, and implement a sustainable update mechanism.
 
 ---
 
 ## Phase 1: The Initiator (Quick Win)
-**Goal:** Enable users to set up Anamnesis in seconds.
+**Goal:** Enable users to set up Keystone in seconds.
 
 - **TASK-001: Create INITIATOR.md Template**
     - Create a single-file entry point that contains instructions for the AI to handle the setup process.
-- **TASK-002: Embed Minimal Viable Anamnesis (MVA) Templates**
+- **TASK-002: Embed Minimal Viable Keystone (MVA) Templates**
     - Embed essential templates directly in `INITIATOR.md` to allow for immediate setup without external dependencies.
 - **TASK-003: Implement New Project Design Thinking Flow**
     - Add instructions for the AI to guide users through the initial ideation and MVP scoping phases.
@@ -19,7 +19,7 @@ This plan outlines the refactor of the Anamnesis framework to reduce onboarding 
 ---
 
 ## Phase 2: The Archaeologist (Retrofit)
-**Goal:** Automatically map existing projects to the Anamnesis framework.
+**Goal:** Automatically map existing projects to the Keystone framework.
 
 - **TASK-004: Implement Project Discovery & Mapping Logic**
     - Develop the "Scan -> Map -> Cite -> Spec" workflow.
