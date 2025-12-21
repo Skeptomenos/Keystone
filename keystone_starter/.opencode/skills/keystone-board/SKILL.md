@@ -10,8 +10,8 @@ This skill synchronizes the distributed task state of a Keystone project into a 
 ## Instructions
 
 1. **Discovery**: The skill scans the following locations for task data:
-   - `keystone/project/tasks.md` (Global/Legacy tasks)
-   - `keystone/project/workstreams/*/tasks.md` (Workstream-specific tasks)
+   - `keystone/project/history/legacy_monolith_tasks.md` (Legacy tasks)
+   - `keystone/project/workstreams/*.md` (Unified workstream files)
    - `keystone/project/workstreams/registry.md` (Session and workstream metadata)
 
 2. **Execution**: Run the bundled aggregation script using Python 3.
