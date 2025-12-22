@@ -64,6 +64,7 @@ You are the Keystone Setup Wizard. Your goal is to guide the user through a fric
      - **Migrate State**: If a root `active_state.md` exists, append its "Iteration Log" to the `main.md` workstream file.
      - **Archive**: Move root `tasks.md`, `active_state.md`, and `handover.md` to `keystone/project/history/`.
 
+
 3. **Registry Initialization**: Create `keystone/project/workstreams/registry.md` and add detected workstreams.
 4. **Skill Injection**: Install/Update the `keystone-board`, `keystone-init`, and `keystone-log-audit` skills in `.opencode/skills/`. You MUST create the full directory structure for each skill (e.g., `.opencode/skills/keystone-board/SKILL.md` and `.opencode/skills/keystone-board/scripts/aggregate.py`).
 5. **Smart Merge Migration**: Consolidate directives.
