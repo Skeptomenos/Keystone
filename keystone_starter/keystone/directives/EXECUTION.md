@@ -143,6 +143,7 @@
 ### 4.3: Archival Rotation
 
 - [ ] **Archive Completed Tasks**: Move `Done` tasks to the `Archive` section in your workstream file.
+- [ ] **Logging Audit**: Run `skills_keystone_log_audit` on modified files to enforce standards.
 - [ ] **Update Board**: Call `skills_keystone_board`.
 - [ ] **Handover**: Update your workstream file -> `## 💾 Context for Resume`.
 - [ ] **Registry**: Update your status to `Paused` or `Done` in `registry.md`.

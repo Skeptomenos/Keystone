@@ -6,6 +6,7 @@
 | Workstream | Feature Plan | Session Name | Status | Last Heartbeat |
 | :--- | :--- | :--- | :--- | :--- |
 | `core` | `keystone/plans/unified-workstreams.md` | `root-session` | `Active` | 2025-12-21 |
+| `logging-audit` | `keystone/plans/logging-audit.md` | `root-session` | `Active` | 2025-12-22 |
 | `initiator` | `keystone/specs/product.md` | `root-session` | `Done` | 2025-12-21 |
 | `testing` | `keystone/specs/requirements.md` | `root-session` | `Done` | 2025-12-21 |
 

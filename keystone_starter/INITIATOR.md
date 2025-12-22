@@ -25,6 +25,7 @@ You are the Keystone Setup Wizard. Your goal is to guide the user through a fric
     - `.opencode/skills/keystone-board/SKILL.md`
     - `.opencode/skills/keystone-board/scripts/aggregate.py`
     - `.opencode/skills/keystone-init/SKILL.md`
+    - `.opencode/skills/keystone-log-audit/SKILL.md`
     - `AGENTS.md`
 
 ### The Preservation Protocol (MANDATORY)
@@ -64,14 +65,14 @@ You are the Keystone Setup Wizard. Your goal is to guide the user through a fric
      - **Archive**: Move root `tasks.md`, `active_state.md`, and `handover.md` to `keystone/project/history/`.
 
 3. **Registry Initialization**: Create `keystone/project/workstreams/registry.md` and add detected workstreams.
-4. **Skill Injection**: Install/Update the `keystone-board` and `keystone-init` skills in `.opencode/skills/`. You MUST create the full directory structure for each skill (e.g., `.opencode/skills/keystone-board/SKILL.md` and `.opencode/skills/keystone-board/scripts/aggregate.py`).
+4. **Skill Injection**: Install/Update the `keystone-board`, `keystone-init`, and `keystone-log-audit` skills in `.opencode/skills/`. You MUST create the full directory structure for each skill (e.g., `.opencode/skills/keystone-board/SKILL.md` and `.opencode/skills/keystone-board/scripts/aggregate.py`).
 5. **Smart Merge Migration**: Consolidate directives.
 
 ### Phase 3: Finalization
 1. **Verify the setup.**
 2. **Generate Board**: Call `skills_keystone_board` for the first time.
 3. **Skill Briefing**: 
-   - Explain the new `skills_keystone_init` (for new workstreams) and `skills_keystone_board` (for progress tracking).
+   - Explain the new `skills_keystone_init` (for new workstreams), `skills_keystone_board` (for progress tracking), and `skills_keystone_log_audit` (for logging standards).
    - Remind the user: *"You can make these skills available across all projects by copying `.opencode/skills/` to `~/.config/opencode/skills/`."*
 4. **Handover**: Update the `main.md` workstream file.
 
