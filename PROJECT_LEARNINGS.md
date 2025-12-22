@@ -188,14 +188,20 @@ This document tracks the architectural and procedural evolution of the project. 
 
 ---
 
-## 8. Dogfooding & Framework Hygiene (v4.2)
+## 9. Parallel AI Engineering (v4.6)
 
-### 8.1. Template Pollution Risk
-- **Learning:** When dogfooding (developing the framework *using* the framework), AI agents tend to treat `templates/` as active files, populating them with project data. This "pollutes" the distributable starter kit.
-- **Mandate:** Treat `keystone_starter/` as a build artifact. Never edit files in `templates/` to store project state. Always copy to `.context/` or `specs/` first.
-- **Outcome:** Strictly enforced read-only policy for templates during framework development.
+### 9.1. The Sandbox Isolation Principle
+- **Learning:** In a multi-tab/multi-session environment, "Global Truth" is a liability. If two agents share a writeable file, they will destroy each other's context.
+- **Mandate:** Physical Isolation. Every parallel thread MUST own exactly one unique file. Write access to other threads' files is strictly forbidden.
+- **Outcome:** Moved to `workstreams/[name].md` architecture.
 
-### 8.2. Separation of Concerns (Meta vs. Starter)
-- **Learning:** Mixing framework source code (`knowledge_base/`) with the distributable product (`keystone_starter/`) leads to confusion about which `README.md` or `AGENTS.md` to edit.
-- **Mandate:** Explicit separation. `knowledge_base` is the repo (Meta-Project). `keystone_starter` is the product (Distributable).
-- **Outcome:** Restructured directory layout in v4.2.
+### 9.2. Skills as Deterministic Macros
+- **Learning:** LLMs are excellent at reasoning but mediocre at repetitive, high-precision tasks like calculating progress percentages or scanning deep directory trees.
+- **Mandate:** Use **Agent Skills** (Python-backed) for all deterministic project management tasks. The AI should "Call the Expert" rather than "Think the Math."
+- **Outcome:** Created `keystone-board` and `keystone-init` skills.
+
+### 9.3. Unified State Density
+- **Learning:** Jumping between `tasks.md`, `active_state.md`, and `handover.md` creates "Context Fragmentation." The agent spends more time reading/writing metadata than coding.
+- **Mandate:** **Unified Workstream Files.** Consolidate Why (Objective), What (Tasks), and Now (Active State) into a single file.
+- **Outcome:** Reduced workstream file count by 66%.
+

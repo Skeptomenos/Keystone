@@ -129,6 +129,22 @@ This document tracks significant architectural decisions (ADRs) for the Keystone
     *   (+) Mandatory enforcement callout in EXECUTION_DIRECTIVES
     *   (-) ~40 lines added to THINKING_DIRECTIVES
 
+## [2025-12-22] Unified Flat-File Workstreams & Agent Skills (v4.6.0)
+*   **Context:** Moving from single-threaded relay development to multi-threaded parallel engineering across multiple terminal tabs.
+*   **Problem:** 
+    *   Global state files (`active_state.md`, `handover.md`, `tasks.md`) caused race conditions and merge conflicts in parallel sessions.
+    *   "File Sprawl" (3 files per workstream) created high cognitive load and agent friction.
+    *   Repetitive tasks like board aggregation and workstream scaffolding were prone to human/AI error.
+*   **Decision:** 
+    *   Consolidated workstream state into single, unified files: `keystone/project/workstreams/[name].md`.
+    *   Implemented **Agent Skills** (`keystone-board`, `keystone-init`, `keystone-log-audit`) to automate deterministic tasks.
+    *   Adopted a **Flat-File Sandbox Model** (no subdirectories) for maximum simplicity.
+*   **Consequences:**
+    *   (+) Zero Git merge conflicts between parallel sessions.
+    *   (+) Reduced file count and context switching for agents.
+    *   (+) Deterministic global reporting via Python-backed board aggregation.
+    *   (-) Requires agents to be "Workstream-Aware" at session start.
+
 ## [2025-12-07] Mandatory Approval Gate for Implementation (v4.2)
 *   **Context:** AI models (especially Gemini 2.5, sometimes Claude Opus) have strong "helpful completion" tendencies. After refining a plan, they immediately begin implementation without explicit user approval.
 *   **Problem:**

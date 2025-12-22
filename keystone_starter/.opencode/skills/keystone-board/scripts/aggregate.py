@@ -1,9 +1,14 @@
 import os
 import re
 import datetime
+import logging
 from pathlib import Path
 
+logging.basicConfig(level=logging.INFO, format="%(message)s")
+logger = logging.getLogger(__name__)
+
 PROJECT_ROOT = Path(__file__).parent.parent.parent.parent.parent
+
 KEYSTONE_DIR = PROJECT_ROOT / "keystone"
 PROJECT_DIR = KEYSTONE_DIR / "project"
 WORKSTREAMS_DIR = PROJECT_DIR / "workstreams"
@@ -226,7 +231,7 @@ def main():
     registry = get_registry_info()
     generate_board(all_tasks, registry)
 
-    print(
+    logger.info(
         f"✅ Board updated successfully. Parsed {len(all_tasks)} tasks from {len(set(t.source_file for t in all_tasks.values()))} files."
     )
 
