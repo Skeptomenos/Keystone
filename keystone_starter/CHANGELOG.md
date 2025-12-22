@@ -5,6 +5,13 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [4.6.1] - 2025-12-22
+
+### Changed
+- **Version Bump:** Incremental update to 4.6.1.
+- **Documentation:** Updated root and starter READMEs for better clarity.
+- **Wizard:** Refined INITIATOR.md migration logic for flat-file workstreams.
+
 ## [4.6.0] - 2025-12-21
 
 ### Added
