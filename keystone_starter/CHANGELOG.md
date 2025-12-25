@@ -5,6 +5,19 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [4.7.0] - 2025-12-25
+
+### Added
+- **Task Lifecycle Tracking:** Added `Created`, `Started`, and `Completed` date fields to tasks.
+- **Enhanced Aggregator:** `aggregate.py` now parses lifecycle dates and displays them with emojis (`📅`, `🚀`, `✅`) on the project board.
+- **Auto-Date Fallback:** Aggregator intelligently defaults missing dates based on task status and current system time.
+- **Beautiful Terminal Output:** Replaced standard logging with a formatted, high-visibility terminal summary.
+
+### Changed
+- **EXECUTION.md:** Added "Task Lifecycle Dates" protocol and AI fallback guidance for date tracking.
+- **INITIATOR.md:** Updated MVA templates to include task lifecycle date fields.
+- **Board Aggregator:** Improved regex patterns to support multi-hyphen task IDs (e.g., `TASK-UI-001`) and prevent cross-section matching.
+
 ## [4.6.1] - 2025-12-22
 
 ### Changed

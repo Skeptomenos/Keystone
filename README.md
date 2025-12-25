@@ -4,7 +4,7 @@
 
 > **⚠️ META-PROJECT:** This IS the framework source. Changes propagate to all downstream projects.
 
-**Version:** 4.6.1
+**Version:** 4.7.0
 
 ---
 

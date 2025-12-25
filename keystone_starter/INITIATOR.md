@@ -108,6 +108,9 @@ You are the Keystone Setup Wizard. Your goal is to guide the user through a fric
 ## 📋 Tasks
 - [ ] **[PREFIX]-001: [Title]**
     - **Status:** Open
+    - **Created:** [YYYY-MM-DD]
+    - **Started:** (pending)
+    - **Completed:** (pending)
 
 ## 🧠 Active State
 **Current Focus:** [Focus]

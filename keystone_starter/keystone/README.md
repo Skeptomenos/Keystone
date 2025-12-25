@@ -19,7 +19,7 @@ Ask your AI: **"Initialize Keystone"** or **"Update Keystone"**.
 The AI will guide you through:
 - **New Projects:** Design thinking, ideation, and MVP scoping.
 - **Existing Projects:** Intelligent retrofit with source attribution.
-- **Updates:** Seamless migration to the latest version (v4.6.1) using the Unified Workstream Model.
+- **Updates:** Seamless migration to the latest version (v4.7.0) using the Unified Workstream Model.
 
 ---
 
