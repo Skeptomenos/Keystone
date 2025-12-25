@@ -36,7 +36,7 @@ keystone/         # AI framework
 3. **State:** Read `keystone/project/mission.md` + `registry.md` at session start.
 4. **Consensus:** Present plan, WAIT for approval before coding.
 5. **Epilogue:** MANDATORY after task completion. Call `skills_keystone_board` and update `CHANGELOG.md`.
-6. **NO COMMIT WITHOUT CHANGELOG:** ⚠️ CRITICAL ⚠️
+6. **NO COMMIT WITHOUT CHANGELOG (Append to top, never overwrite):** ⚠️ CRITICAL ⚠️
 7. **NO IMPLEMENTATION WITHOUT APPROVAL:** ⚠️ CRITICAL ⚠️
 
 > **ESCAPE HATCH:** Simple questions or read-only tasks → skip protocol, act immediately.

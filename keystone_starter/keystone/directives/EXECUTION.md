@@ -137,7 +137,7 @@
 ### 4.1: Documentation Sync
 
 - [ ] **Spec Check:** Ensure `keystone/specs/*` reflect reality.
-- [ ] **Changelog (MANDATORY):** Update `CHANGELOG.md` with all changes from this session. No commit without a corresponding changelog entry.
+- [ ] **Changelog (MANDATORY):** Update `CHANGELOG.md` with all changes from this session. **CRITICAL: Always append new entries to the top (under the header), never overwrite existing history.** No commit without a corresponding changelog entry.
 - [ ] **Decision Record:** Update `keystone/DECISION_LOG.md`.
 
 ### 4.2: Reflective Learning (T-RFL)

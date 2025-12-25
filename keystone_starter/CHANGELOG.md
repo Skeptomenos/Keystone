@@ -12,11 +12,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - **Enhanced Aggregator:** `aggregate.py` now parses lifecycle dates and displays them with emojis (`📅`, `🚀`, `✅`) on the project board.
 - **Auto-Date Fallback:** Aggregator intelligently defaults missing dates based on task status and current system time.
 - **Beautiful Terminal Output:** Replaced standard logging with a formatted, high-visibility terminal summary.
+- **Changelog Enforcement:** Added a super hard rule: **NO COMMIT WITHOUT CHANGELOG**. Changelogs must always be appended to the top and never overwritten.
 
 ### Changed
-- **EXECUTION.md:** Added "Task Lifecycle Dates" protocol and AI fallback guidance for date tracking.
-- **INITIATOR.md:** Updated MVA templates to include task lifecycle date fields.
+- **EXECUTION.md:** Added "Task Lifecycle Dates" protocol and AI fallback guidance for date tracking. Enforced mandatory Changelog updates in Epilogue.
+- **INITIATOR.md:** Updated MVA templates to include task lifecycle date fields. Enhanced with Changelog awareness to explain version deltas to users.
 - **Board Aggregator:** Improved regex patterns to support multi-hyphen task IDs (e.g., `TASK-UI-001`) and prevent cross-section matching.
+- **AGENTS.md:** Added critical Golden Rule for Changelog consistency.
 
 ## [4.6.1] - 2025-12-22
 
