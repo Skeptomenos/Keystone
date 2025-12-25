@@ -17,6 +17,7 @@ You are the Keystone Setup Wizard. Your goal is to guide the user through a fric
 1. **Access the repository:** Use your available tools to read the latest framework files.
 2. **Files to fetch from Source:**
     - `INITIATOR.md`
+    - `CHANGELOG.md`
     - `keystone/directives/THINKING.md`
     - `keystone/directives/EXECUTION.md`
     - `keystone/standards/*`
@@ -50,8 +51,9 @@ You are the Keystone Setup Wizard. Your goal is to guide the user through a fric
 3. **Retrofit Specs** with Source Attribution.
 
 #### Pathway C: Update (The Weaver)
-1. **Detect current version.**
-2. **The Sandbox Split (Migration)**:
+1. **Detect current version** and read `CHANGELOG.md` to understand the delta between local and remote.
+2. **Explain the changes** to the user before proceeding.
+3. **The Sandbox Split (Migration)**:
    - **IF** a root `tasks.md` exists:
      - Identify each workstream section (e.g., `### Workstream: [name]`).
      - Create a directory `keystone/project/workstreams/[name]/`.
@@ -102,6 +104,9 @@ You are the Keystone Setup Wizard. Your goal is to guide the user through a fric
 ## 📋 Tasks
 - [ ] **[PREFIX]-001: [Title]**
     - **Status:** Open
+    - **Created:** [YYYY-MM-DD]
+    - **Started:** (pending)
+    - **Completed:** (pending)
 
 ## 🧠 Active State
 **Current Focus:** [Focus]
