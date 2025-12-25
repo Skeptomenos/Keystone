@@ -137,7 +137,7 @@
 ### 4.1: Documentation Sync
 
 - [ ] **Spec Check:** Ensure `keystone/specs/*` reflect reality.
-- [ ] **User Facing:** Update `CHANGELOG.md` if needed.
+- [ ] **Changelog (MANDATORY):** Update `CHANGELOG.md` with all changes from this session. No commit without a corresponding changelog entry.
 - [ ] **Decision Record:** Update `keystone/DECISION_LOG.md`.
 
 ### 4.2: Reflective Learning (T-RFL)
