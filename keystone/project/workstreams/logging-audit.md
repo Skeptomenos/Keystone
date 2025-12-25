@@ -20,14 +20,23 @@ Implement the `keystone-log-audit` skill and integrate it into the framework's E
 <!-- Prefixed IDs: LOG-001 -->
 
 - [x] **LOG-001: Create keystone-log-audit SKILL.md**
-    - **Status: Done**
-    - **Workstream: logging-audit**
+    - **Status:** Done
+    - **Created:** 2025-12-22
+    - **Started:** 2025-12-22
+    - **Completed:** 2025-12-22
+    - **Workstream:** logging-audit
 - [x] **LOG-002: Update EXECUTION.md with Audit Trigger**
-    - **Status: Done**
-    - **Workstream: logging-audit**
+    - **Status:** Done
+    - **Created:** 2025-12-22
+    - **Started:** 2025-12-22
+    - **Completed:** 2025-12-22
+    - **Workstream:** logging-audit
 - [x] **LOG-003: Sync changes to keystone_starter**
-    - **Status: Done**
-    - **Workstream: logging-audit**
+    - **Status:** Done
+    - **Created:** 2025-12-22
+    - **Started:** 2025-12-22
+    - **Completed:** 2025-12-22
+    - **Workstream:** logging-audit
 
 ---
 

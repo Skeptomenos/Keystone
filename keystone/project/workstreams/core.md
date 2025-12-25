@@ -20,13 +20,19 @@ Implement the Unified Workstream Model and Keystone Skill Suite to enable parall
 <!-- Prefixed IDs: CORE-001 -->
 
 - [x] **CORE-001: Implement keystone-board Agent Skill**
+    - **Status:** Done
+    - **Created:** 2025-12-22
+    - **Started:** 2025-12-22
+    - **Completed:** 2025-12-22
     - **Dependencies:** None
-    - **Status:** Done
-    - **Workstream: core**
+    - **Workstream:** core
 - [x] **CORE-002: Update EXECUTION.md with Multi-Workstream Protocol**
-    - **Dependencies: CORE-001**
     - **Status:** Done
-    - **Workstream: core**
+    - **Created:** 2025-12-22
+    - **Started:** 2025-12-22
+    - **Completed:** 2025-12-22
+    - **Dependencies:** CORE-001
+    - **Workstream:** core
 
 ---
 

@@ -95,6 +95,11 @@
 
 - **Decompose:** Break complex requests down into **Atomic Units** in your `workstream.md` under `## 📋 Tasks`.
 - **Prefixed IDs**: Use your workstream prefix for all new tasks.
+- **Task Lifecycle Dates**:
+    - **Created**: Set to current date (`YYYY-MM-DD`) when task is first added.
+    - **Started**: Set to current date when work begins (Status: `In Progress`).
+    - **Completed**: Set to current date when task is finished (Status: `Done`).
+- **AI Fallback**: If you don't know the current date, ask the user: *"What is today's date for task tracking?"*
 
 ### 1.2: The Consensus Gate (CRITICAL)
 

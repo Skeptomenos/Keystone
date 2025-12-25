@@ -5,13 +5,13 @@ from pathlib import Path
 
 PROJECT_ROOT = Path(__file__).parent.parent.parent.parent.parent
 
-PROJECT_ROOT = Path(__file__).parent.parent.parent.parent.parent
-
 KEYSTONE_DIR = PROJECT_ROOT / "keystone"
 PROJECT_DIR = KEYSTONE_DIR / "project"
 WORKSTREAMS_DIR = PROJECT_DIR / "workstreams"
 REGISTRY_FILE = WORKSTREAMS_DIR / "registry.md"
 BOARD_FILE = PROJECT_DIR / "board.md"
+
+TODAY = datetime.date.today().strftime("%Y-%m-%d")
 
 TASK_PATTERN = re.compile(
     r"- \[([ xX])\] \*\*([A-Z0-9]+(?:-[A-Z0-9]+)*-\d+)(.*?)\*\*(.*)"
@@ -25,11 +25,24 @@ DEPENDENCY_PATTERN = re.compile(
 WORKSTREAM_PATTERN = re.compile(
     r"Workstream:?\s*\*?\*?(.*?)\*?\*?\s*$", re.MULTILINE | re.IGNORECASE
 )
+CREATED_PATTERN = re.compile(r"Created:?\s*\*?\*?\s*([\d-]+)", re.IGNORECASE)
+STARTED_PATTERN = re.compile(r"Started:?\s*\*?\*?\s*([\d-]+)", re.IGNORECASE)
+COMPLETED_PATTERN = re.compile(r"Completed:?\s*\*?\*?\s*([\d-]+)", re.IGNORECASE)
 
 
 class Task:
     def __init__(
-        self, task_id, title, completed, status, dependencies, workstream, source_file
+        self,
+        task_id,
+        title,
+        completed,
+        status,
+        dependencies,
+        workstream,
+        source_file,
+        created=None,
+        started=None,
+        completed_date=None,
     ):
         self.id = task_id
         self.title = title.strip()
@@ -42,6 +55,9 @@ class Task:
         )
         self.workstream = workstream.strip() if workstream else "main"
         self.source_file = source_file
+        self.created = created if created else TODAY
+        self.started = started
+        self.completed_date = completed_date
 
     def is_blocked(self, all_tasks):
         if not self.dependencies:
@@ -51,6 +67,16 @@ class Task:
             if not dep_task or dep_task.status.lower() != "done":
                 return True
         return False
+
+    def date_display(self):
+        parts = []
+        if self.created:
+            parts.append(f"📅 {self.created}")
+        if self.started:
+            parts.append(f"🚀 {self.started}")
+        if self.completed_date:
+            parts.append(f"✅ {self.completed_date}")
+        return " → ".join(parts) if parts else ""
 
 
 def parse_task_file(file_path):
@@ -89,10 +115,22 @@ def parse_task_file(file_path):
         status_match = STATUS_PATTERN.search(block)
         dep_match = DEPENDENCY_PATTERN.search(block)
         ws_match = WORKSTREAM_PATTERN.search(block)
+        created_match = CREATED_PATTERN.search(block)
+        started_match = STARTED_PATTERN.search(block)
+        completed_match = COMPLETED_PATTERN.search(block)
 
         status = status_match.group(1) if status_match else "Open"
         if completed_mark.lower() == "x" and status.lower() != "done":
             status = "Done"
+
+        created_date = created_match.group(1).strip() if created_match else None
+        started_date = started_match.group(1).strip() if started_match else None
+        completed_date = completed_match.group(1).strip() if completed_match else None
+
+        if status.lower() == "done" and not completed_date:
+            completed_date = TODAY
+        if status.lower() == "in progress" and not started_date:
+            started_date = TODAY
 
         tasks.append(
             Task(
@@ -103,6 +141,9 @@ def parse_task_file(file_path):
                 dependencies=dep_match.group(1) if dep_match else None,
                 workstream=ws_match.group(1) if ws_match else None,
                 source_file=file_path.relative_to(PROJECT_ROOT),
+                created=created_date,
+                started=started_date,
+                completed_date=completed_date,
             )
         )
     return tasks
@@ -194,9 +235,12 @@ def generate_board(all_tasks, registry):
                     f" (Deps: {', '.join(t.dependencies)})" if t.dependencies else ""
                 )
                 mark = "x" if t.status.lower() == "done" else " "
+                date_str = t.date_display()
                 md.append(
                     f"- [{mark}] **{t.id}:** {t.title} `[{t.workstream}]`{dep_str}"
                 )
+                if date_str:
+                    md.append(f"  - {date_str}")
 
     md.append("\n---")
     md.append("\n## Source Map")

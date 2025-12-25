@@ -11,13 +11,17 @@ Verify that the Keystone Board skill correctly aggregates tasks from multiple fi
 
 ## 📋 Tasks
 - [ ] **TEST-001: Verify Cross-Workstream Aggregation**
-    - **Dependencies: CORE-001**
-    - **Status: Open**
-    - **Workstream: feature-test**
+    - **Status:** Open
+    - **Created:** 2025-12-22
+    - **Dependencies:** CORE-001
+    - **Workstream:** feature-test
 - [x] **TEST-002: Initial Setup of Test Workstream**
-    - **Dependencies: None**
-    - **Status: Done**
-    - **Workstream: feature-test**
+    - **Status:** Done
+    - **Created:** 2025-12-22
+    - **Started:** 2025-12-22
+    - **Completed:** 2025-12-22
+    - **Dependencies:** None
+    - **Workstream:** feature-test
 
 ---
 
