@@ -1,11 +1,9 @@
 import os
 import re
 import datetime
-import logging
 from pathlib import Path
 
-logging.basicConfig(level=logging.INFO, format="%(message)s")
-logger = logging.getLogger(__name__)
+PROJECT_ROOT = Path(__file__).parent.parent.parent.parent.parent
 
 PROJECT_ROOT = Path(__file__).parent.parent.parent.parent.parent
 
@@ -15,7 +13,9 @@ WORKSTREAMS_DIR = PROJECT_DIR / "workstreams"
 REGISTRY_FILE = WORKSTREAMS_DIR / "registry.md"
 BOARD_FILE = PROJECT_DIR / "board.md"
 
-TASK_PATTERN = re.compile(r"- \[([ xX])\] \*\*([A-Z0-9]+-\d+)(.*?)\*\*(.*)")
+TASK_PATTERN = re.compile(
+    r"- \[([ xX])\] \*\*([A-Z0-9]+(?:-[A-Z0-9]+)*-\d+)(.*?)\*\*(.*)"
+)
 STATUS_PATTERN = re.compile(
     r"Status:?\s*\*?\*?(.*?)\*?\*?\s*$", re.MULTILINE | re.IGNORECASE
 )
@@ -62,7 +62,7 @@ def parse_task_file(file_path):
         content = f.read()
 
     task_section_match = re.search(
-        r"## .*Tasks.*?\n(.*?)(?=\n## |\Z)", content, re.DOTALL | re.IGNORECASE
+        r"## [^\n]*?Tasks.*?\n(.*?)(?=\n## |\Z)", content, re.DOTALL | re.IGNORECASE
     )
 
     if task_section_match:
@@ -231,9 +231,20 @@ def main():
     registry = get_registry_info()
     generate_board(all_tasks, registry)
 
-    logger.info(
-        f"✅ Board updated successfully. Parsed {len(all_tasks)} tasks from {len(set(t.source_file for t in all_tasks.values()))} files."
+    print("\n" + "=" * 60)
+    print("  ✨  Keystone Board Generated  ✨")
+    print("=" * 60)
+    print(f"\n  📊 Tasks Parsed:      {len(all_tasks)}")
+    print(
+        f"  📁 Source Files:     {len(set(t.source_file for t in all_tasks.values()))}"
     )
+    done_count = len([t for t in all_tasks.values() if t.status.lower() == "done"])
+    progress_pct = int((done_count / len(all_tasks)) * 100) if all_tasks else 0
+    print(f"  📈 Progress:         {progress_pct}%")
+    print(f"  📄 Output File:      {BOARD_FILE.relative_to(PROJECT_ROOT)}")
+    print("\n" + "=" * 60)
+    print("  ✅  All systems operational  ✅")
+    print("=" * 60 + "\n")
 
 
 if __name__ == "__main__":
