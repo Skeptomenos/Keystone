@@ -1,6 +1,6 @@
 # Execution Directives (Build & Deliver)
 
-> **Protocol Version:** 4.7.1
+> **Protocol Version:** 4.7.2
 
 > **PROGRESSIVE DISCLOSURE:**
 > This file guides implementation AFTER thinking is complete.
@@ -48,6 +48,12 @@
 > 2. **Write Access**: You are strictly forbidden from editing workstream files in other directories.
 > 3. **Identity Anchor**: At session start, identify your workstream from `registry.md` or ask the user.
 > 4. **Prefixed IDs**: For NEW tasks, use your workstream name as a prefix (e.g., `AUTH-001`) to prevent global ID collisions.
+
+> **THE ITERATIVE REVIEW RULE:**
+> After fixing bugs from code review, run review again. First fix often introduces cascading bugs.
+
+> **THE FEATURE FLAG RULE:**
+> Major refactors should use feature flags. Default to safe (legacy) path. Flip after production verification.
 
 ---
 
@@ -149,6 +155,7 @@
 
 - [ ] **Archive Completed Tasks**: Move `Done` tasks to the `Archive` section in your workstream file.
 - [ ] **Workstream Archival**: If the entire workstream is complete, move the file to `keystone/project/workstreams/archive/` and update its status to `Archived` in `registry.md`.
+- [ ] **Logging Audit**: Run `skills_keystone_log_audit` on modified files to enforce standards.
 - [ ] **Update Board**: Call `skills_keystone_board`.
 - [ ] **Handover**: Update your workstream file -> `## 💾 Context for Resume`.
 - [ ] **Registry**: Update your status to `Paused`, `Done`, or `Archived` in `registry.md`.

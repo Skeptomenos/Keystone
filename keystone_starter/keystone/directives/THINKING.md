@@ -1,6 +1,6 @@
 # Hybrid Thinking Directives (First Principles & Structured Analysis)
 
-> **Protocol Version:** 4.6.1
+> **Protocol Version:** 4.7.2
 
 > **PROGRESSIVE DISCLOSURE:**
 > This file guides problem decomposition BEFORE implementation using a hybrid approach that combines first-principles thinking with structured six-question analysis.
@@ -73,6 +73,10 @@ Document the core "physics" of the problem:
 > 1. **Who requested this?**
 > 2. **What can be removed entirely?**
 > 3. **Ruthless prioritization:** What is the MINIMAL problem worth solving?
+
+> **ANTI-PATTERN: Linear Completion Bias**
+> AI agents can suffer from trying to "finish Phase 4 of a failing approach" before "starting Phase 0 of a new one."
+> **Solution:** Use "Strangler Fig" pattern. Freeze legacy, build new foundation immediately.
 
 ---
 

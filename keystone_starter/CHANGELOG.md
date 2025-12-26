@@ -5,6 +5,19 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [4.7.2] - 2025-12-26
+
+### Added
+- **Iterative Review Rule:** Mandates a second review after bug fixes to catch cascading errors.
+- **Feature Flag Rule:** Codifies the use of feature flags for major refactors with a safe fallback path.
+- **Linear Completion Bias Anti-Pattern:** Guidance to use "Strangler Fig" pattern instead of completing failing legacy approaches.
+- **Logging Audit in Epilogue:** Integrated `skills_keystone_log_audit` into the mandatory Epilogue checklist.
+- **Structured PROJECT_LEARNINGS.md:** Replaced minimal placeholder with a robust 5-section template (Constraints, Patterns, Anti-Patterns, Technical Notes, Session Learnings).
+
+### Changed
+- **EXECUTION.md:** Bumped to v4.7.2. Added two new Universal Rules and one Epilogue step.
+- **THINKING.md:** Bumped to v4.7.2. Added cognitive anti-pattern guidance.
+
 ## [4.7.1] - 2025-12-25
 
 ### Added
