@@ -1,6 +1,6 @@
 # Execution Directives (Build & Deliver)
 
-> **Protocol Version:** 4.7.0
+> **Protocol Version:** 4.7.1
 
 > **PROGRESSIVE DISCLOSURE:**
 > This file guides implementation AFTER thinking is complete.

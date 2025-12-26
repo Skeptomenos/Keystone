@@ -5,6 +5,15 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [4.7.1] - 2025-12-25
+
+### Added
+- **Workstream Archival Support:** Added support for an `/archive/` directory in workstreams. The board aggregator now skips workstreams marked as `Archived` in the registry and ignores files in the archive folder.
+
+### Changed
+- **EXECUTION.md:** Added instructions for moving completed workstreams to the `/archive/` folder.
+- **Board Aggregator:** Filtered out `Archived` workstreams from the Active Workstreams table.
+
 ## [4.7.0] - 2025-12-25
 
 ### Added
@@ -13,12 +22,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - **Auto-Date Fallback:** Aggregator intelligently defaults missing dates based on task status and current system time.
 - **Beautiful Terminal Output:** Replaced standard logging with a formatted, high-visibility terminal summary.
 - **Changelog Enforcement:** Added a super hard rule: **NO COMMIT WITHOUT CHANGELOG**. Changelogs must always be appended to the top and never overwritten.
-- **Workstream Archival Support:** Added support for an `/archive/` directory in workstreams. The board aggregator now skips workstreams marked as `Archived` in the registry and ignores files in the archive folder.
 
 ### Changed
-- **EXECUTION.md:** Added "Task Lifecycle Dates" protocol and AI fallback guidance for date tracking. Enforced mandatory Changelog updates in Epilogue. Added instructions for moving completed workstreams to the `/archive/` folder.
+- **EXECUTION.md:** Added "Task Lifecycle Dates" protocol and AI fallback guidance for date tracking. Enforced mandatory Changelog updates in Epilogue.
 - **INITIATOR.md:** Updated MVA templates to include task lifecycle date fields. Enhanced with Changelog awareness to explain version deltas to users.
-- **Board Aggregator:** Improved regex patterns to support multi-hyphen task IDs (e.g., `TASK-UI-001`) and prevent cross-section matching. Filtered out `Archived` workstreams from the Active Workstreams table.
+- **Board Aggregator:** Improved regex patterns to support multi-hyphen task IDs (e.g., `TASK-UI-001`) and prevent cross-section matching.
+- **AGENTS.md:** Added critical Golden Rule for Changelog consistency.
 
 ## [4.6.1] - 2025-12-22
 
