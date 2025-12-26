@@ -206,9 +206,10 @@ def generate_board(all_tasks, registry):
         md.append("\n| Workstream | Feature Plan | Session Name | Status |")
         md.append("| :--- | :--- | :--- | :--- |")
         for ws in registry:
-            md.append(
-                f"| `{ws['name']}` | {ws['plan']} | `{ws['session']}` | {ws['status']} |"
-            )
+            if ws["status"].lower() != "archived":
+                md.append(
+                    f"| `{ws['name']}` | {ws['plan']} | `{ws['session']}` | {ws['status']} |"
+                )
     else:
         md.append("\n*No active workstreams found in registry.*")
 
@@ -261,6 +262,7 @@ def main():
 
     if WORKSTREAMS_DIR.exists():
         for ws_file in WORKSTREAMS_DIR.glob("*.md"):
+            # Skip registry and ensure we only process top-level workstream files (skipping /archive/)
             if ws_file.name != "registry.md":
                 all_tasks_list.extend(parse_task_file(ws_file))
 

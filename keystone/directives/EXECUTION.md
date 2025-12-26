@@ -147,10 +147,11 @@
 
 ### 4.3: Archival Rotation
 
-- [ ] **Archive Completed Tasks**: Move `Done` tasks to the `Archive` section in `workstream.md`.
+- [ ] **Archive Completed Tasks**: Move `Done` tasks to the `Archive` section in your workstream file.
+- [ ] **Workstream Archival**: If the entire workstream is complete, move the file to `keystone/project/workstreams/archive/` and update its status to `Archived` in `registry.md`.
 - [ ] **Update Board**: Call `skills_keystone_board`.
-- [ ] **Handover**: Update `workstream.md` -> `## 💾 Context for Resume`.
-- [ ] **Registry**: Update your status to `Paused` or `Done` in `registry.md`.
+- [ ] **Handover**: Update your workstream file -> `## 💾 Context for Resume`.
+- [ ] **Registry**: Update your status to `Paused`, `Done`, or `Archived` in `registry.md`.
 
 ---
 

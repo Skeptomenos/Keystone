@@ -206,9 +206,10 @@ def generate_board(all_tasks, registry):
         md.append("\n| Workstream | Feature Plan | Session Name | Status |")
         md.append("| :--- | :--- | :--- | :--- |")
         for ws in registry:
-            md.append(
-                f"| `{ws['name']}` | {ws['plan']} | `{ws['session']}` | {ws['status']} |"
-            )
+            if ws["status"].lower() != "archived":
+                md.append(
+                    f"| `{ws['name']}` | {ws['plan']} | `{ws['session']}` | {ws['status']} |"
+                )
     else:
         md.append("\n*No active workstreams found in registry.*")
 
